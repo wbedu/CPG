@@ -1,0 +1,4 @@
+Schedule and deliverable:
+	- Card design and functions for character and enemy — Indefinite (estimate: 2hr allotted for demo)
+	- Create UI foundation utilizing JPanel — 11:59pm 3/1/17 (estimate: 4hr)
+	- Create basic command line and parser for game commands — 11:59pm 3/6/17(estimate: 2hr)
