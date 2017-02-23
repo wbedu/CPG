@@ -1,0 +1,69 @@
+Class: Warrior/Barbarian
+
+Cards
+Attack/2:
+	- “Cleave” 1 turn = Swinging axe in a large arc dealing 2 damage to all enemies within range.
+	- “Savage Strike” 3 turns = Wildly bring down your axe with great force, dealing 8 damage.
+
+Defense/2:
+	- “Nordic Blood” 2 turns = As the blood of your ancestors flows through, reduce damage taken by 1 for the rest of the encounter (can stack up to 3).
+	- “Block” 1 turn = Negate all incoming damage this turn.
+
+Utility/2:
+	- “Shield Bash” 1 turn = If the enemy blocks or uses a defense ability, they are stunned for 2 turns.
+	- “Mutton” 3 turns = Eat a stored leg of mutton. Heal 4 hp.
+
+Ability/1:
+	- “Weapon Toss/Pickup” No Cooldown = Do x2 (x3?) damage for a chosen attack and can’t use the chosen attack until this ability is used again to pickup the thrown weapon.
+						(Can use this ability twice before needing to pick up the thrown weapons).
+
+Special/1:
+	- 
+
+———————————————————————————————————————————————————————————————————————————
+
+Class: Rogue/Thief
+
+Cards
+Attack/2:
+	-
+	-
+
+Defense/2:
+	-
+	-
+
+Utility/2:
+	-
+	-
+
+Ability/1:
+	- “No you see me” 1 turn = Stealth for this turn, avoiding all damage, choose 1 ability to restore its cool down, and do x2 damage if next turn is an attack.
+
+Special/1:
+	-
+
+———————————————————————————————————————————————————————————————————————————
+
+Class: Magic Wielder
+
+Cards
+Attack/2:
+	-
+	-
+
+Defense/2:
+	-
+	-
+
+Utility/2:
+	-
+	-
+
+Ability/1:
+	-
+
+Special/1:
+	-
+
+———————————————————————————————————————————————————————————————————————————
