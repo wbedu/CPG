@@ -1,0 +1,4 @@
+Schedule-
+  1.Design cards.  ETA Mar 14 2017 (2 hours)
+  2.Create the card class. ETA Mar 1 2017(4 hours)
+  3.Create the battle system. ETA Mar 4 2017 (4 hours)
