@@ -26,6 +26,7 @@ public class Deck {
         hand[1] = c2;
         hand[2] = c3;
     }
+
     private void updateCooldowns(){
         for(int i = 0; i < deckLength; i++)
         {
