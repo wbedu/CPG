@@ -12,7 +12,7 @@ public abstract class Card {
         tempCD = 0;
     }
 
-    public boolean checkCooldown(){
+    private boolean checkCooldown(){
         if(tempCD == 0)
         {
             return true;
