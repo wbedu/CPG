@@ -41,6 +41,7 @@ public class panelUI {
         cardFrame.add(card4,3);
         cardFrame.add(card5,4);
         mainFrame.setVisible(true);
+        fart;
     }
 
     public void actionPerformed(ActionEvent getComm){
