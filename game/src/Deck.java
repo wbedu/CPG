@@ -6,7 +6,8 @@ public class Deck {
     private int deckLength;
 
     Deck(int dl, Card c1, Card c2, Card c3, Card c4, Card c5, Card c6, Card c7, Card c8) {
-        hand = new Card[8];
+        deckLength = dl;
+        hand = new Card[deckLength];
         hand[0] = c1;
         hand[1] = c2;
         hand[2] = c3;
@@ -15,9 +16,16 @@ public class Deck {
         hand[5] = c6;
         hand[6] = c7;
         hand[7] = c8;
-        deckLength = dl;
     }
 
+    Deck(int dl, Card c1, Card c2, Card c3)
+    {
+        deckLength = dl;
+        hand = new Card[deckLength];
+        hand[0] = c1;
+        hand[1] = c2;
+        hand[2] = c3;
+    }
     private void updateCooldowns(){
         for(int i = 0; i < deckLength; i++)
         {
