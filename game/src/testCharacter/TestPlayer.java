@@ -7,8 +7,8 @@ public class TestPlayer{
 
         int atk1= genRand(1, 20);
         int atk2= genRand(1,20);
-        int def1= genRand(1,5);
-        int def2= genRand(1,5);
+        int def1= genRand(1,2);
+        int def2= genRand(1,2);
 
 
         Player player1 = new Player("Steve",100,atk1,def1);
@@ -20,36 +20,36 @@ public class TestPlayer{
 
     public static void battle(Player player1,Player player2){
         int atk1= player1.getAttack();
-        int def1= player1.getDefence();
-
         int atk2= player2.getAttack();
-        int def2= player2.getDefence();
-        int damageTaken=0;
         int round = 0;
 
         int winner=0;
-        while(winner==0){
+        while(true){
             System.out.println("Round:"+  round++);
-            damageTaken=player2.takeDamage(atk1);
+            player1.takeDamage(atk2);
 
-            System.out.println("Player1 takes " +damageTaken+" damage");
-
-            if(player2.getHealth()<=0){
+            if(!player1.isDead()){
                 winner++;
+                System.out.println("Steve is D-E-D Dead");
                 break;
             }
-            player1.takeDamage(atk1);
+            player2.takeDamage(atk1);
 
-            System.out.println("Player2 takes " +damageTaken+" damage");
-
-            if(player2.getHealth()<=0){
+            if(!player2.isDead()){
                 winner++;
+                System.out.println("Aaron is D-E-D Dead");
+                break;
             }
 
             player1.printStats();
             player2.printStats();
 
-           
+            round++;
+           if(round>30){
+
+               System.out.println("Stalemate");
+               break;
+           }
         }
 
     }
