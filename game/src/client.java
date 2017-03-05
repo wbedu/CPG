@@ -4,6 +4,6 @@
 public class client {
     public static void main(String args[]){
         panelUI panelUIInst = new panelUI();
-        commandLine commandLineInst = new commandLine();
+        //commandLine commandLineInst = new commandLine();
     }
 }
