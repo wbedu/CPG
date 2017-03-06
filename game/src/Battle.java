@@ -6,16 +6,24 @@ public class Battle {
     private Player enemy;
     private Deck uDeck;
     private Deck eDeck;
+    private int turnNo;
 
-    public void turn()
-    {
+    public void turn() {
+        turnNo++;
     }
 
-    Battle(Player p1, Player e, Deck p1Deck, Deck enemyDeck)
-    {
+    public void doBattle() {
+        while(!user.isDead() || !enemy.isDead()) {
+            turn();
+        }
+    }
+
+    Battle(Player p1, Player e, Deck p1Deck, Deck enemyDeck) {
         user = p1;
         enemy = e;
         uDeck = p1Deck;
         eDeck = enemyDeck;
+        turnNo = 1;
+
     }
 }
