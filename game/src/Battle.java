@@ -18,11 +18,9 @@ public class Battle {
         }
     }
 
-    Battle(Player p1, Player e, Deck p1Deck, Deck enemyDeck) {
+    Battle(Player p1, Player e) {
         user = p1;
         enemy = e;
-        uDeck = p1Deck;
-        eDeck = enemyDeck;
         turnNo = 1;
 
     }
