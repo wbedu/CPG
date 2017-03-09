@@ -27,6 +27,22 @@ public class Deck {
         hand[2] = c3;
     }
 
+    private void changeCard(Card oldCard, Card newCard)
+    {
+        int i;
+        for(i = 0; i < deckLength; i++) {
+            if (hand[i] == oldCard) {
+                if (hand[i].compareType(newCard))
+                    hand[i] = newCard;
+                else {
+                    System.out.println("Card types do not match!");
+                }
+            }
+
+        }
+    }
+
+
     private void updateCooldowns(){
         for(int i = 0; i < deckLength; i++)
         {

@@ -3,11 +3,13 @@
  */
 public abstract class Card {
     private String text;
+    private String type;
     private int cooldown;
     private int tempCD;
 
-    Card(String cardText, int cd){
+    Card(String cardText, String cardType, int cd){
         text = cardText;
+        type = cardType;
         cooldown = cd;
         tempCD = 0;
     }
@@ -41,6 +43,15 @@ public abstract class Card {
         }
         else {
             System.out.println("Card is on cooldown!");
+        }
+    }
+
+    public boolean compareType(Card c1)
+    {
+        if(this.type.equals(c1.type))
+            return true;
+        else {
+            return false;
         }
     }
 }
