@@ -1,3 +1,7 @@
+package everything;
+
+import everything.Card;
+import everything.cardPackage.SavageStrike;
 /**
  * Created by Steve on 3/5/2017.
  */
@@ -7,6 +11,7 @@ public class Deck {
 
     Deck(int dl, Card c1, Card c2, Card c3, Card c4, Card c5, Card c6, Card c7, Card c8) {
         deckLength = dl;
+        SavageStrike card1 = new SavageStrike();
         hand = new Card[deckLength];
         hand[0] = c1;
         hand[1] = c2;
@@ -35,7 +40,7 @@ public class Deck {
                 if (hand[i].compareType(newCard))
                     hand[i] = newCard;
                 else {
-                    System.out.println("Card types do not match!");
+                    System.out.println("everything.Card types do not match!");
                 }
             }
 

@@ -1,21 +1,32 @@
+package everything;
+
 /**
  * Created by Steve on 3/5/2017.
  */
+
+
 public abstract class Card {
     private String text;
-    private String type;
-    private int cooldown;
+    private String name;
+    private String cardType;
     private int tempCD;
+    private int cooldown;
 
-    Card(String cardText, String cardType, int cd){
+
+    public Card(String cardText, String cName, String cType, int cd){
         text = cardText;
-        type = cardType;
+        name = cName;
+        cardType = cType;
         cooldown = cd;
+        tempCD = cd;
+    }
+
+    public void setCooldown(){
         tempCD = 0;
     }
 
-    private boolean checkCooldown(){
-        if(tempCD == 0)
+    public boolean checkCooldown(){
+        if(tempCD == cooldown)
         {
             return true;
         }
@@ -27,31 +38,34 @@ public abstract class Card {
         }
     }
 
-    public void incrementCooldown(){
-        if(tempCD != 0)
+    public  void incrementCooldown(){
+        if(tempCD != cooldown)
           tempCD = tempCD++;
-        else if (tempCD < cooldown){
-            tempCD = tempCD++;
         }
-        else {
-            tempCD = 0;
-        }
-    }
+
 
     public void cardFunction(Player p, Player e) {
         if (checkCooldown()) {
         }
         else {
-            System.out.println("Card is on cooldown!");
+            System.out.println("everything.Card is on cooldown!");
         }
     }
 
     public boolean compareType(Card c1)
     {
-        if(this.type.equals(c1.type))
+        if(this.cardType.equals(c1.cardType))
             return true;
         else {
             return false;
         }
     }
+
+    public Card() {
+        text = "everything.Card Doesn't Exit";
+        name = "nonexistant everything.Card";
+        cardType = "NONE";
+        cooldown = -999;
+    }
+
 }

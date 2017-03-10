@@ -1,4 +1,7 @@
+package everything;
+
 import java.util.*;
+
 
 public class Player {
     private boolean living;

@@ -1,6 +1,9 @@
+package everything;
+
 /**
  * Created by Steve on 3/5/2017.
  */
+
 public class Battle {
     private Player user;
     private Player enemy;
