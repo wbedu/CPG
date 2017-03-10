@@ -5,7 +5,11 @@ package everything;
  */
 public class client {
     public static void main(String args[]){
+        boolean gameLoop = true;
         panelUI panelUIInst = new panelUI();
 
+        while(gameLoop){
+            panelUIInst.setMessage("Fuck");
+        }
     }
 }
