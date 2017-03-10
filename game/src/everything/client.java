@@ -9,7 +9,7 @@ public class client {
         panelUI panelUIInst = new panelUI();
 
         while(gameLoop){
-            panelUIInst.setMessage("Fuck");
+            panelUIInst.setMessage("Test");
         }
     }
 }
