@@ -6,6 +6,6 @@ package everything;
 public class client {
     public static void main(String args[]){
         panelUI panelUIInst = new panelUI();
-        //everything.commandLine commandLineInst = new everything.commandLine();
+
     }
 }
