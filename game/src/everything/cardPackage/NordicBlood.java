@@ -1,14 +1,13 @@
 package everything.cardPackage;
 
-import everything.Card;
 import everything.Player;
-
+import everything.Card;
 /**
  * Created by Steve on 3/10/2017.
  */
-public class SavageStrike extends Card {
-    public SavageStrike(){
-        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3);
+public class NordicBlood extends Card {
+    public NordicBlood(){
+        super("Reduce damage taken by 1 for the rest of the encounter","Nordic Blood", "Defense", 2);
     }
 
     public void setCooldown(){
@@ -17,9 +16,8 @@ public class SavageStrike extends Card {
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            p2.takeDamage(8);
-            this.setCooldown();
+            p1.increaseDefence(1);
+            setCooldown();
         }
     }
-
 }

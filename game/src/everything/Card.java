@@ -22,7 +22,7 @@ public abstract class Card {
     }
 
     public void setCooldown(){
-        tempCD = 0;
+        tempCD = -1;
     }
 
     public boolean checkCooldown(){

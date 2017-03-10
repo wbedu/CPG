@@ -29,10 +29,13 @@ public class Player {
         health-=decreaseFactor;
     }
     //increase health but does not  change any other conditions
-    public void increaseHealth(int increaseFactor){
-        health+=increaseFactor;
-    }
-
+    public void increaseHealth(int increaseFactor) { health+=increaseFactor; }
+    //increase defence but does not change any other conditions
+    public void increaseDefence(int increaseFactor) { defencePoints-=increaseFactor; }
+    //decreases defence but does not change any other conditions
+    public void decreaseDefence(int decreaseFactor) { defencePoints+=decreaseFactor; }
+    //set health of player to specific value
+    public void setHealth(int healthValue) { health = healthValue; }
 
     //player takes the damage specified after defence is subtracted;
     //calls lifeCheck to check living status;
