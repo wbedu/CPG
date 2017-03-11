@@ -2,8 +2,7 @@ import java.util.*;
 
 
 public class AI{
-    private Player enemy;
-    private 
+    private Player enemy; 
     private AI(){
 
     }
