@@ -74,7 +74,7 @@ public class panelUI {
 
     class buttonListener implements ActionListener{
         public void actionPerformed(ActionEvent buttonPress){
-            System.out.println(buttonPress.getActionCommand());
+            setMessage(buttonPress.getActionCommand());
         }
     }
 }
