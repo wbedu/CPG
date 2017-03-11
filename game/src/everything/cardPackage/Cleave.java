@@ -6,9 +6,9 @@ import everything.Player;
 /**
  * Created by Steve on 3/10/2017.
  */
-public class SavageStrike extends Card {
-    public SavageStrike(){
-        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3);
+public class Cleave extends Card{
+    public Cleave(){
+        super("Swing your axe in an arc dealing 3 damage","Cleave", "Attack", 0);
     }
 
     public void setCooldown(){
@@ -17,9 +17,7 @@ public class SavageStrike extends Card {
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            p2.takeDamage(8);
-            this.setCooldown();
+            p2.takeDamage(3);
         }
     }
-
 }

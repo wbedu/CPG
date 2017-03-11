@@ -7,11 +7,10 @@ package everything;
 public class Battle {
     private Player user;
     private Player enemy;
-    private Deck uDeck;
-    private Deck eDeck;
     private int turnNo;
 
     public void turn() {
+
         turnNo++;
     }
 
