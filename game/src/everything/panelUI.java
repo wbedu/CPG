@@ -14,7 +14,8 @@ public class panelUI {
     private JButton card3;
     private JButton card4;
     private JButton card5;
-    private JLabel messageLabel;
+    private JTextArea messageText;
+    private JScrollPane messageScroll;
 
     public panelUI() {
         mainFrame = new JFrame("CPG");
@@ -28,7 +29,8 @@ public class panelUI {
             }
         });
 
-        messageLabel = new JLabel("HELLO!\nWelcome to CPG!\nBest of Luck!");
+        messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
+        messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         cardFrame = new JPanel();
         card1 = new JButton();
         card2 = new JButton();
@@ -37,19 +39,19 @@ public class panelUI {
         card5 = new JButton();
 
         mainFrame.setLayout(new BorderLayout());
-        messageLabel.setLayout(new BorderLayout());
+        messageScroll.setLayout(new ScrollPaneLayout());
         cardFrame.setLayout(new GridLayout(1, 5, 100, 50));
         cardFrame.setPreferredSize(new Dimension(100, 200));
         mainFrame.setSize(1024, 576);
 
-        mainFrame.add(messageLabel, BorderLayout.CENTER);
+        mainFrame.add(messageScroll, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
 
-        card1.setText("everything.Card 1");
-        card2.setText("everything.Card 2");
-        card3.setText("everything.Card 3");
-        card4.setText("everything.Card 4");
-        card5.setText("everything.Card 5");
+        card1.setText("Card 1");
+        card2.setText("Card 2");
+        card3.setText("Card 3");
+        card4.setText("Card 4");
+        card5.setText("Card 5");
 
         cardFrame.add(card1, 0);
         cardFrame.add(card2, 1);
@@ -61,7 +63,11 @@ public class panelUI {
     }
 
     void setMessage(String inputMessage){
-        messageLabel.setText(inputMessage);
+        messageText.append(inputMessage);
+    }
+
+    void actionPerformed(ActionEvent buttonPress){
+
     }
 
 }
