@@ -9,6 +9,7 @@ public class Player {
     private int attackPoints;
     private int defencePoints;
     private String name;
+    private Deck hand;
 
 
     //set to private as this should never be initialized as with NULL stats
@@ -16,12 +17,13 @@ public class Player {
     }
 
 
-    public Player(String newName,int newHealth,int newAttackPoint,int newdefencePoints){
+    public Player(String newName,int newHealth,int newAttackPoint,int newdefencePoints, Deck newHand){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
         defencePoints=newdefencePoints;
         living=true;
+        hand=newHand;
     }
 
     //decreases health but does not change any other stats
