@@ -9,14 +9,20 @@ public class Battle {
     private Player enemy;
     private int turnNo;
 
-    public void turn() {
+    public void playerTurn() {
+
+        turnNo++;
+        enemyTurn();
+    }
+
+    public void enemyTurn(){
 
         turnNo++;
     }
 
     public void doBattle() {
         while(!user.isDead() || !enemy.isDead()) {
-            turn();
+            playerTurn();
         }
     }
 
