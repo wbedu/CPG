@@ -6,11 +6,11 @@ package everything;
 
 
 public abstract class Card {
-    private String text;
-    private String name;
-    private String cardType;
-    private int tempCD;
-    private int cooldown;
+    protected String text;
+    protected String name;
+    protected String cardType;
+    protected int tempCD;
+    protected int cooldown;
 
 
     public Card(String cardText, String cName, String cType, int cd){
@@ -38,7 +38,7 @@ public abstract class Card {
         }
     }
 
-    public  void incrementCooldown(){
+    public  void incrementCooldown(Player p){
         if(tempCD != cooldown)
           tempCD = tempCD++;
         }

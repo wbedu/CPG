@@ -6,9 +6,8 @@ import everything.Player;
  * Created by Steve on 3/10/2017.
  */
 public class Mutton extends Card {
-    public Mutton(){
-        super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3);
-    }
+    public Mutton(){ super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3); tempCD = 3; }
+
     public void setCooldown(){
         super.setCooldown();
     }

@@ -48,10 +48,10 @@ public class Deck {
     }
 
 
-    private void updateCooldowns(){
+    private void updateCooldowns(Player p1){
         for(int i = 0; i < deckLength; i++)
         {
-            hand[i].incrementCooldown();
+            hand[i].incrementCooldown(p1);
         }
     }
 }
