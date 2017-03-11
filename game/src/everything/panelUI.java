@@ -47,11 +47,17 @@ public class panelUI {
         mainFrame.add(messageScroll, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
 
-        card1.setText("Card 1");
-        card2.setText("Card 2");
-        card3.setText("Card 3");
-        card4.setText("Card 4");
-        card5.setText("Card 5");
+        card1.setText("card1");
+        card2.setText("card2");
+        card3.setText("card3");
+        card4.setText("card4");
+        card5.setText("card5");
+
+        card1.addActionListener(new buttonListener());
+        card2.addActionListener(new buttonListener());
+        card3.addActionListener(new buttonListener());
+        card4.addActionListener(new buttonListener());
+        card5.addActionListener(new buttonListener());
 
         cardFrame.add(card1, 0);
         cardFrame.add(card2, 1);
@@ -66,8 +72,9 @@ public class panelUI {
         messageText.append(inputMessage);
     }
 
-    void actionPerformed(ActionEvent buttonPress){
-
+    class buttonListener implements ActionListener{
+        public void actionPerformed(ActionEvent buttonPress){
+            System.out.println(buttonPress.getActionCommand());
+        }
     }
-
 }
