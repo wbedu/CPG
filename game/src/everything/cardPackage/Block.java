@@ -14,7 +14,7 @@ public class Block extends Card{
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            p1.increaseDefence(100);
+            p1.increaseDefense(100);
             this.setCooldown();
         }
     }
@@ -23,6 +23,6 @@ public class Block extends Card{
         if(tempCD != cooldown)
             tempCD = tempCD++;
         if(tempCD == cooldown)
-            p1.decreaseDefence(100);
+            p1.decreaseDefense(100);
     }
 }

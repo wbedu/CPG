@@ -16,7 +16,7 @@ public class NordicBlood extends Card {
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            p1.increaseDefence(1);
+            p1.increaseDefense(1);
             setCooldown();
         }
     }
