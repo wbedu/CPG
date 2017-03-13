@@ -72,6 +72,30 @@ public class panelUI {
         messageText.append(inputMessage);
     }
 
+    void prepBattle(Player user){
+        System.out.println("Battle UI has been prepared");
+    }
+
+    void prepRoam(){
+        System.out.println("Roam UI has been prepared");
+    }
+
+    void displayWin(){
+        System.out.println("Win Popout panel has been displayed");
+    }
+
+    void disableCardFrame(){
+        System.out.println("Card buttons have been disabled");
+    }
+
+    void enableCardFrame(){
+        System.out.println("Card buttons have been enabled");
+    }
+
+    void displayTurn(){
+        System.out.println("User has been prompted it is his/her turn");
+    }
+
     class buttonListener implements ActionListener{
         public void actionPerformed(ActionEvent buttonPress){
             setMessage("\n"+buttonPress.getActionCommand());
