@@ -11,12 +11,14 @@ import java.util.ArrayList;
 public class Hand{
 	private static int maxCards=5;
 	private int handSize;
-	protected ArrayList<Card> hand = new ArrayList<Card>();
-	
-	
+	protected ArrayList<Card> hand;
+			
 	protected Hand(){
+		hand = new ArrayList<Card>();
 		handSize=0;
 	}
+	
+	
 	
     protected void addCard(Card newCard){
     	
@@ -28,5 +30,18 @@ public class Hand{
     	}
     	
     	hand.add(newCard);
+    }
+    
+    protected void removeCard(Card removedCard){
+    	if(!hand.contains(removedCard)){
+    		System.out.println("Error: this Card does not exist in this Hand");
+    	}
+    	
+    	hand.remove(removedCard);
+    }
+    
+    
+    protected boolean contains(Card card){
+    		return hand.contains(card);
     }
 }
