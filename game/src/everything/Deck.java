@@ -1,57 +1,77 @@
+/**
+ * Created by Steve on 3/5/2017.
+ * Edited by Christophe Bedu(cbedu2@uic.edu)
+ */
+
 package everything;
+
+import java.util.ArrayList;
 
 import everything.Card;
 import everything.cardPackage.SavageStrike;
-/**
- * Created by Steve on 3/5/2017.
- */
+
 public class Deck {
-    private Card[] hand;
+	private static int maxCards =25;
+    private ArrayList<Card> deck;
+    protected Hand hand;
     private int deckLength;
 
-    Deck(int dl, Card c1, Card c2, Card c3, Card c4, Card c5, Card c6, Card c7, Card c8) {
-        deckLength = dl;
-        SavageStrike card1 = new SavageStrike();
-        hand = new Card[deckLength];
-        hand[0] = c1;
-        hand[1] = c2;
-        hand[2] = c3;
-        hand[3] = c4;
-        hand[4] = c5;
-        hand[5] = c6;
-        hand[6] = c7;
-        hand[7] = c8;
+    protected Deck() {
+        deckLength = 0;
+        deck = new ArrayList<Card>();
     }
-
-    Deck(int dl, Card c1, Card c2, Card c3)
+    
+    protected void addCard(Card newCard){
+    	
+    	if(maxCards==24){
+    		
+    		System.out.println("Error: maximum number of cards reached!");
+    		System.out.println("Abort addCard");
+    		return;
+    	}
+    	deckLength++;
+    	
+    	deck.add(newCard);
+    }
+    
+    protected void discard(Card removedCard){
+    	if(hand.contains(removedCard)){
+    		System.out.println("Error: cannot remove Card while it's in Hand!");
+    		return;
+    	}
+    	
+    	deck.remove(removedCard);
+    	
+    }
+    
+    protected int getCardIndex(Card card){
+    	
+    	if(!deck.contains(card)){
+    		return -1;
+    	}
+    	
+    	return(deck.indexOf(card));
+    }
+    
+    
+   
+    protected void changeCard(Card oldCard, Card newCard)
     {
-        deckLength = dl;
-        hand = new Card[deckLength];
-        hand[0] = c1;
-        hand[1] = c2;
-        hand[2] = c3;
-    }
-
-    private void changeCard(Card oldCard, Card newCard)
-    {
-        int i;
-        for(i = 0; i < deckLength; i++) {
-            if (hand[i] == oldCard) {
-                if (hand[i].compareType(newCard))
-                    hand[i] = newCard;
-                else {
-                    System.out.println("everything.Card types do not match!");
-                }
-            }
-
-        }
+    	if(!deck.contains(oldCard)){
+    		System.out.println("Error: This card is not Available in deck");
+    		return;
+    	}
+    	
+    	deck.remove(oldCard);
+    	deck.add(newCard);
     }
 
 
-    private void updateCooldowns(Player p1){
+  
+	private void updateCooldowns(Player p1){
         for(int i = 0; i < deckLength; i++)
         {
-            hand[i].incrementCooldown(p1);
+        	deck.get(i).incrementCooldown(p1);
         }
     }
 }
