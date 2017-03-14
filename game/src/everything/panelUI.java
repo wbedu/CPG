@@ -19,7 +19,7 @@ public class panelUI {
     private ImageIcon cardBack;
 
     public panelUI() {
-        cardBack = new ImageIcon();
+        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
         mainFrame = new JFrame("CPG");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
