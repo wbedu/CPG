@@ -1,4 +1,0 @@
-Card_PlaceHolder:
-	uses "statusFrame" from http://opengameart.org/content/medieval-themed-banner
-
-
