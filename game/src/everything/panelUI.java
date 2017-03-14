@@ -16,8 +16,10 @@ public class panelUI {
     private JButton card5;
     private JTextArea messageText;
     private JScrollPane messageScroll;
+    private ImageIcon cardBack;
 
     public panelUI() {
+        cardBack = new ImageIcon();
         mainFrame = new JFrame("CPG");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -32,11 +34,11 @@ public class panelUI {
         messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         cardFrame = new JPanel();
-        card1 = new JButton();
-        card2 = new JButton();
-        card3 = new JButton();
-        card4 = new JButton();
-        card5 = new JButton();
+        card1 = new JButton(cardBack);
+        card2 = new JButton(cardBack);
+        card3 = new JButton(cardBack);
+        card4 = new JButton(cardBack);
+        card5 = new JButton(cardBack);
 
         mainFrame.setLayout(new BorderLayout());
         messageScroll.setLayout(new ScrollPaneLayout());
