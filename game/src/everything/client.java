@@ -8,7 +8,7 @@ public class client {
         boolean gameLoop = true;
         panelUI panelUIInst = new panelUI();
 
-        panelUIInst.setMessage("\n"+"Test");    //this function takes a String and puts it in the message display
+        panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
         while(gameLoop){
 
