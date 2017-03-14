@@ -19,7 +19,7 @@ public class panelUI {
     private ImageIcon cardBack;
 
     public panelUI() {
-        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
+        cardBack = new ImageIcon("images/Card_Placeholder.jpeg"); //
         mainFrame = new JFrame("CPG");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,12 +42,18 @@ public class panelUI {
 
         mainFrame.setLayout(new BorderLayout());
         messageScroll.setLayout(new ScrollPaneLayout());
-        cardFrame.setLayout(new GridLayout(1, 5, 100, 50));
-        cardFrame.setPreferredSize(new Dimension(100, 200));
+        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setPreferredSize(new Dimension(1024, 200));
         mainFrame.setSize(1024, 576);
 
         mainFrame.add(messageScroll, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
+
+        card1.setPreferredSize(new Dimension(125,200));
+        card2.setPreferredSize(new Dimension(125,200));
+        card3.setPreferredSize(new Dimension(125,200));
+        card4.setPreferredSize(new Dimension(125,200));
+        card5.setPreferredSize(new Dimension(125,200));
 
         card1.setText("card1");
         card2.setText("card2");
