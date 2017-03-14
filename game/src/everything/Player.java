@@ -1,7 +1,5 @@
 package everything;
 
-import java.util.*;
-
 
 public abstract class Player {
     protected boolean living;
@@ -9,22 +7,22 @@ public abstract class Player {
     protected int attackPoints;
     protected int defensePoints;
     protected String name;
-    protected Deck hand;
+    protected Deck deck;
+    protected Hand hand;
 
-
-    //set to private as this should never be initialized as with NULL stats
-    @SuppressWarnings("unused")
+ 
 	protected Player(){
     }
 
 
-    protected Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newHand){
+    protected Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newDeck){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
         defensePoints=newdefensePoints;
         living=true;
-        hand=newHand;
+        deck=new Deck();
+        hand=new Hand();
     }
 
     //decreases health but does not change any other stats
