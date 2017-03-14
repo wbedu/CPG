@@ -1,30 +1,30 @@
 package everything;
 
-import java.util.*;
-
 
 public abstract class Player {
+	protected int level;
     protected boolean living;
     protected int health;
     protected int attackPoints;
     protected int defensePoints;
     protected String name;
-    protected Deck hand;
+    protected Deck deck;
+    protected Hand hand;
 
-
-    //set to private as this should never be initialized as with NULL stats
-    @SuppressWarnings("unused")
+ 
 	protected Player(){
     }
 
 
-    protected Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newHand){
+    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newDeck){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
         defensePoints=newdefensePoints;
         living=true;
-        hand=newHand;
+        deck=new Deck();
+        hand=new Hand();
+        level=0;
     }
 
     //decreases health but does not change any other stats
@@ -71,6 +71,11 @@ public abstract class Player {
     //prints players stats
     public void printStats(){
         System.out.println("ID: "+name+" HP: "+health+" ATK: "+attackPoints+" DEF: "+defensePoints);
+    }
+    
+    
+    public void setLevel(int newLevel){
+    	level=newLevel;
     }
 
     //sets living status based on health

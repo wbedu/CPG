@@ -1,5 +1,5 @@
 package everything;
-import java.util.*;
+
 
 
 public abstract class AI extends Player{
@@ -9,7 +9,7 @@ public abstract class AI extends Player{
 	protected Card cardToDrop;
 	
 	protected AI(){
-		super();
+	
 	}
 
 	protected AI(String newName,int newHealth,int newAttackPoints,int newdefensePoints, Deck newHand,int newHealthThreshold){
