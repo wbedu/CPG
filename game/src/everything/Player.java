@@ -2,6 +2,7 @@ package everything;
 
 
 public abstract class Player {
+	protected int level;
     protected boolean living;
     protected int health;
     protected int attackPoints;
@@ -15,7 +16,7 @@ public abstract class Player {
     }
 
 
-    protected Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newDeck){
+    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newDeck){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
@@ -23,6 +24,7 @@ public abstract class Player {
         living=true;
         deck=new Deck();
         hand=new Hand();
+        level=0;
     }
 
     //decreases health but does not change any other stats
@@ -69,6 +71,11 @@ public abstract class Player {
     //prints players stats
     public void printStats(){
         System.out.println("ID: "+name+" HP: "+health+" ATK: "+attackPoints+" DEF: "+defensePoints);
+    }
+    
+    
+    public void setLevel(int newLevel){
+    	level=newLevel;
     }
 
     //sets living status based on health

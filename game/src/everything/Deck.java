@@ -11,17 +11,17 @@ import everything.Card;
 import everything.cardPackage.SavageStrike;
 
 public class Deck {
-	private static int maxCards =25;
-    private ArrayList<Card> deck;
+	protected static int maxCards =25;
+    protected ArrayList<Card> deck;
     protected Hand hand;
-    private int deckLength;
+    protected int deckLength;
 
-    protected Deck() {
+    public Deck() {
         deckLength = 0;
         deck = new ArrayList<Card>();
     }
     
-    protected void addCard(Card newCard){
+    public void addCard(Card newCard){
     	
     	if(maxCards==24){
     		
@@ -34,7 +34,7 @@ public class Deck {
     	deck.add(newCard);
     }
     
-    protected void discard(Card removedCard){
+    public void discard(Card removedCard){
     	if(hand.contains(removedCard)){
     		System.out.println("Error: cannot remove Card while it's in Hand!");
     		return;
@@ -44,7 +44,7 @@ public class Deck {
     	
     }
     
-    protected int getCardIndex(Card card){
+    public int getCardIndex(Card card){
     	
     	if(!deck.contains(card)){
     		return -1;
@@ -55,7 +55,7 @@ public class Deck {
     
     
    
-    protected void changeCard(Card oldCard, Card newCard)
+    public void changeCard(Card oldCard, Card newCard)
     {
     	if(!deck.contains(oldCard)){
     		System.out.println("Error: This card is not Available in deck");
@@ -68,10 +68,14 @@ public class Deck {
 
 
   
-	private void updateCooldowns(Player p1){
+	public void updateCooldowns(Player p1){
         for(int i = 0; i < deckLength; i++)
         {
         	deck.get(i).incrementCooldown(p1);
         }
     }
+	
+	public void chooseCards(){
+		System.out.println("User has choosen default 5 cards");
+	}
 }
