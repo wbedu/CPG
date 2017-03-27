@@ -26,16 +26,16 @@ Class: Rogue/Thief
 
 Cards
 Attack/2:
-	-
-	-
+	- "Assassinate" 3 turns = Rapidly strike the enemy twice with a hidden dagger, dealing 3-5 damage each strike.
+	- "That'll Sting" 1 turn = Slice your opponent rapidly, dealing 1 damage this turn and they will blead 1 damage for the next 3 turns. 
 
 Defense/2:
-	-
-	-
+	- "Now you Don't" 4 turns = Hide in the shadows, gaining 50% evation for the next two turns.
+	- 
 
 Utility/2:
-	-
-	-
+	- "Vial of Acid" 3 turns = Toss a vial of poison at the enemy, removing all of the opponenets armor for the next turn.
+	- "Pickpocket" 4 turns = Steal one of your opponents cards, disabling it for the next turn.
 
 Ability/1:
 	- “No you see me” 1 turn = Stealth for this turn, avoiding all damage, choose 1 ability to restore its cool down, and do x2 damage if next turn is an attack.
