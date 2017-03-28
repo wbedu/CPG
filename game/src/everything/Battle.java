@@ -6,30 +6,32 @@ package everything;
 
 public class Battle {
     private Player user;
-    private Player enemy;
+    private AI enemy;
     private int turnNo;
+    
+    private Battle(){
+    	
+    }
+    public Battle(Player p1, AI e) {
+        user = p1;
+        enemy = (AI) e;
+        turnNo = 1;
 
-    public void playerTurn() {
-
+    }
+    public void startTurn(int cardSelection) {
+    	user.hand.useCard(cardSelection,user,enemy);
         turnNo++;
         enemyTurn();
     }
 
     public void enemyTurn(){
-
-        turnNo++;
+       enemy.hand.useCard(1, enemy, user);
     }
 
-    public void doBattle() {
-        while(!user.isDead() || !enemy.isDead()) {
-            playerTurn();
-        }
-    }
 
-    Battle(Player p1, Player e) {
-        user = p1;
-        enemy = e;
-        turnNo = 1;
-
+    
+    //checks if a battl is on going/
+    public boolean isOver(){
+    	return(user.isDead() ||enemy.isDead());
     }
 }

@@ -2,7 +2,7 @@ package everything;
 
 
 
-public abstract class AI extends Player{
+public class AI extends Player{
 	
 	protected int healthThreshold;
 	protected Card nextCard;
@@ -63,6 +63,10 @@ public abstract class AI extends Player{
 	protected Card setDropCard(){
 		
 		return cardToDrop;
+	}
+	
+	private void useCard(){
+		
 	}
 	
 }

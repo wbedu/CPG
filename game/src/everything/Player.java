@@ -9,7 +9,7 @@ public abstract class Player {
     protected int defensePoints;
     protected String name;
     protected Deck deck;
-    protected Hand hand;
+    public Hand hand;
 
  
 	protected Player(){
