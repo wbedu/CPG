@@ -12,9 +12,13 @@ public class client {
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
         while(gameLoop){
+            while(panelUIInst.getCardWaiting()){
+
+            }
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
-
+            //DO BATTLE
+            panelUIInst.setCardWaitingTrue();
         }
     }
 }
