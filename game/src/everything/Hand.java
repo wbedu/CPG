@@ -44,4 +44,10 @@ public class Hand{
     protected boolean contains(Card card){
     		return hand.contains(card);
     }
+    
+    
+    public void useCard(int cardIndex, Player p1, Player p2){
+    	
+    	hand.get(cardIndex).cardFunction(p1, p2);
+    }
 }
