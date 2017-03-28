@@ -17,6 +17,7 @@ public class panelUI {
     private JTextArea messageText;
     private JScrollPane messageScroll;
     private ImageIcon cardBack;
+    private int cardSelect;
 
     public panelUI() {
         cardBack = new ImageIcon("images/Card_Placeholder.jpeg"); //
@@ -104,24 +105,38 @@ public class panelUI {
         System.out.println("User has been prompted it is his/her turn");
     }
 
-    class buttonListener implements ActionListener{
+    void updateCardSelect(int cardNum){
+        cardSelect = cardNum;
+    }
+
+    public int getCardSelect(){
+        return cardSelect;
+    }
+
+    class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand() == "card1"){
                 setMessage("\nCleave: 2 DMG dealt - 1 turn CD");
+                updateCardSelect(1);
             }
             else if(buttonPress.getActionCommand() == "card2"){
                 setMessage("\nSavage Strike: 3 DMG dealt - 3 turn CD");
+                updateCardSelect(2);
             }
             else if(buttonPress.getActionCommand() == "card3"){
                 setMessage("\nBlock: Blocking incoming DMG - 1 turn CD");
+                updateCardSelect(3);
             }
             else if(buttonPress.getActionCommand() == "card4"){
                 setMessage("\nMutton: Restore 4 HP - 3 turn CD");
+                updateCardSelect(4);
             }
             else if(buttonPress.getActionCommand() == "card5"){
                 setMessage("\nShield Bash: Enemy is STUNNED - 1 turn CD");
+                updateCardSelect(5);
             }
             //setMessage("\n"+buttonPress.getActionCommand());
+
         }
     }
 }
