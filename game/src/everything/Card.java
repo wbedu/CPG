@@ -44,7 +44,7 @@ public abstract class Card {
         }
 
 
-    public void cardFunction(Player p, Player e) {
+    public void cardFunction(Player p1, Player p2) {
         if (checkCooldown()) {
         }
         else {
@@ -67,5 +67,8 @@ public abstract class Card {
         cardType = "NONE";
         cooldown = -999;
     }
+    
+    
+
 
 }
