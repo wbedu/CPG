@@ -21,7 +21,7 @@ public class panelUI {
     private boolean cardWaiting;
 
     public panelUI() {
-        cardBack = new ImageIcon("images/Card_Placeholder.jpeg"); //
+        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
         mainFrame = new JFrame("CPG");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
