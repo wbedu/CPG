@@ -17,7 +17,7 @@ public class Hand{
 			
 	protected Hand(){
 		hand = new ArrayList<Card>();
-		handSize=0;
+		//TODO handSize=0;
 	}
 	
 	
