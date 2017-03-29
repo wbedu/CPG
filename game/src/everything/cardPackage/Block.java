@@ -14,6 +14,7 @@ public class Block extends Card{
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
+            System.out.println("\nBlock: Blocking incoming DMG - 1 turn CD");
             p1.increaseDefense(100);
             this.setCooldown();
         }

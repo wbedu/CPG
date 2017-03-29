@@ -15,6 +15,7 @@ public class Cleave extends Card{
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
+            System.out.println("\nCleave: 2 DMG dealt - 1 turn CD");
             p2.takeDamage(3);
         }
     }
