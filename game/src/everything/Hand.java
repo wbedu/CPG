@@ -12,6 +12,7 @@ public class Hand{
 	private static int maxCards=5;
 	private int handSize;
 	protected ArrayList<Card> hand;
+
 			
 	protected Hand(){
 		hand = new ArrayList<Card>();
@@ -28,8 +29,10 @@ public class Hand{
     		System.out.println("Abort addCard");
     		return;
     	}
-    	
-    	hand.add(newCard);
+  
+    	if(hand.contains(newCard)){
+    		hand.add(newCard);
+    	}
     }
     
     protected void removeCard(Card removedCard){
