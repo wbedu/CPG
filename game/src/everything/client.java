@@ -28,6 +28,8 @@ public class client {
         playerHand.addCard(savageCard);
 
         Hand enemyHand = new Hand();
+        enemyHand.addCard(nordCard);   //???USING SAME CARD OBJECTS???
+        enemyHand.addCard(savageCard);
 
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
