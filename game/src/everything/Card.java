@@ -41,7 +41,7 @@ public abstract class Card {
     public  void incrementCooldown(Player p){
         if(tempCD != cooldown)
           tempCD = tempCD++;
-        }
+    }
 
 
     public void cardFunction(Player p1, Player p2) {
@@ -67,8 +67,5 @@ public abstract class Card {
         cardType = "NONE";
         cooldown = -999;
     }
-    
-    
-
-
+   
 }
