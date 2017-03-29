@@ -27,12 +27,12 @@ public class client {
         playerHand.addCard(nordCard);
         playerHand.addCard(savageCard);
 
-        Deck enemyDeck = new Deck();
+        Hand enemyHand = new Hand();
 
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
         userPlayer = new User("Aaron",10,3,3,playerHand);
-        enemyAI = new AI("Shrak",10,1,2,enemyDeck,3);
+        enemyAI = new AI("Shrak",10,1,2,enemyHand,3);
 
         //First Battle
         while(gameLoop){
