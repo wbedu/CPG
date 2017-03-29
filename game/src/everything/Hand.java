@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class Hand{
 	private static int maxCards=5;
-	private int handSize;
 	protected ArrayList<Card> hand;
 	protected ArrayList<Card> deck;	
 
@@ -24,7 +23,7 @@ public class Hand{
 	
     protected void addCard(Card newCard){
     	
-    	if(handSize>=maxCards){
+    	if(hand.size()>=maxCards){
     		
     		System.out.println("Error: maximum number of cards reached");
     		System.out.println("Abort addCard");
@@ -36,7 +35,11 @@ public class Hand{
     	//}else{
     	//	deck.add(newCard);
     		hand.add(newCard);
+    		
+    		System.out.println("card add");
     	//}
+    		
+    
     }
     
     protected void removeCard(Card removedCard){
