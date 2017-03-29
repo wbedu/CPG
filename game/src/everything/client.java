@@ -43,8 +43,9 @@ public class client {
                 needBattle = 0;
             }
             while(panelUIInst.getCardWaiting()){
-
+                System.out.println(panelUIInst.getCardWaiting());
             }
+            System.out.println("Farters");
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
