@@ -9,7 +9,7 @@ public class Battle {
     private AI enemy;
     private int turnNo;
     
-    private Battle(){
+    public Battle(){
     	
     }
     public Battle(Player p1, AI e) {

@@ -8,7 +8,7 @@ public class client {
     public static void main(String args[]){
         boolean gameLoop = true;
         panelUI panelUIInst = new panelUI();
-        Battle testBattle;
+        Battle testBattle = new Battle();
         User userPlayer;
         AI enemyAI;
         int cardSelected, needBattle = 1;
@@ -48,6 +48,8 @@ public class client {
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
+
+            if(testBattle.isOver())
             panelUIInst.setCardWaitingTrue();
         }
 
