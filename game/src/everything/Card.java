@@ -26,21 +26,17 @@ public abstract class Card {
     }
 
     public boolean checkCooldown(){
-        if(tempCD == cooldown)
+        if(tempCD >=0)
         {
             return true;
-        }
-        else
-        {
-            int timeleft = cooldown - tempCD;
-            System.out.println("card is on cooldown for "+timeleft+"turns");
-            return false;
+        }else{
+        	return false;
         }
     }
 
-    public  void incrementCooldown(Player p){
-        if(tempCD != cooldown)
-          tempCD = tempCD++;
+    public  void decrementCooldown(){
+        if(tempCD>0)
+          --tempCD;
     }
 
 
@@ -48,17 +44,14 @@ public abstract class Card {
         if (checkCooldown()) {
         }
         else {
-            System.out.println("everything.Card is on cooldown!");
+        	decrementCooldown();
+            System.out.println("everif(ything.Card is on cooldown!");
         }
     }
 
     public boolean compareType(Card c1)
     {
-        if(this.cardType.equals(c1.cardType))
-            return true;
-        else {
-            return false;
-        }
+        return this.cardType.equals(c1.cardType);
     }
 
     public Card() {
