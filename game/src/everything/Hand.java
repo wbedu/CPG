@@ -36,6 +36,8 @@ public class Hand{
     	//}else{
     	//	deck.add(newCard);
     		hand.add(newCard);
+    		
+    		System.out.println("card add");
     	//}
     }
     
