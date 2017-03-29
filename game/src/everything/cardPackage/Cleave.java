@@ -9,10 +9,6 @@ import everything.Player;
 public class Cleave extends Card{
     public Cleave(){super("Swing your axe in an arc dealing 3 damage","Cleave", "Attack", 0); tempCD = 0;}
 
-    public void setCooldown(){
-        super.setCooldown();
-    }
-
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
             System.out.println("\nCleave: 2 DMG dealt - 1 turn CD");

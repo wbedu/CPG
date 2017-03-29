@@ -9,7 +9,7 @@ public class Assassinate extends Card {
     public Assassinate(){super("Rapidly strike your target twice with a hidden dagger dealing 3-5 damage with each strike.","Assassinate", "Attack", 3); tempCD = 3;}
 
     public void setCooldown(){
-        super.setCooldown();
+
     }
 
     public void cardFunction(Player p1, Player p2){
