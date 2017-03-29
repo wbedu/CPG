@@ -12,8 +12,8 @@ public class AI extends Player{
 	
 	}
 
-	protected AI(String newName,int newHealth,int newAttackPoints,int newdefensePoints, Hand newHand,int newHealthThreshold){
-		super(newName,newHealth,newAttackPoints,newdefensePoints,newHand);
+	protected AI(String newName,int newHealth,int newAttackPoints,int newdefensePoints,int newHealthThreshold){
+		super(newName,newHealth,newAttackPoints,newdefensePoints);
 		healthThreshold=this.health;
 		
 	}

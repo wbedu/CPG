@@ -13,28 +13,21 @@ public class client {
         AI enemyAI;
         int cardSelected, needBattle = 1;
 
-        //Hand setup
-        Block blockCard = new Block();
-        Cleave cleaveCard = new Cleave();
-        Mutton muttonCard = new Mutton();
-        NordicBlood nordCard = new NordicBlood();
-        SavageStrike savageCard = new SavageStrike();
-
-        Hand playerHand = new Hand();
-        playerHand.addCard(blockCard);
-        playerHand.addCard(cleaveCard);
-        playerHand.addCard(muttonCard);
-        playerHand.addCard(nordCard);
-        playerHand.addCard(savageCard);
-
-        Hand enemyHand = new Hand();
-        enemyHand.addCard(nordCard);   //???USING SAME CARD OBJECTS???
-        enemyHand.addCard(savageCard);
-
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
-        userPlayer = new User("Aaron",10,3,3,playerHand);
-        enemyAI = new AI("Shrak",10,1,2,enemyHand,3);
+        userPlayer = new User("Aaron",10,3,3);
+        enemyAI = new AI("Shrak",10,1,2,3);
+
+
+        //Hand Setup
+        userPlayer.hand.addCard(new Block());
+        userPlayer.hand.addCard(new Cleave());
+        userPlayer.hand.addCard(new Mutton());
+        userPlayer.hand.addCard(new NordicBlood());
+        userPlayer.hand.addCard(new SavageStrike());
+
+        enemyAI.hand.addCard(new Cleave());
+        enemyAI.hand.addCard(new SavageStrike());
 
         //First Battle
         while(gameLoop){
@@ -43,7 +36,7 @@ public class client {
                 needBattle = 0;
             }
             while(panelUIInst.getCardWaiting()){
-                System.out.println(panelUIInst.getCardWaiting());
+                //System.out.println(panelUIInst.getCardWaiting());
             }
             System.out.println("Farters");
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
@@ -59,6 +52,10 @@ public class client {
         }
 
         //End battle if statement here
+    }
+
+    public void deckSetup(User p1, AI e1){
+
     }
 
 }

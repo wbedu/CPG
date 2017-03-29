@@ -17,7 +17,7 @@ public abstract class Player {
     }
 
 
-    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Hand newDeck){
+    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
