@@ -58,7 +58,7 @@ public abstract class Card {
         text = "everything.Card Doesn't Exit";
         name = "nonexistant everything.Card";
         cardType = "NONE";
-        cooldown = -999;
+        cooldown = 0;
     }
    
 }
