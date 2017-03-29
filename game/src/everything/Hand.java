@@ -47,7 +47,6 @@ public class Hand{
     
     
     public void useCard(int cardIndex, Player p1, Player p2){
-    	
     	hand.get(cardIndex).cardFunction(p1, p2);
     }
 }
