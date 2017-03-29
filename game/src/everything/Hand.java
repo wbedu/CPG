@@ -12,7 +12,7 @@ public class Hand{
 	private static int maxCards=5;
 	private int handSize;
 	protected ArrayList<Card> hand;
-	protected ArrayList<Card> deck;
+	protected ArrayList<Card> deck;	
 
 			
 	protected Hand(){
@@ -32,6 +32,9 @@ public class Hand{
     	}
   
     	if(deck.contains(newCard)){
+    		hand.add(newCard);
+    	}else{
+    		deck.add(newCard);
     		hand.add(newCard);
     	}
     }
