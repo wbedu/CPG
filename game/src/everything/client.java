@@ -48,8 +48,12 @@ public class client {
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
+            testBattle.startTurn(cardSelected);
 
-            if(testBattle.isOver())
+            if(testBattle.isOver()){
+                gameLoop = false;
+                needBattle = 1;
+            }
             panelUIInst.setCardWaitingTrue();
         }
 

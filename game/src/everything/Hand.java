@@ -31,12 +31,12 @@ public class Hand{
     		return;
     	}
   
-    	if(deck.contains(newCard)){
+    	//if(deck.contains(newCard)){
+    	//	hand.add(newCard);
+    	//}else{
+    	//	deck.add(newCard);
     		hand.add(newCard);
-    	}else{
-    		deck.add(newCard);
-    		hand.add(newCard);
-    	}
+    	//}
     }
     
     protected void removeCard(Card removedCard){
@@ -54,6 +54,8 @@ public class Hand{
     
     
     public void useCard(int cardIndex, Player p1, Player p2){
+    	
+    	System.out.println("in useCard");
     	hand.get(cardIndex).cardFunction(p1, p2);
     }
 }
