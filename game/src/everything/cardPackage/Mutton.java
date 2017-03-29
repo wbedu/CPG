@@ -8,10 +8,6 @@ import everything.Player;
 public class Mutton extends Card {
     public Mutton(){ super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3); tempCD = 3; }
 
-    public void setCooldown(){
-        super.setCooldown();
-    }
-
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
             System.out.println("\nMutton: Restore 4 HP - 3 turn CD");
