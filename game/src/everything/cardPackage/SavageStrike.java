@@ -17,6 +17,7 @@ public class SavageStrike extends Card {
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
+            System.out.println("\nSavage Strike: 3 DMG dealt - 3 turn CD");
             p2.takeDamage(8);
             this.setCooldown();
         }

@@ -8,7 +8,7 @@ public class client {
     public static void main(String args[]){
         boolean gameLoop = true;
         panelUI panelUIInst = new panelUI();
-        Battle testBattle;
+        Battle testBattle = new Battle();
         User userPlayer;
         AI enemyAI;
         int cardSelected, needBattle = 1;
@@ -28,6 +28,8 @@ public class client {
         playerHand.addCard(savageCard);
 
         Hand enemyHand = new Hand();
+        enemyHand.addCard(nordCard);   //???USING SAME CARD OBJECTS???
+        enemyHand.addCard(savageCard);
 
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
 
@@ -46,6 +48,12 @@ public class client {
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
+            testBattle.startTurn(cardSelected);
+
+            if(testBattle.isOver()){
+                gameLoop = false;
+                needBattle = 1;
+            }
             panelUIInst.setCardWaitingTrue();
         }
 
