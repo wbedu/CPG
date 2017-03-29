@@ -1,5 +1,6 @@
 package everything;
 
+import java.util.ArrayList;
 
 public abstract class Player {
 	protected int level;
@@ -8,7 +9,7 @@ public abstract class Player {
     protected int attackPoints;
     protected int defensePoints;
     protected String name;
-    protected Deck deck;
+    protected ArrayList<Card> deck;
     public Hand hand;
 
  
@@ -16,13 +17,12 @@ public abstract class Player {
     }
 
 
-    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Deck newDeck){
+    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints, Hand newDeck){
         name=newName;
         health=newHealth;
         attackPoints=newAttackPoint;
         defensePoints=newdefensePoints;
         living=true;
-        deck=new Deck();
         hand=new Hand();
         level=0;
     }
