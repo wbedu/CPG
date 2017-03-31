@@ -30,8 +30,10 @@ public class Battle {
 
 
     
-    //checks if a battl is on going/
+    //checks if a battle is on going/
     public boolean isOver(){
+    	
+    	System.out.println("Player: "+user.getHealth()+ "AI: "+enemy.getHealth());
     	return(!user.lifeCheck() ||!enemy.lifeCheck());
     }
 }
