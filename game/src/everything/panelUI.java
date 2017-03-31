@@ -117,7 +117,7 @@ public class panelUI {
         } else if(cardSelect == 3){
             setMessage("\nNordicBlood");
         } else if(cardSelect == 4){
-            setMessage("SavageStrike");
+            setMessage("\nSavageStrike");
         }
     }
 
