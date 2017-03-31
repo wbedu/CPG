@@ -28,6 +28,7 @@ public class client {
 
         enemyAI.hand.addCard(new Cleave());
         enemyAI.hand.addCard(new SavageStrike());
+        enemyAI.hand.addCard(new Mutton());
 
         //First Battle
         while(gameLoop){
