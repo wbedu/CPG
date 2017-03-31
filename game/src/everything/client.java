@@ -47,10 +47,12 @@ public class client {
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
+            panelUIInst.displayPlayerTurn();
             testBattle.startTurn(cardSelected);
+            panelUIInst.displayEnemyTurn();
 
             if(testBattle.isOver()){
-                System.out.println("Battle is going to end");
+                panelUIInst.setMessage("\nBattle is over!");
                 gameLoop = false;
                 needBattle = 1;
             }

@@ -107,6 +107,24 @@ public class panelUI {
         System.out.println("User has been prompted it is his/her turn");
     }
 
+    void displayPlayerTurn(){
+        if(cardSelect == 0){
+            setMessage("\nBlock");
+        } else if(cardSelect == 1){
+            setMessage("\nCleave");
+        } else if(cardSelect == 2){
+            setMessage("\nMutton");
+        } else if(cardSelect == 3){
+            setMessage("\nNordicBlood");
+        } else if(cardSelect == 4){
+            setMessage("SavageStrike");
+        }
+    }
+
+    void displayEnemyTurn(){
+        setMessage("\nEnemy Turn!!!");
+    }
+
     void updateCardSelect(int cardNum){
         cardSelect = cardNum;
     }
