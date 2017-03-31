@@ -14,6 +14,7 @@ public abstract class Player {
 
  
 	protected Player(){
+		
     }
 
 
@@ -43,13 +44,13 @@ public abstract class Player {
     //player takes the damage specified after defense is subtracted;
     //calls lifeCheck to check living status;
     public void takeDamage(int damage){
-        int damageTaken = damage - defensePoints;
+      int damageTaken = damage;// - defensePoints;
 
         if(damageTaken<1){
             damageTaken=0;
         }
 
-        health= health -damageTaken;
+        health-=damageTaken;
         lifeCheck();
     }
 
