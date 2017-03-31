@@ -79,17 +79,13 @@ public abstract class Player {
     }
 
     //sets living status based on health
-    private void lifeCheck(){
+    protected boolean lifeCheck(){
         if(health<=0){
             living=false;
         }else{
             living=true;
         }
-    }
-
-
-    //returns the player living status;
-    public boolean isDead(){
-       return living;
+        
+        return living;
     }
 }

@@ -32,6 +32,6 @@ public class Battle {
     
     //checks if a battl is on going/
     public boolean isOver(){
-    	return(user.isDead() ||enemy.isDead());
+    	return(!user.lifeCheck() ||!enemy.lifeCheck());
     }
 }
