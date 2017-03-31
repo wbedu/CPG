@@ -5,7 +5,7 @@ import everything.cardPackage.*;
  * Created by Aaron on 3/4/17.
  */
 public class client {
-    public static void main(String args[]){
+    public static void main(String args[]) throws InterruptedException{
         boolean gameLoop = true;
         panelUI panelUIInst = new panelUI();
         Battle testBattle = new Battle();
@@ -35,8 +35,13 @@ public class client {
                 testBattle = new Battle(userPlayer, enemyAI);
                 needBattle = 0;
             }
-            while(panelUIInst.getCardWaiting()){
-                System.out.println(panelUIInst.getCardWaiting());
+            while(true){
+            	if(!panelUIInst.getCardWaiting()){
+            		break;
+            	}else{
+            		Thread.sleep(100);
+            	}
+                //System.out.println();
             }
             System.out.println("Farters");
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
