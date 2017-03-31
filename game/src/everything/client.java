@@ -43,7 +43,6 @@ public class client {
             	}
                 //System.out.println();
             }
-            System.out.println("Farters");
             cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
                                                         //Pass into Battle
             //DO BATTLE
