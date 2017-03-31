@@ -5,7 +5,7 @@ package everything;
 public class AI extends Player{
 	
 	protected int healthThreshold;
-	protected Card nextCard;
+	protected int nextCard;
 	protected Card cardToDrop;
 	
 	protected AI(){
@@ -18,6 +18,13 @@ public class AI extends Player{
 		
 	}
 	
+	
+	int randomWithRange(int min, int max)
+	{
+	   int range = (max - min) + 1;     
+	   return (int)(Math.random() * range) + min;
+	}
+	
 	void setNextCard(Player user){
 		
 		boolean moveset=false;
@@ -27,6 +34,8 @@ public class AI extends Player{
 			//set next card to heal
 			//check if escape card available
 			//set next to to escape
+			nextCard =randomWithRange(1,3);
+			
 			moveset=true;
 		}
 		
@@ -34,6 +43,9 @@ public class AI extends Player{
 			//TODO
 			//check if buff card available;
 			//if buff card available set next to attack
+			
+			nextCard=4;
+			
 			moveset=true;
 		}
 		
@@ -43,8 +55,15 @@ public class AI extends Player{
 			//set next cart to special card
 			//else
 			//set next card to random attack
+			
+			nextCard=5;
+			moveset=true;
 		}
 		
+	}
+	
+	public int getNextCard(){
+		return nextCard;
 	}
 	
 	//checks if AI health is bellow a threshold
