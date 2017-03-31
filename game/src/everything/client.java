@@ -36,7 +36,7 @@ public class client {
                 needBattle = 0;
             }
             while(true){
-            	if(!panelUIInst.getCardWaiting()){
+            	if(!panelUIInst.getCardWaiting()){	
             		break;
             	}else{
             		Thread.sleep(100);
