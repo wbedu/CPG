@@ -19,13 +19,13 @@ public class Battle {
 
     }
     public void startTurn(int cardSelection) {
-        user.hand.decrementCooldown();
+        user.hand.decrementCooldown(user);
     	user.hand.useCard(cardSelection,user,enemy);
         enemyTurn();
     }
 
     public void enemyTurn(){
-        user.hand.decrementCooldown();
+        user.hand.decrementCooldown(enemy);
         enemy.setNextCard(user);
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;

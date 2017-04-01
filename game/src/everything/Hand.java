@@ -60,15 +60,15 @@ public class Hand{
     	
     	System.out.println("in useCard");
     	hand.get(cardIndex).cardFunction(p1, p2);	
-    	decrementCooldown();
+    	decrementCooldown(p1);
     	
     	lastCardText=hand.get(cardIndex).getText();
     	
     }
     
-    public void decrementCooldown(){
+    public void decrementCooldown(Player p1){
     	for(int i=0;i<hand.size();i++){
-    		hand.get(i).decrementCooldown();
+    		hand.get(i).decrementCooldown(p1);
     	}
     }
     
