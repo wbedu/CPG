@@ -34,6 +34,7 @@ public class Battle {
     public int getTurnNo(){
         return turnNo;
     }
+
     //checks if a battle is on going/
     public boolean isOver(){
     	
