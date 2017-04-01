@@ -59,5 +59,9 @@ public abstract class Card {
         cardType = "NONE";
         cooldown = 0;
     }
+    
+    public String getText(){
+		return text;
+    }
    
 }
