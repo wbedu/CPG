@@ -12,7 +12,7 @@ public class Hand{
 	private static int maxCards=5;
 	protected ArrayList<Card> hand;
 	protected ArrayList<Card> deck;	
-
+	protected String lastCardText;
 			
 	protected Hand(){
 		hand = new ArrayList<Card>();
@@ -59,13 +59,20 @@ public class Hand{
     public void useCard(int cardIndex, Player p1, Player p2){
     	
     	System.out.println("in useCard");
-    	hand.get(cardIndex).cardFunction(p1, p2);
+    	hand.get(cardIndex).cardFunction(p1, p2);	
     	decrementCooldown();
+    	
+    	lastCardText=hand.get(cardIndex).getText();
+    	
     }
     
     public void decrementCooldown(){
     	for(int i=0;i<hand.size();i++){
     		hand.get(i).decrementCooldown();
     	}
+    }
+    
+    public String getLastCardText(){
+    	return lastCardText;
     }
 }
