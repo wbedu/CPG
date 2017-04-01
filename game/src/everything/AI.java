@@ -34,7 +34,7 @@ public class AI extends Player{
 			//set next card to heal
 			//check if escape card available
 			//set next to to escape
-			nextCard =randomWithRange(0,2);
+			nextCard =randomWithRange(0,4);
 			
 			moveset=true;
 	//	}
@@ -79,7 +79,7 @@ public class AI extends Player{
 	}
 	
 	//must edit to have card drop
-	protected Card setDropCard(){
+	protected Card getDropCard(){
 		
 		return cardToDrop;
 	}
