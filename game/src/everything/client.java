@@ -15,8 +15,8 @@ public class client {
 
         panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
 
-        userPlayer = new User("Aaron",10,3,3);
-        enemyAI = new AI("Shrak",10,1,2,3);
+        userPlayer = new User("Aaron",30,3,3);
+        enemyAI = new AI("Shrak",30,1,2,3);
 
 
         //Hand Setup

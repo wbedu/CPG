@@ -37,7 +37,7 @@ public abstract class Card {
 
     public  void decrementCooldown(){
         if(tempCD>0)
-          tempCD = tempCD-1;
+          tempCD-=1;
     }
 
 
@@ -45,7 +45,7 @@ public abstract class Card {
     }
 
     public int getCooldownTime(){
-        return (this.cooldown - this.tempCD);
+        return (tempCD);
     }
 
     public boolean compareType(Card c1)
