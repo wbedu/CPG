@@ -26,11 +26,12 @@ public class client {
         userPlayer.hand.addCard(new NordicBlood());
         userPlayer.hand.addCard(new SavageStrike());
 
-        enemyAI.hand.addCard(new Cleave());
-        enemyAI.hand.addCard(new SavageStrike());
-        enemyAI.hand.addCard(new NordicBlood());
-        enemyAI.hand.addCard(new Mutton());
         enemyAI.hand.addCard(new Block());
+        enemyAI.hand.addCard(new Cleave());
+        enemyAI.hand.addCard(new Mutton());
+        enemyAI.hand.addCard(new NordicBlood());
+        enemyAI.hand.addCard(new SavageStrike());
+
         
 
         //First Battle
@@ -61,10 +62,11 @@ public class client {
                 panelUIInst.displayEnemyTurn();
             } else {
                 //print cooldown of card selected
+                panelUIInst.setMessage("\nCard still on COOL DOWN: "+userPlayer.hand.hand.get(cardSelected).getCooldownTime()+" turns left");
             }
 
             if(testBattle.isOver()){
-                panelUIInst.setMessage("\nBattle is over!");
+                panelUIInst.setMessage("\n\nBattle is over!");
                 gameLoop = false;
                 needBattle = 1;
             }
