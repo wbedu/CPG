@@ -38,4 +38,16 @@ public class Battle {
         System.out.println("AI: "+enemy.getHealth());
     	return(!user.lifeCheck() ||!enemy.lifeCheck());
     }
+    
+    public int whoIsDead(){
+    	if(!isOver()){
+    		return -1;
+    	}
+    	
+    	if(user.getHealth()<=0){
+    		return 0;
+    	}else{
+    		return 1;
+    	}
+    }
 }
