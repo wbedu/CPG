@@ -9,7 +9,7 @@ public abstract class Player {
     protected int attackPoints;
     protected int defensePoints;
     protected String name;
-    protected ArrayList<Card> deck;
+    protected ArrayList<Status> status;
     public Hand hand;
 
  
@@ -25,6 +25,7 @@ public abstract class Player {
         defensePoints=newdefensePoints;
         living=true;
         hand=new Hand();
+        status=new ArrayList<Status>();
         level=0;
     }
 
