@@ -28,7 +28,7 @@ public class AI extends Player{
 	void setNextCard(Player user){
 		
 		boolean moveset=false;
-		if(isHealthy()){
+		//if(isHealthy()){
 			//TODO
 			//check if heal card available
 			//set next card to heal
@@ -37,9 +37,9 @@ public class AI extends Player{
 			nextCard =randomWithRange(0,2);
 			
 			moveset=true;
-		}
+	//	}
 		
-		if((moveset==false)&&(user.defensePoints>this.attackPoints)){
+		/*if((moveset==false)&&(user.defensePoints>this.attackPoints)){
 			//TODO
 			//check if buff card available;
 			//if buff card available set next to attack
@@ -59,7 +59,7 @@ public class AI extends Player{
 			nextCard=4;
 			moveset=true;
 		}
-		
+		*/
 	}
 	
 	public int getNextCard(){
