@@ -34,7 +34,12 @@ public abstract class Player {
         health-=decreaseFactor;
     }
     //increase health but does not  change any other conditions
-    public void increaseHealth(int increaseFactor) { health+=increaseFactor; }
+    public void increaseHealth(int increaseFactor) {
+        if(health+increaseFactor > 30)
+            this.health = 30;
+        else
+            health+=increaseFactor;
+    }
     //increase defense but does not change any other conditions
     public void increaseDefense(int increaseFactor) { defensePoints-=increaseFactor; }
     //decreases defense but does not change any other conditions
