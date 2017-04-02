@@ -60,6 +60,12 @@ public class Hand{
     	
     	System.out.println("in useCard");
     	hand.get(cardIndex).cardFunction(p1, p2);
+    	decrementCooldown();
     }
-
+    
+    public void decrementCooldown(){
+    	for(int i=0;i<hand.size();i++){
+    		hand.get(i).decrementCooldown();
+    	}
+    }
 }
