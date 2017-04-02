@@ -44,12 +44,14 @@ public class client {
             	}
                 //System.out.println();
             }
-            cardSelected = panelUIInst.getCardSelect(); //This gets the current selected card
-                                                        //Pass into Battle
+            cardSelected = panelUIInst.getCardSelect();
+
             //DO BATTLE
-            panelUIInst.displayPlayerTurn();
-            testBattle.startTurn(cardSelected);
-            panelUIInst.displayEnemyTurn();
+            if(userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
+                panelUIInst.displayPlayerTurn();
+                testBattle.startTurn(cardSelected);
+                panelUIInst.displayEnemyTurn();
+            }
 
             if(testBattle.isOver()){
                 panelUIInst.setMessage("\nBattle is over!");
