@@ -26,6 +26,7 @@ public class Battle {
 
     public void enemyTurn(){
         user.hand.decrementCooldown();
+        enemy.setNextCard(user);
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;
     }
