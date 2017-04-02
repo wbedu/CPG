@@ -59,8 +59,7 @@ public class client {
             if(userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
                 panelUIInst.displayPlayerTurn();
                 testBattle.startTurn(cardSelected);
-
-                panelUIInst.displayEnemyTurn();
+                panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
             } else {
                 //print cooldown of card selected
                 panelUIInst.setMessage("\nCard still on COOL DOWN: "+userPlayer.hand.hand.get(cardSelected).getCooldownTime()+" turns left");
