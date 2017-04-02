@@ -34,7 +34,7 @@ public class AI extends Player{
 			//set next card to heal
 			//check if escape card available
 			//set next to to escape
-			nextCard =randomWithRange(1,3);
+			nextCard =randomWithRange(0,2);
 			
 			moveset=true;
 		}
@@ -44,7 +44,7 @@ public class AI extends Player{
 			//check if buff card available;
 			//if buff card available set next to attack
 			
-			nextCard=4;
+			nextCard=3;
 			
 			moveset=true;
 		}
@@ -56,7 +56,7 @@ public class AI extends Player{
 			//else
 			//set next card to random attack
 			
-			nextCard=5;
+			nextCard=4;
 			moveset=true;
 		}
 		
