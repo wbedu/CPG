@@ -61,4 +61,5 @@ public class Hand{
     	System.out.println("in useCard");
     	hand.get(cardIndex).cardFunction(p1, p2);
     }
+
 }

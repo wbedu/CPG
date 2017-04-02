@@ -19,6 +19,7 @@ public class Battle {
 
     }
     public void startTurn(int cardSelection) {
+
     	user.hand.useCard(cardSelection,user,enemy);
         turnNo++;
         enemyTurn();
@@ -33,7 +34,8 @@ public class Battle {
     //checks if a battle is on going/
     public boolean isOver(){
     	
-    	System.out.println("Player: "+user.getHealth()+ "AI: "+enemy.getHealth());
+    	System.out.println("Player: "+user.getHealth());
+        System.out.println("AI: "+enemy.getHealth());
     	return(!user.lifeCheck() ||!enemy.lifeCheck());
     }
 }

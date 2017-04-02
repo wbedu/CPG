@@ -6,15 +6,16 @@ import everything.Player;
  * Created by Steve on 3/10/2017.
  */
 public class Mutton extends Card {
-    public Mutton(){ super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3); tempCD = 3; }
+    public Mutton(){ super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3); tempCD = 0; }
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
             System.out.println("\nMutton: Restore 4 HP - 3 turn CD");
-            if(p1.getHealth() <= 6)
-                p1.setHealth(10);
-            else
-                p1.increaseHealth(4);
+            p1.increaseHealth(4);
+            super.setCooldown();
+        }
+        else{
+            System.out.println("\nMutton is on cooldown.");
         }
     }
 }

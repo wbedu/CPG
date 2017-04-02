@@ -7,12 +7,14 @@ import everything.Card;
  */
 public class NordicBlood extends Card {
     public NordicBlood(){
-        super("Reduce damage taken by 1 for the rest of the encounter","Nordic Blood", "Defense", 2); tempCD = 2;}
+        super("Reduce damage taken by 1 for the rest of the encounter","Nordic Blood", "Defense", 2); tempCD = 0;}
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            System.out.println("\nNordic Blood Yall!!");
+            System.out.println("\nNordic Blood!");
             p1.increaseDefense(1);
+            super.setCooldown();
         }
+        System.out.println("\nNordic blood is on cooldown.");
     }
 }

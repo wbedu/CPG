@@ -18,15 +18,15 @@ public abstract class Card {
         name = cName;
         cardType = cType;
         cooldown = cd;
-        tempCD = cd;
+        tempCD = 0;
     }
 
     public void setCooldown(){
-        tempCD = -1;
+        tempCD = cooldown;
     }
 
     public boolean checkCooldown(){
-        if(tempCD >=0)
+        if(tempCD == 0)
         {
             return true;
         }else{
@@ -41,12 +41,12 @@ public abstract class Card {
 
 
     public void cardFunction(Player p1, Player p2) {
-        if (checkCooldown()) {
+      /*  if (checkCooldown()) {
         }
         else {
         	decrementCooldown();
             System.out.println("everif(ything.Card is on cooldown!");
-        }
+        }*/
     }
 
     public boolean compareType(Card c1)
