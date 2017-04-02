@@ -13,7 +13,7 @@ public class client {
         AI enemyAI;
         int cardSelected, needBattle = 1;
 
-        panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!\n");    //this function takes a String and puts it in the message display
+        panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
 
         userPlayer = new User("Aaron",10,3,3);
         enemyAI = new AI("Shrak",10,1,2,3);
@@ -36,6 +36,11 @@ public class client {
                 testBattle = new Battle(userPlayer, enemyAI);
                 needBattle = 0;
             }
+
+            panelUIInst.setMessage("\n\nTurn number "+testBattle.getTurnNo());
+            panelUIInst.setMessage("\nPlayer Health: "+userPlayer.getHealth());
+            panelUIInst.setMessage("\nEnemy Health: "+enemyAI.getHealth());
+
             while(true){
             	if(!panelUIInst.getCardWaiting()){	
             		break;
