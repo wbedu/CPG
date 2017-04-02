@@ -61,10 +61,11 @@ public class client {
                 panelUIInst.displayEnemyTurn();
             } else {
                 //print cooldown of card selected
+                panelUIInst.setMessage("\nCard still on COOL DOWN: "+userPlayer.hand.hand.get(cardSelected).checkCooldown()+" turns left");
             }
 
             if(testBattle.isOver()){
-                panelUIInst.setMessage("\nBattle is over!");
+                panelUIInst.setMessage("\n\nBattle is over!");
                 gameLoop = false;
                 needBattle = 1;
             }
