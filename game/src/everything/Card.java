@@ -30,23 +30,22 @@ public abstract class Card {
         {
             return true;
         }else{
+            System.out.println("On cooldown " + this.getCooldownTime() + " turns left!");
         	return false;
         }
     }
 
     public  void decrementCooldown(){
         if(tempCD>0)
-          --tempCD;
+          tempCD = tempCD-1;
     }
 
 
     public void cardFunction(Player p1, Player p2) {
-      /*  if (checkCooldown()) {
-        }
-        else {
-        	decrementCooldown();
-            System.out.println("everif(ything.Card is on cooldown!");
-        }*/
+    }
+
+    public int getCooldownTime(){
+        return (this.cooldown - this.tempCD);
     }
 
     public boolean compareType(Card c1)

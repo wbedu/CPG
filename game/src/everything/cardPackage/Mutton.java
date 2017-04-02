@@ -14,8 +14,5 @@ public class Mutton extends Card {
             p1.increaseHealth(4);
             super.setCooldown();
         }
-        else{
-            System.out.println("\nMutton is on cooldown.");
-        }
     }
 }

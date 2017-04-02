@@ -15,6 +15,5 @@ public class NordicBlood extends Card {
             p1.increaseDefense(1);
             super.setCooldown();
         }
-        System.out.println("\nNordic blood is on cooldown.");
     }
 }

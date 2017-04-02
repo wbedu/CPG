@@ -16,9 +16,6 @@ public class SavageStrike extends Card {
             p2.takeDamage(8);
             super.setCooldown();
         }
-        else{
-            System.out.println("\nSavage Strike is on cooldown.");
-        }
     }
 
 }

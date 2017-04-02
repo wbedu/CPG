@@ -15,8 +15,5 @@ public class Cleave extends Card{
             p2.takeDamage(3);
             super.setCooldown();
         }
-        else{
-            System.out.println("\nCleave is on cooldown.");
-        }
     }
 }

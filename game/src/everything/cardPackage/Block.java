@@ -15,9 +15,6 @@ public class Block extends Card{
             p1.increaseDefense(100);
             super.setCooldown();
         }
-        else{
-            System.out.println("\nBlock is on cooldown.");
-        }
     }
 
     public  void incrementCooldown(Player p1){
