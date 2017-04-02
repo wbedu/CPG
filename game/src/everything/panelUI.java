@@ -125,8 +125,8 @@ public class panelUI {
         }
     }
 
-    void displayEnemyTurn(){
-        setMessage("\nEnemy Turn!!!");
+    void displayEnemyTurn(String message){
+        setMessage("\nEnemy Turn!!!\n"+message);
     }
 
     void updateCardSelect(int cardNum){

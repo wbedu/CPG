@@ -59,6 +59,7 @@ public class client {
             if(userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
                 panelUIInst.displayPlayerTurn();
                 testBattle.startTurn(cardSelected);
+
                 panelUIInst.displayEnemyTurn();
             } else {
                 //print cooldown of card selected

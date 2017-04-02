@@ -6,7 +6,7 @@ import everything.Player;
  * Created by Steve on 3/28/2017.
  */
 public class Assassinate extends Card {
-    public Assassinate(){super("Rapidly strike your target twice with a hidden dagger dealing 3-5 damage with each strike.","Assassinate", "Attack", 3); tempCD = 3;}
+    public Assassinate(){super("\nRapidly strike your target twice with a hidden dagger dealing 3-5 damage with each strike.","Assassinate", "Attack", 3); tempCD = 3;}
 
     public void setCooldown(){
 
