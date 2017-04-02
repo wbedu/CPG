@@ -10,7 +10,6 @@ public class Mutton extends Card {
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
-            System.out.println("\nMutton: Restore 4 HP - 3 turn CD");
             p1.increaseHealth(4);
             super.setCooldown();
         }

@@ -10,8 +10,8 @@ public class Battle {
     private int turnNo;
     
     public Battle(){
-    	
     }
+
     public Battle(Player p1, AI e) {
         user = p1;
         enemy = (AI) e;
@@ -19,18 +19,22 @@ public class Battle {
 
     }
     public void startTurn(int cardSelection) {
-
+        user.hand.decrementCooldown();
     	user.hand.useCard(cardSelection,user,enemy);
         turnNo++;
         enemyTurn();
     }
 
     public void enemyTurn(){
-       enemy.hand.useCard(1, enemy, user);
+        user.hand.decrementCooldown();
+        enemy.hand.useCard(1, enemy, user);
+        turnNo++;
     }
 
+    public int getTurnNo(){
+        return turnNo;
+    }
 
-    
     //checks if a battle is on going/
     public boolean isOver(){
     	
