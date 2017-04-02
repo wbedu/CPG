@@ -109,15 +109,15 @@ public class panelUI {
 
     void displayPlayerTurn(){
         if(cardSelect == 0){
-            setMessage("\nBlock");
+            setMessage("\nBlock has been played: Adds 100 armour negating all incoming damage :1 Turn CD");
         } else if(cardSelect == 1){
-            setMessage("\nCleave");
+            setMessage("\nCleave has been played: Deal 3 Damage :0 Turn CD");
         } else if(cardSelect == 2){
-            setMessage("\nMutton");
+            setMessage("\nMutton has been played: Restore 4 HP :3 Turn CD");
         } else if(cardSelect == 3){
-            setMessage("\nNordicBlood");
+            setMessage("\nNordic Blood has been played: Increase Defense :2 Turn CD");
         } else if(cardSelect == 4){
-            setMessage("\nSavageStrike");
+            setMessage("\nSavage Strike has been played: Deal 8 Damage :3 Turn CD");
         }
     }
 

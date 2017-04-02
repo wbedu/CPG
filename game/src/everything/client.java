@@ -51,6 +51,8 @@ public class client {
                 panelUIInst.displayPlayerTurn();
                 testBattle.startTurn(cardSelected);
                 panelUIInst.displayEnemyTurn();
+            } else {
+                //print cooldown of card selected
             }
 
             if(testBattle.isOver()){
