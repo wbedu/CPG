@@ -85,6 +85,7 @@ public class panelUI {
 
     void setMessage(String inputMessage){
         messageText.append(inputMessage);
+        messageText.setCaretPosition(messageText.getDocument().getLength());
     }
 
     void prepBattle(Player user){
