@@ -47,7 +47,6 @@ public class Battle {
     	if(!isOver()){
     		return -1;
     	}
-    	
     	if(user.getHealth()<=0){
     		return 0;
     	}else{
