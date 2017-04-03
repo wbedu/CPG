@@ -19,15 +19,16 @@ public class panelUI {
     private ImageIcon cardBack;
     private int cardSelect;
     private boolean cardWaiting;
+    private JButton startButton;
+    private int startGame;
 
     public panelUI() {
-        createBattleUI();
-    }
-
-    void createBattleUI(){
-        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
+        startGame = 0;
         mainFrame = new JFrame("CPG");
+        mainFrame.setPreferredSize(new Dimension(1024,600));
+        mainFrame.setSize(1024,600);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setLayout(new BorderLayout());
 
         //Checks when window is closed and exits java
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -37,6 +38,20 @@ public class panelUI {
             }
         });
 
+        createStartUI();
+    }
+
+    void createStartUI(){
+        startButton = new JButton();
+        startButton.setText("Start Game!");
+        startButton.addActionListener(new buttonListener());
+        mainFrame.add(startButton);
+        mainFrame.setVisible(true);
+    }
+
+    void createBattleUI(){
+        System.out.println("create battle");
+        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
         messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         cardFrame = new JPanel();
@@ -46,11 +61,9 @@ public class panelUI {
         card4 = new JButton(cardBack);
         card5 = new JButton(cardBack);
 
-        mainFrame.setLayout(new BorderLayout());
         messageScroll.setLayout(new ScrollPaneLayout());
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
-        mainFrame.setSize(1024, 576);
 
         mainFrame.add(messageScroll, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
@@ -80,7 +93,10 @@ public class panelUI {
         cardFrame.add(card5, 4);
 
         mainFrame.setVisible(true);
+        mainFrame.revalidate();
         cardWaiting = true;
+        startGame = 0;
+        System.out.println("end of create battle");
     }
 
     void setMessage(String inputMessage){
@@ -146,6 +162,8 @@ public class panelUI {
         cardWaiting = true;
     }
 
+    int canStartGame(){ return startGame; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand() == "card1"){
@@ -172,6 +190,12 @@ public class panelUI {
                 //setMessage("\nShield Bash: Enemy is STUNNED - 1 turn CD");
                 updateCardSelect(4);
                 cardWaiting = false;
+            }
+            else if(buttonPress.getActionCommand() == "Start Game!"){
+                System.out.println("here");
+                mainFrame.remove(startButton);
+                createBattleUI();
+                startGame = 1;
             }
             //setMessage("\n"+buttonPress.getActionCommand());
 
