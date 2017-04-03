@@ -13,8 +13,8 @@ public class client {
         AI enemyAI;
         int cardSelected, needBattle = 0;
 
-        userPlayer = new User("Aaron", 30, 3, 3);
-        enemyAI = new AI("Shrak", 30, 1, 2, 3);
+        userPlayer = new User("Aaron", 30, 3, 0);
+        enemyAI = new AI("Shrak", 30, 1, 0, 3);
 
         //Hand Setup
         userPlayer.hand.addCard(new Block());
