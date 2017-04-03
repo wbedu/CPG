@@ -9,7 +9,7 @@ package everything;
  */
 public abstract class Status {
 	protected int turns;
-	
+	Player user,enemy;
 	
 	protected Status(){
 		
