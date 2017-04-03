@@ -16,10 +16,10 @@ public class Block extends Card{
         }
     }
 
-    public  void incrementCooldown(Player p1){
-        if(tempCD != cooldown)
-            tempCD = tempCD++;
-        if(tempCD == cooldown)
+    public  void decrementCooldown(Player p1){
+        if(tempCD < 0)
+            tempCD -= 1;
+        if(tempCD == cooldown-1)
             p1.decreaseDefense(100);
     }
 }
