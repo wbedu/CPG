@@ -1,7 +1,7 @@
 package everything.cardPackage;
 
-import everything.Card;
-import everything.Player;
+import everything.*;
+import everything.statusPackage.BlockStatus;
 /**
  * Created by Steve on 3/10/2017.
  */
@@ -12,14 +12,13 @@ public class Block extends Card{
         System.out.println("HERE");
         if(checkCooldown()){
             p1.increaseDefense(100);
-            super.setCooldown();
+            p1.addStatus(new BlockStatus(p1));
+            setCooldown();
         }
     }
 
     public  void decrementCooldown(Player p1){
         if(tempCD < 0)
             tempCD -= 1;
-        if(tempCD == cooldown-1)
-            p1.decreaseDefense(100);
     }
 }
