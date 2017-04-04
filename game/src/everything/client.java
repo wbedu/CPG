@@ -48,7 +48,8 @@ public class client {
                  //   panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
                 //}
 
-                panelUIInst.setMessage("\n\nTurn number " + testBattle.getTurnNo());
+                panelUIInst.setMessage("\n\n----------------------------------------------------------------------");
+                panelUIInst.setMessage("\nTurn number " + testBattle.getTurnNo());
                 panelUIInst.setMessage("\nPlayer Health: " + userPlayer.getHealth());
                 panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
 
@@ -83,9 +84,9 @@ public class client {
                     //needBattle = 1;
                 }
                 panelUIInst.setCardWaitingTrue();
-            }
+            }//End of GameLoop
 
-            //End battle if statement here
+
         }
 
 

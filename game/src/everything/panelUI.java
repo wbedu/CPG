@@ -16,7 +16,7 @@ public class panelUI {
     private JButton card5;
     private JTextArea messageText;
     private JScrollPane messageScroll;
-    private ImageIcon cardBack;
+    private ImageIcon cardBack[];
     private int cardSelect;
     private boolean cardWaiting;
     private JButton startButton;
@@ -47,19 +47,27 @@ public class panelUI {
         startButton.addActionListener(new buttonListener());
         mainFrame.add(startButton);
         mainFrame.setVisible(true);
+        mainFrame.validate();
     }
 
     void createBattleUI(){
         System.out.println("create battle");
-        cardBack = new ImageIcon("images/Card_Placeholder.jpeg");
+
+        cardBack = new ImageIcon[5];
+        cardBack[0] = new ImageIcon("images/Block.jpg");
+        cardBack[1] = new ImageIcon("images/Cleave.jpg");
+        cardBack[2] = new ImageIcon("images/Mutton.jpg");
+        cardBack[3] = new ImageIcon("images/NordicBlood.jpg");
+        cardBack[4] = new ImageIcon("images/SavageStrike.jpg");
+
         messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         cardFrame = new JPanel();
-        card1 = new JButton(cardBack);
-        card2 = new JButton(cardBack);
-        card3 = new JButton(cardBack);
-        card4 = new JButton(cardBack);
-        card5 = new JButton(cardBack);
+        card1 = new JButton(cardBack[0]);
+        card2 = new JButton(cardBack[1]);
+        card3 = new JButton(cardBack[2]);
+        card4 = new JButton(cardBack[3]);
+        card5 = new JButton(cardBack[4]);
 
         messageScroll.setLayout(new ScrollPaneLayout());
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
@@ -143,7 +151,7 @@ public class panelUI {
     }
 
     void displayEnemyTurn(String message){
-        setMessage("\nEnemy Turn!!!\n"+message);
+        setMessage("\n\nEnemy Turn!!!\n"+message);
     }
 
     void updateCardSelect(int cardNum){
