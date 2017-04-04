@@ -44,6 +44,9 @@ public class Battle {
     			user.status.get(i).turns--;
     			
     			user.status.get(i).statusEffect();
+    			if(user.status.get(i).turns==0){
+    				user.status.remove(i);
+    			}
     	}
     	
     }

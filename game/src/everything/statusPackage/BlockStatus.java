@@ -7,11 +7,9 @@ public class BlockStatus extends Status{
 	public static final String text="Hold your shield up, negating all damage for the turn";
 
 	
-	public BlockStatus(Player newUser, Player newEnemy){
+	public BlockStatus(Player newUser){
 		user=newUser;
-		enemy=newEnemy;
 		turns =1;
-		
 	}
 	
 	@Override
