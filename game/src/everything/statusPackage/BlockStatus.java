@@ -16,6 +16,9 @@ public class BlockStatus extends Status{
 	
 	@Override
 	public void statusEffect(){
+		
+		if(turns==0){
 		user.decreaseDefense(100);
+		}
 	}
 }
