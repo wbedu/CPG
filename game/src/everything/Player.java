@@ -95,4 +95,8 @@ public abstract class Player {
         
         return living;
     }
+    
+    public void addStatus(Status newStatus){
+    	status.add(newStatus);
+    }
 }
