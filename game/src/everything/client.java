@@ -16,7 +16,6 @@ public class client {
 
 
         while (true) {
-            System.out.println("canStartGame: "+panelUIInst.canStartGame());
             if(panelUIInst.canStartGame()==1){
                 userPlayer = new User("Aaron", 30, 3, 0);
                 enemyAI = new AI("Shrak", 30, 1, 0, 3);
