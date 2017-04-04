@@ -11,7 +11,7 @@ public class client {
         Battle testBattle;
         User userPlayer;
         AI enemyAI;
-        int cardSelected, needBattle = 0;
+        int cardSelected;
 
 
 
