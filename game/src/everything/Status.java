@@ -9,15 +9,15 @@ package everything;
  */
 public abstract class Status {
 	protected int turns;
-	Player user,enemy;
+	protected Player user;
+	protected Player enemy;
 	
 	protected Status(){
 		
 	}
 	
-	
-	public void statusEffect(Player p1, Player p2){
-		
+
+	public void statusEffect() {
 	}
 	
 }
