@@ -22,14 +22,12 @@ public class Battle {
     }
     public void startTurn(int cardSelection) {
     	runUserEffects();
-        user.hand.decrementCooldown(user);
     	user.hand.useCard(cardSelection,user,enemy);
         enemyTurn();
     }
 
     public void enemyTurn(){
     	runEnemyStatus();
-        user.hand.decrementCooldown(enemy);
         enemy.setNextCard(user);
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;

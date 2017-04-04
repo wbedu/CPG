@@ -16,9 +16,4 @@ public class Block extends Card{
             setCooldown();
         }
     }
-
-    public  void decrementCooldown(Player p1){
-        if(tempCD < 0)
-            tempCD -= 1;
-    }
 }
