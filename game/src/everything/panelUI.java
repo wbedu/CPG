@@ -45,7 +45,9 @@ public class panelUI {
         startButton = new JButton();
         startButton.setText("Start Game!");
         startButton.addActionListener(new buttonListener());
-        mainFrame.add(startButton);
+        mainFrame.add(startButton,BorderLayout.NORTH);
+        startButton.setVisible(true);
+        startButton.validate();
         mainFrame.setVisible(true);
         mainFrame.validate();
     }
@@ -104,7 +106,7 @@ public class panelUI {
         mainFrame.revalidate();
         cardWaiting = true;
         startGame = 0;
-        System.out.println("end of create battle");
+        System.out.println("end of create battle "+canStartGame());
     }
 
     void setMessage(String inputMessage){
@@ -169,6 +171,8 @@ public class panelUI {
     public void setCardWaitingTrue(){
         cardWaiting = true;
     }
+
+    void setStartGame0(){ startGame = 0; }
 
     int canStartGame(){ return startGame; }
 

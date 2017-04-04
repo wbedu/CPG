@@ -13,78 +13,81 @@ public class client {
         AI enemyAI;
         int cardSelected, needBattle = 0;
 
-        userPlayer = new User("Aaron", 30, 3, 0);
-        enemyAI = new AI("Shrak", 30, 1, 0, 3);
-
-        //Hand Setup
-        userPlayer.hand.addCard(new Block());
-        userPlayer.hand.addCard(new Cleave());
-        userPlayer.hand.addCard(new Mutton());
-        userPlayer.hand.addCard(new NordicBlood());
-        userPlayer.hand.addCard(new SavageStrike());
-
-        enemyAI.hand.addCard(new Block());
-        enemyAI.hand.addCard(new Cleave());
-        enemyAI.hand.addCard(new Mutton());
-        enemyAI.hand.addCard(new NordicBlood());
-        enemyAI.hand.addCard(new SavageStrike());
 
 
         while (true) {
+            System.out.println("canStartGame: "+panelUIInst.canStartGame());
             if(panelUIInst.canStartGame()==1){
-                break;
+                userPlayer = new User("Aaron", 30, 3, 0);
+                enemyAI = new AI("Shrak", 30, 1, 0, 3);
+
+                //Hand Setup
+                userPlayer.hand.addCard(new Block());
+                userPlayer.hand.addCard(new Cleave());
+                userPlayer.hand.addCard(new Mutton());
+                userPlayer.hand.addCard(new NordicBlood());
+                userPlayer.hand.addCard(new SavageStrike());
+
+                enemyAI.hand.addCard(new Block());
+                enemyAI.hand.addCard(new Cleave());
+                enemyAI.hand.addCard(new Mutton());
+                enemyAI.hand.addCard(new NordicBlood());
+                enemyAI.hand.addCard(new SavageStrike());
+                testBattle = new Battle(userPlayer, enemyAI);
+                //First Battle
+                while (gameLoop) {
+                    //if (needBattle == 1) {
+                    //  needBattle = 0;
+                    //   panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
+                    //}
+
+                    panelUIInst.setMessage("\n\n----------------------------------------------------------------------");
+                    panelUIInst.setMessage("\nTurn number " + testBattle.getTurnNo());
+                    panelUIInst.setMessage("\nPlayer Health: " + userPlayer.getHealth());
+                    panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
+                    panelUIInst.setMessage("\nYour Turn. Choose a card to play.");
+
+                    while (true) {
+                        if (!panelUIInst.getCardWaiting()) {
+                            break;
+                        } else {
+                            Thread.sleep(100);
+                        }
+                        //System.out.println();
+                    }
+                    cardSelected = panelUIInst.getCardSelect();
+
+                    //DO BATTLE
+                    if (userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
+                        panelUIInst.displayPlayerTurn();
+                        testBattle.startTurn(cardSelected);
+                        panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
+                    } else {
+                        //print cooldown of card selected
+                        panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.hand.get(cardSelected).getCooldownTime() + " turns left");
+                    }
+
+                    if (testBattle.isOver()) {
+                        panelUIInst.setMessage("\n\nBattle is over!");
+                        if(testBattle.whoIsDead()==0){
+                            panelUIInst.setMessage("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
+                        } else {
+                            panelUIInst.setMessage("\n\nYOU HAVE WON!");
+                        }
+                        gameLoop = false;
+                        //needBattle = 1;
+                    }
+                    panelUIInst.setCardWaitingTrue();
+                }//End of GameLoop
+                gameLoop = true;
+                panelUIInst.setStartGame0();
+                panelUIInst.createStartUI();
+
             } else {
                 //System.out.println("wait for start game");
                 Thread.sleep(100);
             }
         }
-
-        testBattle = new Battle(userPlayer, enemyAI);
-
-            //First Battle
-            while (gameLoop) {
-                //if (needBattle == 1) {
-                  //  needBattle = 0;
-                 //   panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
-                //}
-
-                panelUIInst.setMessage("\n\n----------------------------------------------------------------------");
-                panelUIInst.setMessage("\nTurn number " + testBattle.getTurnNo());
-                panelUIInst.setMessage("\nPlayer Health: " + userPlayer.getHealth());
-                panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
-
-                while (true) {
-                    if (!panelUIInst.getCardWaiting()) {
-                        break;
-                    } else {
-                        Thread.sleep(100);
-                    }
-                    //System.out.println();
-                }
-                cardSelected = panelUIInst.getCardSelect();
-
-                //DO BATTLE
-                if (userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
-                    panelUIInst.displayPlayerTurn();
-                    testBattle.startTurn(cardSelected);
-                    panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
-                } else {
-                    //print cooldown of card selected
-                    panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.hand.get(cardSelected).getCooldownTime() + " turns left");
-                }
-
-                if (testBattle.isOver()) {
-                    panelUIInst.setMessage("\n\nBattle is over!");
-                    if(testBattle.whoIsDead()==0){
-                        panelUIInst.setMessage("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
-                    } else {
-                        panelUIInst.setMessage("\n\nYOU HAVE WON!");
-                    }
-                    gameLoop = false;
-                    //needBattle = 1;
-                }
-                panelUIInst.setCardWaitingTrue();
-            }//End of GameLoop
 
 
         }
