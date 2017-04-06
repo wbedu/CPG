@@ -30,7 +30,7 @@ public abstract class Player {
     }
 
     //decreases health but does not change any other stats
-    protected void decreaseHealth(int decreaseFactor){
+    public void decreaseHealth(int decreaseFactor){
         health-=decreaseFactor;
     }
     //increase health but does not  change any other conditions

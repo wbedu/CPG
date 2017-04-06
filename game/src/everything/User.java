@@ -1,6 +1,6 @@
 package everything;
 
-public class User extends Player{
+public class  User extends Player{
 
 	public User(){
 		
