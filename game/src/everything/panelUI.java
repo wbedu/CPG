@@ -21,7 +21,8 @@ public class panelUI {
     private boolean cardWaiting;
     private JButton startButton;    //checks when to start battle
     private int startGame;
-    private JPanel roamGrid;
+    private JPanel roamPane;
+    private JPanel [][] roamGrid;
 
     public panelUI() {
         startGame = 0;
@@ -43,12 +44,17 @@ public class panelUI {
     }
 
     void createStartUI(){
-        startButton = new JButton();
-        startButton.setText("Start Game!");
-        startButton.addActionListener(new buttonListener());
-        mainFrame.add(startButton,BorderLayout.NORTH);
-        startButton.setVisible(true);
-        startButton.validate();
+        roamGrid = new JPanel[8][20];
+        roamPane = new JPanel();
+        roamPane.setLayout(new GridLayout(8,20));
+        for(int x=0;x<8;x++){
+            for(int y=0;y<20;y++){
+                roamGrid[x][y] = new JPanel();
+                roamPane.add(roamGrid[x][y],x,y);
+            }
+        }
+        roamGrid[0][0].setBackground(Color.RED);
+        mainFrame.add(roamPane);
         mainFrame.setVisible(true);
         mainFrame.validate();
     }
@@ -204,7 +210,7 @@ public class panelUI {
                 updateCardSelect(4);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "Start Game!"){
+            else if(buttonPress.getActionCommand() == "Start Game!"){   //START BATTLE HERE
                 System.out.println("here");
                 mainFrame.remove(startButton);
                 createBattleUI();
