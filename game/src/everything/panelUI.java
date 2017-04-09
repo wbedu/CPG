@@ -19,8 +19,9 @@ public class panelUI {
     private ImageIcon cardBack[];
     private int cardSelect;
     private boolean cardWaiting;
-    private JButton startButton;
+    private JButton startButton;    //checks when to start battle
     private int startGame;
+    private JPanel roamGrid;
 
     public panelUI() {
         startGame = 0;

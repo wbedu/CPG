@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: /Users/Aaron/IdeaProjects/CPG/game/src/
+Main-Class: everything.client
+
