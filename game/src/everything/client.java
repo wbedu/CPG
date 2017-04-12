@@ -60,6 +60,7 @@ public class client {
                     if (userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
                         panelUIInst.displayPlayerTurn();
                         testBattle.startTurn(cardSelected);
+                        panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
                         panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
                     } else {
                         //print cooldown of card selected
