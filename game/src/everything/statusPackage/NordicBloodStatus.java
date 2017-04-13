@@ -9,7 +9,7 @@ public class NordicBloodStatus extends Status{
 
 	@Override
 	public void statusEffect(){
-		
+		turns--;
 		if(turns==0){
 		user.decreaseDefense(3);
 		}

@@ -1,5 +1,5 @@
 package everything;
-
+import everything.statusPackage.*;
 import java.util.ArrayList;
 
 public abstract class Player {
@@ -8,7 +8,8 @@ public abstract class Player {
     protected int health;
     protected int defensePoints;
     protected String name;
-    protected ArrayList<Status> status;
+    protected StatusManager statusManager;
+    //protected ArrayList<Status> status;
     public Hand hand;
 
  
@@ -23,7 +24,8 @@ public abstract class Player {
         this.defensePoints=defensePoints;
         living=true;
         hand=new Hand();
-        status=new ArrayList<Status>();
+        //status=new ArrayList<Status>();
+        statusManager = new StatusManager();
         level=0;
     }
 
@@ -58,6 +60,7 @@ public abstract class Player {
         lifeCheck();
     }
 
+
     //returns defense points
     public int getDefense(){
         return defensePoints;
@@ -90,6 +93,10 @@ public abstract class Player {
     }
     
     public void addStatus(Status newStatus){
-    	status.add(newStatus);
+    	statusManager.addStatus(newStatus,this);
+    }
+    
+    public void runStatus(){
+    	statusManager.runStatus();
     }
 }
