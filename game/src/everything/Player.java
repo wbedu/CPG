@@ -8,7 +8,7 @@ public abstract class Player {
     protected int health;
     protected int defensePoints;
     protected String name;
-    protected StatusManager statusManager;
+    public StatusManager statusManager;
     //protected ArrayList<Status> status;
     public Hand hand;
 
