@@ -1,7 +1,6 @@
 package everything;
 
-import java.util.ArrayList;
-
+import everything.AI.*;
 
 /**
  * Created by Steve on 3/5/2017.

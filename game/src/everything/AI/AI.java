@@ -1,7 +1,7 @@
-package everything;
+package everything.AI;
 
 import everything.cardPackage.*;
-
+import everything.*;
 
 public class AI extends Player{
 	
@@ -13,7 +13,7 @@ public class AI extends Player{
 	
 	}
 
-	protected AI(String name,int health,int defense){
+	public AI(String name,int health,int defense){
 		super(name,health,defense);
 	}
 	
@@ -24,7 +24,7 @@ public class AI extends Player{
 	   return (int)(Math.random() * range) + min;
 	}
 	
-	void setNextCard(Player user){
+	public void setNextCard(Player user){
 		
 		boolean moveset=false;
 			nextCard =randomWithRange(0,4);
