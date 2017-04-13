@@ -14,7 +14,6 @@ public class AI extends Player{
 
 	protected AI(String name,int health,int defense){
 		super(name,health,defense);
-		
 	}
 	
 	
