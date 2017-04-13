@@ -9,7 +9,7 @@ import everything.*;
  *
  */
 public abstract class Status {
-	protected int turns;
+	public int turns;
 	protected Player user;
 	protected Player enemy;
 	
