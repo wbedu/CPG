@@ -61,15 +61,21 @@ public class Hand{
     	System.out.println("in useCard");
     	hand.get(cardIndex).cardFunction(p1, p2);	
     	decrementCooldown(p1);
-    	
     	lastCardText=hand.get(cardIndex).getText();
-    	
     }
     
     public void decrementCooldown(Player p1){
     	for(int i=0;i<hand.size();i++){
     		hand.get(i).decrementCooldown(p1);
     	}
+    }
+    
+    public boolean checkCooldown(int cardIndex){
+    	return hand.get(cardIndex).checkCooldown();
+    }
+    
+    public int getCoolDownTime(int cardIndex){
+    	return hand.get(cardIndex).getCooldownTime();
     }
     
     public String getLastCardText(){

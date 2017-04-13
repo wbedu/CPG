@@ -57,14 +57,14 @@ public class client {
                     cardSelected = panelUIInst.getCardSelect();
 
                     //DO BATTLE
-                    if (userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
+                    if (userPlayer.hand.checkCooldown(cardSelected)) {
                         panelUIInst.displayPlayerTurn();
                         testBattle.startTurn(cardSelected);
                         panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
                         panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
                     } else {
                         //print cooldown of card selected
-                        panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.hand.get(cardSelected).getCooldownTime() + " turns left");
+                        panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.getCoolDownTime(cardSelected) + " turns left");
                     }
 
                     if (testBattle.isOver()) {
