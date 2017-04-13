@@ -18,7 +18,7 @@ public class client {
         while (true) {
             if(panelUIInst.canStartGame()==1){
                 userPlayer = new User("Aaron", 30, 0);
-                enemyAI = new AI("Shrak", 30, 1);
+                enemyAI = new AI("Shrak", 30, 1,userPlayer);
 
                 //Hand Setup
                 userPlayer.hand.addCard(new Block());

@@ -27,7 +27,7 @@ public class Battle {
 
     public void enemyTurn(){
     	enemy.runStatus();
-        enemy.setNextCard(user);
+        enemy.setNextCard();
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;
     }
