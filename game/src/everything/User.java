@@ -7,8 +7,8 @@ public class  User extends Player{
 		
 	}
 	
-	public User(String newName,int newHealth,int newAttackPoint,int newDefensePoints){
-		super(newName,newHealth,newAttackPoint,newDefensePoints);
+	public User(String newName,int newHealth,int newDefensePoints){
+		super(newName,newHealth,newDefensePoints);
 	}
 	
   	
