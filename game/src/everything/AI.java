@@ -1,5 +1,6 @@
 package everything;
 
+import everything.cardPackage.*;
 
 
 public class AI extends Player{
@@ -26,38 +27,10 @@ public class AI extends Player{
 	void setNextCard(Player user){
 		
 		boolean moveset=false;
-		//if(isHealthy()){
-			//TODO
-			//check if heal card available
-			//set next card to heal
-			//check if escape card available
-			//set next to to escape
 			nextCard =randomWithRange(0,4);
 			
 			moveset=true;
-	//	}
-		
-		/*if((moveset==false)&&(user.defensePoints>this.attackPoints)){
-			//TODO
-			//check if buff card available;
-			//if buff card available set next to attack
-			
-			nextCard=3;
-			
-			moveset=true;
-		}
-		
-		if(moveset==false){
-			
-			//attempt to roll for special card
-			//set next cart to special card
-			//else
-			//set next card to random attack
-			
-			nextCard=4;
-			moveset=true;
-		}
-		*/
+
 	}
 	
 	public int getNextCard(){
@@ -80,10 +53,5 @@ public class AI extends Player{
 	protected Card getDropCard(){
 		
 		return cardToDrop;
-	}
-	
-	private void useCard(){
-		
-	}
-	
+	}	
 }
