@@ -1,4 +1,5 @@
-package everything;
+package everything.cardPackage;
+import everything.*;
 
 /**
  * Created by Steve on 3/5/2017.

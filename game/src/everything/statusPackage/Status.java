@@ -1,7 +1,8 @@
 /**
  * 
  */
-package everything;
+package everything.statusPackage;
+import everything.*;
 
 /**
  * @author cbedu
