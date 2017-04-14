@@ -1,7 +1,6 @@
 package everything;
 
-import java.util.ArrayList;
-
+import everything.AI.*;
 
 /**
  * Created by Steve on 3/5/2017.
@@ -21,14 +20,14 @@ public class Battle {
         turnNo = 1;
     }
     public void startTurn(int cardSelection) {
-    	runUserEffects();
+    	user.runStatus();
     	user.hand.useCard(cardSelection,user,enemy);
         enemyTurn();
     }
 
     public void enemyTurn(){
-    	runEnemyStatus();
-        enemy.setNextCard(user);
+    	enemy.runStatus();
+        enemy.setNextCard();
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;
     }
@@ -37,25 +36,6 @@ public class Battle {
         return turnNo;
     }
     
-    public void runUserEffects(){
-    	for(int i=0;i<user.status.size();i++){
-    			user.status.get(i).turns--;
-    			
-    			user.status.get(i).statusEffect();
-    			if(user.status.get(i).turns==0){
-    				user.status.remove(i);
-    			}
-    	}
-    	
-    }
-    
-    public void runEnemyStatus(){
-    	for(int i=0;i<enemy.status.size();i++){
-			enemy.status.get(i).turns--;
-			
-			enemy.status.get(i).statusEffect();
-    	}
-    }
 
     //checks if a battle is on going/
     public boolean isOver(){
@@ -75,4 +55,5 @@ public class Battle {
     		return 1;
     	}
     }
+    
 }

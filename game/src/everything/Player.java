@@ -1,15 +1,15 @@
 package everything;
-
+import everything.statusPackage.*;
 import java.util.ArrayList;
 
 public abstract class Player {
 	protected int level;
     protected boolean living;
     protected int health;
-    protected int attackPoints;
     protected int defensePoints;
     protected String name;
-    protected ArrayList<Status> status;
+    public StatusManager statusManager;
+    //protected ArrayList<Status> status;
     public Hand hand;
 
  
@@ -18,14 +18,14 @@ public abstract class Player {
     }
 
 
-    public Player(String newName,int newHealth,int newAttackPoint,int newdefensePoints){
-        name=newName;
-        health=newHealth;
-        attackPoints=newAttackPoint;
-        defensePoints=newdefensePoints;
+    public Player(String name,int health,int defensePoints){
+        this.name=name;
+        this.health=health;
+        this.defensePoints=defensePoints;
         living=true;
         hand=new Hand();
-        status=new ArrayList<Status>();
+        //status=new ArrayList<Status>();
+        statusManager = new StatusManager();
         level=0;
     }
 
@@ -60,10 +60,6 @@ public abstract class Player {
         lifeCheck();
     }
 
-    //returns attack points
-    public int getAttack(){
-        return attackPoints;
-    }
 
     //returns defense points
     public int getDefense(){
@@ -77,7 +73,7 @@ public abstract class Player {
 
     //prints players stats
     public void printStats(){
-        System.out.println("ID: "+name+" HP: "+health+" ATK: "+attackPoints+" DEF: "+defensePoints);
+        System.out.println("ID: "+name+" HP: "+health+" DEF: "+defensePoints);
     }
     
     
@@ -97,6 +93,10 @@ public abstract class Player {
     }
     
     public void addStatus(Status newStatus){
-    	status.add(newStatus);
+    	statusManager.addStatus(newStatus,this);
+    }
+    
+    public void runStatus(){
+    	statusManager.runStatus();
     }
 }

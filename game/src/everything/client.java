@@ -1,6 +1,6 @@
 package everything;
 import everything.cardPackage.*;
-
+import everything.AI.*;
 /**
  * Created by Aaron on 3/4/17.
  */
@@ -17,8 +17,8 @@ public class client {
 
         while (true) {
             if(panelUIInst.canStartGame()==1){
-                userPlayer = new User("Aaron", 30, 3, 0);
-                enemyAI = new AI("Shrak", 30, 1, 0, 3);
+                userPlayer = new User("Aaron", 30, 0);
+                enemyAI = new AI("Shrak", 30, 1,userPlayer);
 
                 //Hand Setup
                 userPlayer.hand.addCard(new Block());
@@ -57,14 +57,14 @@ public class client {
                     cardSelected = panelUIInst.getCardSelect();
 
                     //DO BATTLE
-                    if (userPlayer.hand.hand.get(cardSelected).checkCooldown()) {
+                    if (userPlayer.hand.checkCooldown(cardSelected)) {
                         panelUIInst.displayPlayerTurn();
                         testBattle.startTurn(cardSelected);
                         panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
                         panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
                     } else {
                         //print cooldown of card selected
-                        panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.hand.get(cardSelected).getCooldownTime() + " turns left");
+                        panelUIInst.setMessage("\nCard still on COOL DOWN: " + userPlayer.hand.getCoolDownTime(cardSelected) + " turns left");
                     }
 
                     if (testBattle.isOver()) {

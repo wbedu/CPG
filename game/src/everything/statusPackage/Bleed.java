@@ -13,6 +13,7 @@ public class Bleed extends Status{
 
     @Override
     public void statusEffect() {
+    	turns--;
         user.decreaseHealth(1);
     }
 }

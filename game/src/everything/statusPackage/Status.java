@@ -1,14 +1,15 @@
 /**
  * 
  */
-package everything;
+package everything.statusPackage;
+import everything.*;
 
 /**
  * @author cbedu
  *
  */
 public abstract class Status {
-	protected int turns;
+	public int turns;
 	protected Player user;
 	protected Player enemy;
 	
