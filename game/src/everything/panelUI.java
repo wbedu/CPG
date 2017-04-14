@@ -19,18 +19,19 @@ public class panelUI {
     private ImageIcon cardBack[];
     private int cardSelect;
     private boolean cardWaiting;
-    private JButton startButton;    //checks when to start battle
+    private JButton bossButton;    //checks when to start boss battle
+    private JButton shopButton;
+    private JButton battleButton;
     private int startGame;
-    private JPanel roamPane;
-    private JPanel [][] roamGrid;
+    private JPanel roamGrid;
 
     public panelUI() {
         startGame = 0;
         mainFrame = new JFrame("CPG");
+        mainFrame.setResizable(false);
         mainFrame.setPreferredSize(new Dimension(1024,600));
         mainFrame.setSize(1024,600);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setLayout(new BorderLayout());
 
         //Checks when window is closed and exits java
         mainFrame.addWindowListener(new WindowAdapter() {
@@ -44,23 +45,50 @@ public class panelUI {
     }
 
     void createStartUI(){
-        roamGrid = new JPanel[8][20];
-        roamPane = new JPanel();
-        roamPane.setLayout(new GridLayout(8,20));
-        for(int x=0;x<8;x++){
-            for(int y=0;y<20;y++){
-                roamGrid[x][y] = new JPanel();
-                roamPane.add(roamGrid[x][y],x,y);
-            }
-        }
-        roamGrid[0][0].setBackground(Color.RED);
-        mainFrame.add(roamPane);
+        mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
+        bossButton = new JButton();
+        shopButton = new JButton();
+        battleButton = new JButton();
+        bossButton.setText("Boss Battle");
+        shopButton.setText("Shop");
+        battleButton.setText("Battle");
+        bossButton.addActionListener(new buttonListener());
+        shopButton.addActionListener(new buttonListener());
+        battleButton.addActionListener(new buttonListener());
+
+        mainFrame.add(bossButton);
+        mainFrame.add(shopButton);
+        mainFrame.add(battleButton);
+
+        bossButton.setVisible(true);
+        shopButton.setVisible(true);
+        battleButton.setVisible(true);
+        bossButton.validate();
+        shopButton.validate();
+        battleButton.validate();
         mainFrame.setVisible(true);
-        mainFrame.validate();
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void startTearDown(){
+        mainFrame.remove(battleButton);
+        mainFrame.remove(shopButton);
+        mainFrame.remove(bossButton);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void battleTearDown(){
+        mainFrame.remove(messageScroll);
+        mainFrame.remove(cardFrame);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
     void createBattleUI(){
         System.out.println("create battle");
+        mainFrame.setLayout(new BorderLayout());
 
         cardBack = new ImageIcon[5];
         cardBack[0] = new ImageIcon("images/Block.jpg");
@@ -119,30 +147,7 @@ public class panelUI {
     void setMessage(String inputMessage){
         messageText.append(inputMessage);
         messageText.setCaretPosition(messageText.getDocument().getLength());
-    }
-
-    void prepBattle(Player user){
-        System.out.println("Battle UI has been prepared");
-    }
-
-    void prepRoam(){
-        System.out.println("Roam UI has been prepared");
-    }
-
-    void displayWin(){
-        System.out.println("Win Popout panel has been displayed");
-    }
-
-    void disableCardFrame(){
-        System.out.println("Card buttons have been disabled");
-    }
-
-    void enableCardFrame(){
-        System.out.println("Card buttons have been enabled");
-    }
-
-    void displayTurn(){
-        System.out.println("User has been prompted it is his/her turn");
+        mainFrame.revalidate();
     }
 
     void displayPlayerTurn(){
@@ -210,9 +215,14 @@ public class panelUI {
                 updateCardSelect(4);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "Start Game!"){   //START BATTLE HERE
-                System.out.println("here");
-                mainFrame.remove(startButton);
+            else if(buttonPress.getActionCommand() == "Boss Battle"){
+
+            }
+            else if(buttonPress.getActionCommand() == "Shop"){
+
+            }
+            else if(buttonPress.getActionCommand() == "Battle"){
+                startTearDown();
                 createBattleUI();
                 startGame = 1;
             }

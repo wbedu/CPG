@@ -81,6 +81,7 @@ public class client {
                 }//End of GameLoop
                 gameLoop = true;
                 panelUIInst.setStartGame0();
+                panelUIInst.battleTearDown();
                 panelUIInst.createStartUI();
 
             } else {
@@ -88,9 +89,7 @@ public class client {
                 Thread.sleep(100);
             }
         }
-
-
-        }
+    }
 
 
     public void deckSetup(User p1, AI e1){
