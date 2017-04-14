@@ -7,7 +7,9 @@ import everything.Player;
  */
 public class SavageStrike extends Card {
     public SavageStrike(){
-        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3); tempCD = 0;}
+        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3,8);
+        	tempCD = 0;
+        }
 
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){

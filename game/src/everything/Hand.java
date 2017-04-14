@@ -64,6 +64,28 @@ public class Hand{
     	lastCardText=hand.get(cardIndex).getText();
     }
     
+    public int getUtilityCards(){
+    	for(int i=0;i<hand.size();i++){
+    		if(hand.get(i).getCardType().equals("utility")){
+    			return i;
+    		}
+    	}
+    	return -1;
+    }
+    
+    public int getMostAdvantage(){
+    	int mostAdv =-1;
+    	int ret = 0;
+    	for(int i=0;i<hand.size();i++){
+    		if(hand.get(i).getAdvantage()>ret){
+    			mostAdv =hand.get(i).getAdvantage();
+    			ret=i;
+    		}
+    	}
+    	
+    	return ret;
+    }
+    
     public void decrementCooldown(Player p1){
     	for(int i=0;i<hand.size();i++){
     		hand.get(i).decrementCooldown(p1);
