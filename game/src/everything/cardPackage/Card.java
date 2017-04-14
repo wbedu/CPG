@@ -12,16 +12,20 @@ public abstract class Card {
     protected String cardType;
     protected int tempCD;
     protected int cooldown;
+    private int advantage;
 
-
-    public Card(String cardText, String cName, String cType, int cd){
+    public Card(String cardText, String cName, String cType, int cd,int advantage){
         text = cardText;
         name = cName;
         cardType = cType;
         cooldown = cd;
         tempCD = 0;
+        this.advantage=advantage;
     }
 
+    public int getAdvantage(){
+    	return this.advantage;
+    }
     public void setCooldown(){
         tempCD = cooldown;
     }
@@ -48,7 +52,9 @@ public abstract class Card {
     public int getCooldownTime(){
         return (tempCD);
     }
-
+    public String getCardType(){
+    	return cardType;
+    }
     public boolean compareType(Card c1)
     {
         return this.cardType.equals(c1.cardType);

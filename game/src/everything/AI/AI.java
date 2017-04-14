@@ -8,13 +8,14 @@ public class AI extends Player{
 	protected int healthThreshold;
 	protected int nextCard;
 	protected Card cardToDrop;
-	
+	Player enemy;
 	protected AI(){
 	
 	}
 
-	public AI(String name,int health,int defense){
+	public AI(String name,int health,int defense, Player enemy){
 		super(name,health,defense);
+		this.enemy= enemy;
 	}
 	
 	
@@ -24,12 +25,22 @@ public class AI extends Player{
 	   return (int)(Math.random() * range) + min;
 	}
 	
-	public void setNextCard(Player user){
+	public void setNextCard(){
 		
-		boolean moveset=false;
-			nextCard =randomWithRange(0,4);
+		boolean moveset=false;			
+			if(enemy.getHealth()>this.getHealth()){
+				nextCard=this.hand.getUtilityCards();
+				if(nextCard>0){
+					moveset=true;
+				}else{
+					nextCard=this.hand.getMostAdvantage();
+					moveset=true;
+				}
+			}else{
+				nextCard =randomWithRange(0,4);
+			}
 			
-			moveset=true;
+		
 
 	}
 	
