@@ -2,6 +2,8 @@ package everything.cardPackage;
 
 import everything.*;
 import everything.statusPackage.BlockStatus;
+import everything.statusPackage.DefenseUp;
+
 /**
  * Created by Steve on 3/10/2017.
  */
@@ -15,7 +17,7 @@ public class Block extends Card{
         System.out.println("HERE");
         if(checkCooldown()){
             p1.increaseDefense(100);
-            p1.addStatus(new BlockStatus(p1));
+            p1.addStatus(new DefenseUp(p1, 1, 100));
             setCooldown();
         }
     }
