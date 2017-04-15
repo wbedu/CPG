@@ -22,7 +22,7 @@ public abstract class Card {
         cooldown = cd;
         tempCD = 0;
         this.advantage=advantage;
-        setImagePath("image/".concat(this.getClass().getSimpleName()).concat(".jpg"));
+        setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));
     }
     public int getAdvantage(){
     	return this.advantage;
