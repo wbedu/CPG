@@ -13,8 +13,6 @@ public class client {
         AI enemyAI;
         int cardSelected;
 
-
-
         while (true) {
             if(panelUIInst.canStartGame()==1){
                 userPlayer = new User("Aaron", 30, 0);
@@ -33,7 +31,7 @@ public class client {
                 enemyAI.hand.addCard(new NordicBlood());
                 enemyAI.hand.addCard(new SavageStrike());
                 testBattle = new Battle(userPlayer, enemyAI);
-                //First Battle
+                //Battle
                 while (gameLoop) {
                     //if (needBattle == 1) {
                     //  needBattle = 0;
@@ -80,17 +78,23 @@ public class client {
                     panelUIInst.setCardWaitingTrue();
                 }//End of GameLoop
                 gameLoop = true;
-                panelUIInst.setStartGame0();
-                panelUIInst.battleTearDown();
+                panelUIInst.tearDown();
                 panelUIInst.createStartUI();
 
+            } else if(panelUIInst.canShop()==1){
+                while (true) {
+                    if (panelUIInst.getExitFlag()==1) {
+                        break;
+                    } else {
+                        Thread.sleep(100);
+                    }
+                }
             } else {
                 //System.out.println("wait for start game");
                 Thread.sleep(100);
             }
         }
     }
-
 
     public void deckSetup(User p1, AI e1){
 

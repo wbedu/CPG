@@ -23,11 +23,16 @@ public class panelUI {
     private JButton bossButton;    //checks when to start boss battle
     private JButton shopButton;
     private JButton battleButton;
+    private JButton exitButton;
     private int startGame;
+    private int shopFlag;
+    private int exitFlag;
     private JPanel roamGrid;
 
     public panelUI() {
         startGame = 0;
+        shopFlag = 0;
+        exitFlag = 0;
         mainFrame = new JFrame("CPG");
         mainFrame.setResizable(false);
         mainFrame.setPreferredSize(new Dimension(1024,600));
@@ -46,6 +51,7 @@ public class panelUI {
     }
 
     void createStartUI(){
+        exitFlag = 0;
         mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
         bossButton = new JButton();
         shopButton = new JButton();
@@ -73,11 +79,33 @@ public class panelUI {
     }
 
     void createShopUI(){
+        exitFlag = 0;
         mainFrame.setLayout(new BorderLayout());
         cardScroll = new JScrollPane();
+        cardFrame = new JPanel();
+        exitButton = new JButton();
+
+        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setPreferredSize(new Dimension(1024, 200));
+        exitButton.addActionListener(new ButtonListener());
+
+        cardFrame.add(card1, 0);
+        cardFrame.add(card2, 1);
+        cardFrame.add(card3, 2);
+        cardFrame.add(card4, 3);
+        cardFrame.add(card5, 4);
+
+        mainFrame.add(cardFrame, BorderLayout.SOUTH);
+        mainFrame.add(cardScroll, BorderLayout.CENTER);
+        mainFrame.add(exitButton,BorderLayout.NORTH);
+        mainFrame.setVisible(true);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+        shopFlag = 0;
     }
 
     void createBattleUI(){
+        exitFlag = 0;
         System.out.println("create battle");
         mainFrame.setLayout(new BorderLayout());
 
@@ -100,26 +128,14 @@ public class panelUI {
 
         mainFrame.setVisible(true);
         mainFrame.revalidate();
+        mainFrame.repaint();
         cardWaiting = true;
         startGame = 0;
         System.out.println("end of create battle "+canStartGame());
     }
 
-    void shopTearDown(){
-
-    }
-
-    void startTearDown(){
-        mainFrame.remove(battleButton);
-        mainFrame.remove(shopButton);
-        mainFrame.remove(bossButton);
-        mainFrame.revalidate();
-        mainFrame.repaint();
-    }
-
-    void battleTearDown(){
-        mainFrame.remove(messageScroll);
-        mainFrame.remove(cardFrame);
+    void tearDown(){
+        mainFrame.removeAll();
         mainFrame.revalidate();
         mainFrame.repaint();
     }
@@ -199,9 +215,11 @@ public class panelUI {
         cardWaiting = true;
     }
 
-    void setStartGame0(){ startGame = 0; }
-
     int canStartGame(){ return startGame; }
+
+    int canShop(){ return shopFlag; }
+
+    int getExitFlag(){ return exitFlag; }
 
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
@@ -234,15 +252,21 @@ public class panelUI {
 
             }
             else if(buttonPress.getActionCommand() == "Shop"){
-
+                tearDown();
+                createShopUI();
+                shopFlag = 1;
             }
             else if(buttonPress.getActionCommand() == "Battle"){
-                startTearDown();
+                tearDown();
                 createBattleUI();
                 startGame = 1;
             }
+            else if(buttonPress.getActionCommand() == "Exit"){
+                exitFlag = 1;
+                tearDown();
+                createStartUI();
+            }
             //setMessage("\n"+buttonPress.getActionCommand());
-
         }
     }
 }
