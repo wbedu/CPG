@@ -113,6 +113,7 @@ public class Hand{
     	}
     	while(i<maxCards){
     		ret[i]=null;
+    		i++;
     	}
     	return ret;
     }
