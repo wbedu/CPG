@@ -18,16 +18,20 @@ public class panelUI {
     private JScrollPane messageScroll;
     private JScrollPane cardScroll;
     private ImageIcon cardBack[];
+    private ImageIcon cardDisplay;
     private int cardSelect;
     private boolean cardWaiting;
     private JButton bossButton;    //checks when to start boss battle
     private JButton shopButton;
     private JButton battleButton;
     private JButton exitButton;
+    private JButton buyButton;
+    private JButton swapButton;
     private int startGame;
     private int shopFlag;
     private int exitFlag;
     private JPanel roamGrid;
+    private JPanel cardDisplayPanel;
 
     public panelUI() {
         startGame = 0;
@@ -81,10 +85,13 @@ public class panelUI {
         cardScroll = new JScrollPane();
         cardFrame = new JPanel();
         exitButton = new JButton();
+        cardDisplayPanel = new JPanel();
 
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
+        cardScroll.setPreferredSize(new Dimension(400,400));
+        //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
 
         cardOverhead();
@@ -95,9 +102,10 @@ public class panelUI {
         cardFrame.add(card4, 3);
         cardFrame.add(card5, 4);
 
+        mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
-        mainFrame.add(cardScroll, BorderLayout.CENTER);
-        mainFrame.add(exitButton,BorderLayout.NORTH);
+        mainFrame.add(cardScroll, BorderLayout.WEST);
+        mainFrame.add(exitButton, BorderLayout.NORTH);
         mainFrame.setVisible(true);
         mainFrame.revalidate();
         mainFrame.repaint();
@@ -174,6 +182,9 @@ public class panelUI {
         mainFrame.remove(cardScroll);
         mainFrame.remove(cardFrame);
         mainFrame.remove(exitButton);
+        mainFrame.remove(cardDisplayPanel);
+        mainFrame.remove(buyButton);
+        mainFrame.remove(swapButton);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
