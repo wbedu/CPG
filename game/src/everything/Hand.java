@@ -103,4 +103,17 @@ public class Hand{
     public String getLastCardText(){
     	return lastCardText;
     }
+    
+    public String[] getImagePaths(){
+    	String[] ret = new String[maxCards];
+    	int i=0;
+    	while(i<hand.size()){
+    		ret[i]=hand.get(i).getImagePath();
+    		i++;
+    	}
+    	while(i<maxCards){
+    		ret[i]=null;
+    	}
+    	return ret;
+    }
 }
