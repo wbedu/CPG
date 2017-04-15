@@ -32,6 +32,7 @@ public class client {
                 enemyAI.hand.addCard(new NordicBlood());
                 enemyAI.hand.addCard(new SavageStrike());
                 testBattle = new Battle(userPlayer, enemyAI);
+                panelUIInst.setCardWaitingTrue();
 
                 //Battle
                 while (gameLoop) {

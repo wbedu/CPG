@@ -70,9 +70,6 @@ public class panelUI {
         bossButton.setVisible(true);
         shopButton.setVisible(true);
         battleButton.setVisible(true);
-        bossButton.validate();
-        shopButton.validate();
-        battleButton.validate();
         mainFrame.setVisible(true);
         mainFrame.revalidate();
         mainFrame.repaint();
@@ -85,10 +82,10 @@ public class panelUI {
         cardFrame = new JPanel();
         exitButton = new JButton();
 
+        exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
-        exitButton.addActionListener(new ButtonListener());
-        exitButton.setText("Exit");
+        exitButton.addActionListener(new buttonListener());
 
         cardOverhead();
 
@@ -292,6 +289,7 @@ public class panelUI {
                 exitFlag = 1;
                 shopTearDown();
                 createStartUI();
+                System.out.println("exited exit");
             }
             //setMessage("\n"+buttonPress.getActionCommand());
         }
