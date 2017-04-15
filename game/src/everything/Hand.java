@@ -112,7 +112,7 @@ public class Hand{
     		i++;
     	}
     	while(i<maxCards){
-    		ret[i]=null;
+    		ret[i]="images/Card_Placeholder.jpeg";
     		i++;
     	}
     	return ret;

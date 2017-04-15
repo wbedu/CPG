@@ -10,7 +10,7 @@ public abstract class Card {
     protected String text;
     protected String name;
     protected String cardType;
-    private static  String imagePath;
+    private   String imagePath;
     protected int tempCD;
     protected int cooldown;
     private int advantage;
@@ -34,7 +34,7 @@ public abstract class Card {
     /**
 	 * @return the imagePath
 	 */
-	public static String getImagePath() {
+	public String getImagePath() {
 		return imagePath;
 	}
 
