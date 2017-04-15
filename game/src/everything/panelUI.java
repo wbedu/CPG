@@ -16,6 +16,7 @@ public class panelUI {
     private JButton card5;
     private JTextArea messageText;
     private JScrollPane messageScroll;
+    private JScrollPane cardScroll;
     private ImageIcon cardBack[];
     private int cardSelect;
     private boolean cardWaiting;
@@ -71,6 +72,43 @@ public class panelUI {
         mainFrame.repaint();
     }
 
+    void createShopUI(){
+        mainFrame.setLayout(new BorderLayout());
+        cardScroll = new JScrollPane();
+    }
+
+    void createBattleUI(){
+        System.out.println("create battle");
+        mainFrame.setLayout(new BorderLayout());
+
+        messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
+        messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        cardFrame = new JPanel();
+
+        messageScroll.setLayout(new ScrollPaneLayout());
+        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setPreferredSize(new Dimension(1024, 200));
+
+        mainFrame.add(messageScroll, BorderLayout.CENTER);
+        mainFrame.add(cardFrame, BorderLayout.SOUTH);
+
+        cardFrame.add(card1, 0);
+        cardFrame.add(card2, 1);
+        cardFrame.add(card3, 2);
+        cardFrame.add(card4, 3);
+        cardFrame.add(card5, 4);
+
+        mainFrame.setVisible(true);
+        mainFrame.revalidate();
+        cardWaiting = true;
+        startGame = 0;
+        System.out.println("end of create battle "+canStartGame());
+    }
+
+    void shopTearDown(){
+
+    }
+
     void startTearDown(){
         mainFrame.remove(battleButton);
         mainFrame.remove(shopButton);
@@ -86,33 +124,22 @@ public class panelUI {
         mainFrame.repaint();
     }
 
-    void createBattleUI(){
-        System.out.println("create battle");
-        mainFrame.setLayout(new BorderLayout());
-
+    void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
         cardBack = new ImageIcon[5];
-        cardBack[0] = new ImageIcon("images/Block.jpg");
-        cardBack[1] = new ImageIcon("images/Cleave.jpg");
-        cardBack[2] = new ImageIcon("images/Mutton.jpg");
-        cardBack[3] = new ImageIcon("images/NordicBlood.jpg");
+
+        cardBack[0] = new ImageIcon(playerCards[0]);
+        cardBack[1] = new ImageIcon(playerCards[1]);
+        cardBack[2] = new ImageIcon(playerCards[2]);
+        cardBack[3] = new ImageIcon(playerCards[3]);
         cardBack[4] = new ImageIcon("images/SavageStrike.jpg");
 
-        messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
-        messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        cardFrame = new JPanel();
         card1 = new JButton(cardBack[0]);
         card2 = new JButton(cardBack[1]);
         card3 = new JButton(cardBack[2]);
         card4 = new JButton(cardBack[3]);
         card5 = new JButton(cardBack[4]);
 
-        messageScroll.setLayout(new ScrollPaneLayout());
-        cardFrame.setLayout(new GridLayout(1, 5,100,0));
-        cardFrame.setPreferredSize(new Dimension(1024, 200));
-
-        mainFrame.add(messageScroll, BorderLayout.CENTER);
-        mainFrame.add(cardFrame, BorderLayout.SOUTH);
-
+        //button overhead
         card1.setPreferredSize(new Dimension(125,200));
         card2.setPreferredSize(new Dimension(125,200));
         card3.setPreferredSize(new Dimension(125,200));
@@ -130,18 +157,6 @@ public class panelUI {
         card3.addActionListener(new buttonListener());
         card4.addActionListener(new buttonListener());
         card5.addActionListener(new buttonListener());
-
-        cardFrame.add(card1, 0);
-        cardFrame.add(card2, 1);
-        cardFrame.add(card3, 2);
-        cardFrame.add(card4, 3);
-        cardFrame.add(card5, 4);
-
-        mainFrame.setVisible(true);
-        mainFrame.revalidate();
-        cardWaiting = true;
-        startGame = 0;
-        System.out.println("end of create battle "+canStartGame());
     }
 
     void setMessage(String inputMessage){
