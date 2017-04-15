@@ -10,6 +10,7 @@ public abstract class Card {
     protected String text;
     protected String name;
     protected String cardType;
+    private static  String imagePath;
     protected int tempCD;
     protected int cooldown;
     private int advantage;
@@ -21,16 +22,30 @@ public abstract class Card {
         cooldown = cd;
         tempCD = 0;
         this.advantage=advantage;
+        setImagePath("image/".concat(this.getClass().getSimpleName()).concat(".jpg"));
     }
-
     public int getAdvantage(){
     	return this.advantage;
     }
     public void setCooldown(){
         tempCD = cooldown;
     }
+    
+    /**
+	 * @return the imagePath
+	 */
+	public static String getImagePath() {
+		return imagePath;
+	}
 
-    public boolean checkCooldown(){
+	/**
+	 * @param imagePath the imagePath to set
+	 */
+	protected void setImagePath(String setImagePath) {
+		imagePath = setImagePath;
+	}
+
+	public boolean checkCooldown(){
         if(tempCD == 0)
         {
             return true;

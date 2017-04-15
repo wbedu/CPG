@@ -99,4 +99,8 @@ public abstract class Player {
     public void runStatus(){
     	statusManager.runStatus();
     }
+    
+    public String[] getImagePaths(){
+    	return hand.getImagePaths();
+    }
 }
