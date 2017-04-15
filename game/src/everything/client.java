@@ -13,24 +13,26 @@ public class client {
         AI enemyAI;
         int cardSelected;
 
+        //Hand Setup
+        userPlayer = new User("Aaron", 30, 0);
+        userPlayer.hand.addCard(new Block());
+        userPlayer.hand.addCard(new Cleave());
+        userPlayer.hand.addCard(new Mutton());
+        userPlayer.hand.addCard(new NordicBlood());
+        userPlayer.hand.addCard(new SavageStrike());
+
+        panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+
         while (true) {
             if(panelUIInst.canStartGame()==1){
-                userPlayer = new User("Aaron", 30, 0);
                 enemyAI = new AI("Shrak", 30, 1,userPlayer);
-
-                //Hand Setup
-                userPlayer.hand.addCard(new Block());
-                userPlayer.hand.addCard(new Cleave());
-                userPlayer.hand.addCard(new Mutton());
-                userPlayer.hand.addCard(new NordicBlood());
-                userPlayer.hand.addCard(new SavageStrike());
-
                 enemyAI.hand.addCard(new Block());
                 enemyAI.hand.addCard(new Cleave());
                 enemyAI.hand.addCard(new Mutton());
                 enemyAI.hand.addCard(new NordicBlood());
                 enemyAI.hand.addCard(new SavageStrike());
                 testBattle = new Battle(userPlayer, enemyAI);
+
                 //Battle
                 while (gameLoop) {
                     //if (needBattle == 1) {
@@ -88,6 +90,7 @@ public class client {
                     } else {
                         Thread.sleep(100);
                     }
+                    //RETURN HAND CHANGES
                 }
             } else {
                 //System.out.println("wait for start game");
