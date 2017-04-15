@@ -88,6 +88,9 @@ public class panelUI {
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
         exitButton.addActionListener(new ButtonListener());
+        exitButton.setText("Exit");
+
+        cardOverhead();
 
         cardFrame.add(card1, 0);
         cardFrame.add(card2, 1);
@@ -120,11 +123,7 @@ public class panelUI {
         mainFrame.add(messageScroll, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
 
-        cardFrame.add(card1, 0);
-        cardFrame.add(card2, 1);
-        cardFrame.add(card3, 2);
-        cardFrame.add(card4, 3);
-        cardFrame.add(card5, 4);
+        cardOverhead();
 
         mainFrame.setVisible(true);
         mainFrame.revalidate();
@@ -134,28 +133,13 @@ public class panelUI {
         System.out.println("end of create battle "+canStartGame());
     }
 
-    void tearDown(){
-        mainFrame.removeAll();
-        mainFrame.revalidate();
-        mainFrame.repaint();
-    }
-
-    void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
-        cardBack = new ImageIcon[5];
-
-        cardBack[0] = new ImageIcon(playerCards[0]);
-        cardBack[1] = new ImageIcon(playerCards[1]);
-        cardBack[2] = new ImageIcon(playerCards[2]);
-        cardBack[3] = new ImageIcon(playerCards[3]);
-        cardBack[4] = new ImageIcon("images/SavageStrike.jpg");
-
+    void cardOverhead(){
         card1 = new JButton(cardBack[0]);
         card2 = new JButton(cardBack[1]);
         card3 = new JButton(cardBack[2]);
         card4 = new JButton(cardBack[3]);
         card5 = new JButton(cardBack[4]);
 
-        //button overhead
         card1.setPreferredSize(new Dimension(125,200));
         card2.setPreferredSize(new Dimension(125,200));
         card3.setPreferredSize(new Dimension(125,200));
@@ -173,6 +157,49 @@ public class panelUI {
         card3.addActionListener(new buttonListener());
         card4.addActionListener(new buttonListener());
         card5.addActionListener(new buttonListener());
+
+        cardFrame.add(card1, 0);
+        cardFrame.add(card2, 1);
+        cardFrame.add(card3, 2);
+        cardFrame.add(card4, 3);
+        cardFrame.add(card5, 4);
+    }
+
+    void startTearDown(){
+        mainFrame.remove(battleButton);
+        mainFrame.remove(shopButton);
+        mainFrame.remove(bossButton);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void shopTearDown(){
+        mainFrame.remove(cardScroll);
+        mainFrame.remove(cardFrame);
+        mainFrame.remove(exitButton);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void battleTearDown(){
+        mainFrame.remove(messageScroll);
+        mainFrame.remove(cardFrame);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
+        cardBack = new ImageIcon[5];
+
+        for(int x = 0;x<5;x++){
+            System.out.println(playerCards[x]);
+        }
+
+        cardBack[0] = new ImageIcon(playerCards[0]);
+        cardBack[1] = new ImageIcon(playerCards[1]);
+        cardBack[2] = new ImageIcon(playerCards[2]);
+        cardBack[3] = new ImageIcon(playerCards[3]);
+        cardBack[4] = new ImageIcon(playerCards[4]);
     }
 
     void setMessage(String inputMessage){
@@ -252,18 +279,18 @@ public class panelUI {
 
             }
             else if(buttonPress.getActionCommand() == "Shop"){
-                tearDown();
+                startTearDown();
                 createShopUI();
                 shopFlag = 1;
             }
             else if(buttonPress.getActionCommand() == "Battle"){
-                tearDown();
+                startTearDown();
                 createBattleUI();
                 startGame = 1;
             }
             else if(buttonPress.getActionCommand() == "Exit"){
                 exitFlag = 1;
-                tearDown();
+                shopTearDown();
                 createStartUI();
             }
             //setMessage("\n"+buttonPress.getActionCommand());

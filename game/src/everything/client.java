@@ -80,7 +80,7 @@ public class client {
                     panelUIInst.setCardWaitingTrue();
                 }//End of GameLoop
                 gameLoop = true;
-                panelUIInst.tearDown();
+                panelUIInst.battleTearDown();
                 panelUIInst.createStartUI();
 
             } else if(panelUIInst.canShop()==1){
