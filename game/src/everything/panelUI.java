@@ -183,8 +183,8 @@ public class panelUI {
         mainFrame.remove(cardFrame);
         mainFrame.remove(exitButton);
         mainFrame.remove(cardDisplayPanel);
-        mainFrame.remove(buyButton);
-        mainFrame.remove(swapButton);
+        //mainFrame.remove(buyButton);
+        //mainFrame.remove(swapButton);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
