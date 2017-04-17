@@ -4,7 +4,7 @@ import everything.*;
 public class Detox extends Card{
     public Detox(){
     	
-    super("Clears all status effects from player","Detox", "Utility", 5,0);
+    super("Clears all status effects from player","Detox", "Utility", 5,0, false);
     
     tempCD = 0;}
 

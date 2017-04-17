@@ -7,7 +7,7 @@ import everything.Player;
  */
 public class Mutton extends Card {
     public Mutton(){
-    	super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3,12);
+    	super("Eat a stored leg of mutton, regain 4 health", "Mutton", "Utility", 3,12, true);
     	tempCD = 0;
     	}
 

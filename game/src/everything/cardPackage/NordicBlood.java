@@ -8,7 +8,7 @@ import everything.*;
  */
 public class NordicBlood extends Card {
     public NordicBlood(){
-        super("Reduce damage taken by 3 for the next 3 Turns","Nordic Blood", "Defense", 6,7);
+        super("Reduce damage taken by 3 for the next 3 Turns","Nordic Blood", "Defense", 6,7,true);
         tempCD = 0;
     }
 

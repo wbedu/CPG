@@ -14,14 +14,16 @@ public abstract class Card {
     protected int tempCD;
     protected int cooldown;
     private int advantage;
+    protected boolean ownedByPlayer;
 
-    public Card(String cardText, String cName, String cType, int cd,int advantage){
+    public Card(String cardText, String cName, String cType, int cd,int advantage, boolean isOwned){
         text = cardText;
         name = cName;
         cardType = cType;
         cooldown = cd;
         tempCD = 0;
         this.advantage=advantage;
+        ownedByPlayer = isOwned;
         setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));
     }
     public int getAdvantage(){

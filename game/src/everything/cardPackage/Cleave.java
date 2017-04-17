@@ -7,7 +7,7 @@ import everything.*;
  */
 public class Cleave extends Card{
     public Cleave(){
-    	super("Swing your axe in an arc dealing 3 damage","Cleave", "Attack", 0,2);
+    	super("Swing your axe in an arc dealing 3 damage","Cleave", "Attack", 0,2, true);
     	tempCD = 0;
     	}
 

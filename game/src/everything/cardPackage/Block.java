@@ -7,7 +7,7 @@ import everything.statusPackage.BlockStatus;
  */
 public class Block extends Card{
     public Block() {
-    	super("Hold your shield up, negating all damage for the turn", "Block", "Defense", 3,11);
+    	super("Hold your shield up, negating all damage for the turn", "Block", "Defense", 3,11, true);
     	tempCD =0;
     }
 

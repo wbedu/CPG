@@ -5,7 +5,7 @@ import everything.Player;
  */
 public class Slice extends Card {
     public Slice(){
-        super("Slice your target for 2 damage, and bleed them for 1 for 3 turns", "Slice", "Attack", 0, 0); tempCD = 0;
+        super("Slice your target for 2 damage, and bleed them for 1 for 3 turns", "Slice", "Attack", 0, 0,false); tempCD = 0;
     }
 
     public void cardFunction(Player p1, Player p2){

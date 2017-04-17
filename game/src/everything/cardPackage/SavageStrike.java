@@ -8,7 +8,7 @@ import everything.statusPackage.Bleed;
  */
 public class SavageStrike extends Card {
     public SavageStrike(){
-        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3,8);
+        super("Wildly bring down your axe with great force, dealing 8 damage", "Savage Strike", "Attack", 3,8,true );
         	tempCD = 0;
         }
 

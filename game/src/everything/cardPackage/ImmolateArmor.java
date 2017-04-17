@@ -6,7 +6,7 @@ import everything.Player;
  */
 public class ImmolateArmor extends Card {
     public ImmolateArmor() {
-        super("Melt the opponents armor, dealing damage equal to it", "Immolate Armor", "Utility", 3, 0); tempCD = 0;
+        super("Melt the opponents armor, dealing damage equal to it", "Immolate Armor", "Utility", 3, 0, false); tempCD = 0;
     }
 
     public void cardFunction(Player p1, Player p2){
