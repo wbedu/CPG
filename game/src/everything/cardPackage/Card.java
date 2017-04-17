@@ -66,6 +66,12 @@ public abstract class Card {
     public void cardFunction(Player p1, Player p2) {
     }
 
+    public void printCardInfo(){
+        System.out.println("Card: "+  this.name + " cooldown: " + this.cooldown + "Card Type: " +this.cardType );
+        System.out.println(this.text);
+    }
+
+    public boolean isOwned() {return ownedByPlayer; }
     public int getCooldownTime(){
         return (tempCD);
     }
@@ -83,7 +89,11 @@ public abstract class Card {
         cardType = "NONE";
         cooldown = 0;
     }
-    
+
+    public void setOwnedByPlayer(){
+        if (ownedByPlayer = false)
+            ownedByPlayer = true;
+    }
     public String getText(){
 		return text;
     }

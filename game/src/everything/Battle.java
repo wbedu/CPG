@@ -55,5 +55,15 @@ public class Battle {
     		return 1;
     	}
     }
+
+    public boolean attemptToRun(){
+        int min = 1;
+        int max = 4;
+        int range = (int)(max - min) + 1;
+        if (range == 4)
+             return false;
+        else
+            return true;
+    }
     
 }
