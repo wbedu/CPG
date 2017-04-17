@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class CardList {
      private ArrayList<Card> cardList;
 
-     CardList(){
+     public CardList(){
         cardList = new ArrayList<Card>();
     }
 
@@ -28,6 +28,14 @@ public class CardList {
     void displayShopCards(){
         for(int i=0;i<cardList.size();i++){
             if(!cardList.get(i).isOwned()){
+                cardList.get(i).printCardInfo();
+            }
+        }
+    }
+
+    void displayerAvailableCards(){
+        for(int i=0;i<cardList.size();i++){
+            if(cardList.get(i).isOwned()){
                 cardList.get(i).printCardInfo();
             }
         }
