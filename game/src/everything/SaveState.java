@@ -1,22 +1,29 @@
 package everything;
 import org.json.*;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Created by Aaron on 3/13/17.
  */
 public class SaveState {
-    String safePath = "savePath/saveFile.json";
+    static String savePath = "savePath/saveFile.json";
 
-    private void saveGame(User user,Hand hand){
-    	JSONObject saveFile = new JSONObject();
-    	saveFile.put("name",user.getName());
-    	saveFile.put("maxHealth",user.getMaxHealth());
-    	saveFile.put("hand","");
+    protected static void saveGame(User user) throws IOException{
+    	JSONObject saveObj = new JSONObject();
+    	saveObj.put("name",user.getName());
+    	saveObj.put("maxHealth",user.getMaxHealth());
+    	saveObj.put("hand",user.hand.getCardList());
+    	saveObj.put("money", user.getMoney());
+    	saveObj.put("level", user.getLevel());
     	    	
+    	try(FileWriter saveFile = new FileWriter(savePath)){
+    		saveFile.write(saveObj.toString());
+    	}
         System.out.println("game has been saved");
     }
 
-    private void loadGame(){
+    protected static void loadGame(){
         System.out.println("game has been loaded");
 
     }
