@@ -117,4 +117,18 @@ public class Hand{
     	}
     	return ret;
     }
+    
+    public String[] getCardList(){
+    	String [] ret = new String[maxCards];
+    	int i=0;
+    	while(i<hand.size()){
+    		ret[i]=hand.get(i).getCardType();
+    		i++;
+    	}
+    	while(i<maxCards){
+    		ret[i]="images/Card_Placeholder.jpeg";
+    		i++;
+    	}
+		return ret;
+    }
 }

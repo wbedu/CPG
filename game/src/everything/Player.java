@@ -7,6 +7,7 @@ public abstract class Player {
 	protected int level;
     protected boolean living;
     protected int health;
+    protected int maxHealth;
     protected int defensePoints;
     protected String name;
     public StatusManager statusManager;
@@ -38,8 +39,8 @@ public abstract class Player {
     }
     //increase health but does not  change any other conditions
     public void increaseHealth(int increaseFactor) {
-        if(health+increaseFactor > 30)
-            this.health = 30;
+        if(health+increaseFactor > maxHealth)
+            this.health = maxHealth;
         else
             health+=increaseFactor;
     }
@@ -72,6 +73,14 @@ public abstract class Player {
     //returns health points
     public int getHealth(){
         return health;
+    }
+    
+    public int getMaxHealth(){
+    	return maxHealth;
+    }
+    
+    public String getName(){
+    	return this.name;
     }
 
     //prints players stats
