@@ -11,6 +11,7 @@ public abstract class Player {
     protected int defensePoints;
     protected String name;
     public StatusManager statusManager;
+    private int money;
     //protected ArrayList<Status> status;
     public Hand hand;
     public CardList cardList;
@@ -31,6 +32,7 @@ public abstract class Player {
         //status=new ArrayList<Status>();
         statusManager = new StatusManager();
         level=0;
+        money=0;
     }
 
     //decreases health but does not change any other stats
@@ -82,7 +84,23 @@ public abstract class Player {
     public String getName(){
     	return this.name;
     }
-
+    public int getMoney(){
+    	return money;
+    }
+    
+    public void depositMoney(int deposit){
+    	money+=deposit;
+    }
+    
+    public int withdrawMoney(int withdrawal){
+    	
+    	if(money-withdrawal>0){
+    		money-=withdrawal;
+    		return 1;
+    	}
+    	return 0;
+    	
+    }
     //prints players stats
     public void printStats(){
         System.out.println("ID: "+name+" HP: "+health+" DEF: "+defensePoints);
