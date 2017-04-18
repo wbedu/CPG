@@ -110,6 +110,12 @@ public abstract class Player {
     public void setLevel(int newLevel){
     	level=newLevel;
     }
+    public void increaseLevel(){
+    	level++;
+    }
+    public int getLevel(){
+    	return level;
+    }
 
     //sets living status based on health
     protected boolean lifeCheck(){
