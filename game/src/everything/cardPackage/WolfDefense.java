@@ -8,7 +8,7 @@ import everything.statusPackage.IncreaseDefenseStatus;
  */
 public class WolfDefense extends Card{
     public WolfDefense() {
-        super("The wolf assumes a defense posture and howls, gaining 5 amor for the turn and healing for 3 damage.", "Wolf Defense", "Attack", 0, 0, false);
+        super("The wolf assumes a defense posture and howls, gaining 5 amor for the turn and healing for 3 damage.", "WolfDefense", "Attack", 0, 0, false);
         tempCD = 0;
     }
 

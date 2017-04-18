@@ -7,7 +7,7 @@ import everything.Player;
  */
 public class WolfBite extends Card {
     public WolfBite() {
-        super("You get bitten by a wolf, you take 3 damage and your armor is decreased by 1", "Wolf's Bite", "Attack", 0, 0, false);
+        super("You get bitten by a wolf, you take 3 damage and your armor is decreased by 1", "WolfBite", "Attack", 0, 0, false);
         tempCD = 0;
     }
 

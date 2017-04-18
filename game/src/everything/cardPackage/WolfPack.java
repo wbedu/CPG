@@ -8,7 +8,7 @@ import everything.statusPackage.Bleed;
  */
 public class WolfPack extends Card {
     public WolfPack() {
-        super("The wolf calls for allies, 5 wolves attack you each has a chance of inflicting bleed", "Wolf Pack", "Attack", 0, 0, false);
+        super("The wolf calls for allies, 5 wolves attack you each has a chance of inflicting bleed", "WolfPack", "Attack", 0, 0, false);
         tempCD = 0;
     }
 

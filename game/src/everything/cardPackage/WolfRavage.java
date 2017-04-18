@@ -7,7 +7,7 @@ import everything.statusPackage.Bleed;
  */
 public class WolfRavage extends Card {
     public WolfRavage() {
-        super("Wolf swings with both claws, attacking twice for 3 damage each time and has a chance of inflicting bleed.", "Ravage", "Attack", 0, 0, false);
+        super("Wolf swings with both claws, attacking twice for 3 damage each time and has a chance of inflicting bleed.", "WolfRavage", "Attack", 0, 0, false);
         tempCD = 0;
     }
 
