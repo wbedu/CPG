@@ -11,7 +11,6 @@ import everything.cardPackage.*;
 public class Hand{
 	private static int maxCards=5;
 	protected ArrayList<Card> hand;
-	protected ArrayList<Card> deck;	
 	protected String lastCardText;
 			
 	protected Hand(){
@@ -30,16 +29,8 @@ public class Hand{
     		return;
     	}
   
-    	//if(deck.contains(newCard)){
-    	//	hand.add(newCard);
-    	//}else{
-    	//	deck.add(newCard);
-    		hand.add(newCard);
-    		
-    		System.out.println("card add");
-    	//}
-    		
-    
+    		hand.add(newCard);  		
+    		System.out.println("card: "+ newCard.getCardName()+ " added");
     }
     
     protected void removeCard(Card removedCard){
@@ -122,7 +113,7 @@ public class Hand{
     	String [] ret = new String[maxCards];
     	int i=0;
     	while(i<hand.size()){
-    		ret[i]=hand.get(i).getCardType();
+    		ret[i]=hand.get(i).getCardName();
     		i++;
     	}
     	while(i<maxCards){

@@ -78,6 +78,9 @@ public abstract class Card {
     public String getCardType(){
     	return cardType;
     }
+    public String getCardName(){
+    	return name;
+    }
     public boolean compareType(Card c1)
     {
         return this.cardType.equals(c1.cardType);
