@@ -41,7 +41,7 @@ public class SaveState {
         System.out.println("game has been saved");
     }
 
-    protected static User loadGame() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+   protected static User loadGame() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         System.out.println("game has been loaded");
         User newPlayer;
        String fileToString = readFile(savePath); 
