@@ -26,6 +26,7 @@ public class panelUI {
     private JButton swapButton;
     private int startGame;
     private int shopFlag;
+    private int shopLibFlag;
     private int exitFlag;
     private JPanel shopPanel;
     private JPanel cardDisplayPanel;
@@ -34,6 +35,7 @@ public class panelUI {
         startGame = 0;
         shopFlag = 0;
         exitFlag = 0;
+        shopLibFlag = 1;
         mainFrame = new JFrame("CPG");
         mainFrame.setResizable(false);
         mainFrame.setPreferredSize(new Dimension(1024,600));
@@ -78,15 +80,19 @@ public class panelUI {
 
     void createShopUI(){
         exitFlag = 0;
+        shopLibFlag = 1;
         mainFrame.setLayout(new BorderLayout());
         cardFrame = new JPanel();
         exitButton = new JButton();
         cardDisplayPanel = new JPanel();
         shopPanel = new JPanel();
+        cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
+        cardScroll.setPreferredSize(new Dimension(400,400));
+        shopPanel.setLayout(new GridLayout(5,1));
         //cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
@@ -99,7 +105,7 @@ public class panelUI {
 
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
-        //mainFrame.add(cardScroll, BorderLayout.WEST);
+        mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
         mainFrame.setVisible(true);
         mainFrame.revalidate();
@@ -135,16 +141,13 @@ public class panelUI {
 
     void setShopLibrary(SaveState save){
         shopLib = new JButton[5];
-        shopPanel.setLayout(new GridLayout(5,1));
         for(int x=0;x<5;x++){
             shopLib[x] = new JButton();
             shopLib[x].setText("card");
             shopLib[x].setPreferredSize(new Dimension(400,50));
             shopPanel.add(shopLib[x],x);
         }
-        cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        cardScroll.setPreferredSize(new Dimension(400,400));
-        mainFrame.add(cardScroll, BorderLayout.WEST);
+        shopLibFlag = 0;
         mainFrame.revalidate();
         mainFrame.repaint();
     }
@@ -158,6 +161,10 @@ public class panelUI {
             cards[x].addActionListener(new buttonListener());
             cardFrame.add(cards[x], x);
         }
+    }
+
+    int needShopLib(){
+        return shopLibFlag;
     }
 
     void startTearDown(){
@@ -288,6 +295,7 @@ public class panelUI {
             }
             else if(buttonPress.getActionCommand() == "Exit"){
                 exitFlag = 1;
+                shopLibFlag = 1;
                 shopTearDown();
                 createStartUI();
                 System.out.println("exited exit");
