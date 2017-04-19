@@ -35,10 +35,6 @@ public abstract class Player {
         money=0;
     }
     
-    public Player(String name, int health,int defensePoints, Hand hand){
-    	this(name,health,defensePoints);
-    	this.hand = hand;
-    }
 
     //decreases health but does not change any other stats
     public void decreaseHealth(int decreaseFactor){
