@@ -13,6 +13,7 @@ public class client {
         AI enemyAI;
         int cardSelected;
 
+        SaveState save = new SaveState();
         //Hand Setup
         userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
@@ -85,14 +86,16 @@ public class client {
                 panelUIInst.createStartUI();
 
             } else if(panelUIInst.canShop()==1){
+                panelUIInst.setShopLibrary(save);
                 while (true) {
                     if (panelUIInst.getExitFlag()==1) {
                         break;
                     } else {
                         Thread.sleep(100);
                     }
-                    //RETURN HAND CHANGES
+                    //panelUIInst.updateFrame();
                 }
+                //RETURN HAND CHANGES
             } else {
                 //System.out.println("wait for start game");
                 Thread.sleep(100);

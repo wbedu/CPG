@@ -9,11 +9,8 @@ import java.awt.event.*;
 public class panelUI {
     private JFrame mainFrame;
     private JPanel cardFrame;
-    private JButton card1;
-    private JButton card2;
-    private JButton card3;
-    private JButton card4;
-    private JButton card5;
+    private JButton shopLib[];
+    private JButton cards[];
     private JTextArea messageText;
     private JScrollPane messageScroll;
     private JScrollPane cardScroll;
@@ -30,7 +27,7 @@ public class panelUI {
     private int startGame;
     private int shopFlag;
     private int exitFlag;
-    private JPanel roamGrid;
+    private JPanel shopPanel;
     private JPanel cardDisplayPanel;
 
     public panelUI() {
@@ -82,29 +79,27 @@ public class panelUI {
     void createShopUI(){
         exitFlag = 0;
         mainFrame.setLayout(new BorderLayout());
-        cardScroll = new JScrollPane();
         cardFrame = new JPanel();
         exitButton = new JButton();
         cardDisplayPanel = new JPanel();
+        shopPanel = new JPanel();
 
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
-        cardScroll.setPreferredSize(new Dimension(400,400));
+        //cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
 
         cardOverhead();
 
-        cardFrame.add(card1, 0);
-        cardFrame.add(card2, 1);
-        cardFrame.add(card3, 2);
-        cardFrame.add(card4, 3);
-        cardFrame.add(card5, 4);
+        for(int x=0;x<5;x++){
+            cardFrame.add(cards[x],x);
+        }
 
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
-        mainFrame.add(cardScroll, BorderLayout.WEST);
+        //mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
         mainFrame.setVisible(true);
         mainFrame.revalidate();
@@ -138,36 +133,31 @@ public class panelUI {
         System.out.println("end of create battle "+canStartGame());
     }
 
+    void setShopLibrary(SaveState save){
+        shopLib = new JButton[5];
+        shopPanel.setLayout(new GridLayout(5,1));
+        for(int x=0;x<5;x++){
+            shopLib[x] = new JButton();
+            shopLib[x].setText("card");
+            shopLib[x].setPreferredSize(new Dimension(400,50));
+            shopPanel.add(shopLib[x],x);
+        }
+        cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        cardScroll.setPreferredSize(new Dimension(400,400));
+        mainFrame.add(cardScroll, BorderLayout.WEST);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
     void cardOverhead(){
-        card1 = new JButton(cardBack[0]);
-        card2 = new JButton(cardBack[1]);
-        card3 = new JButton(cardBack[2]);
-        card4 = new JButton(cardBack[3]);
-        card5 = new JButton(cardBack[4]);
-
-        card1.setPreferredSize(new Dimension(125,200));
-        card2.setPreferredSize(new Dimension(125,200));
-        card3.setPreferredSize(new Dimension(125,200));
-        card4.setPreferredSize(new Dimension(125,200));
-        card5.setPreferredSize(new Dimension(125,200));
-
-        card1.setText("card1");
-        card2.setText("card2");
-        card3.setText("card3");
-        card4.setText("card4");
-        card5.setText("card5");
-
-        card1.addActionListener(new buttonListener());
-        card2.addActionListener(new buttonListener());
-        card3.addActionListener(new buttonListener());
-        card4.addActionListener(new buttonListener());
-        card5.addActionListener(new buttonListener());
-
-        cardFrame.add(card1, 0);
-        cardFrame.add(card2, 1);
-        cardFrame.add(card3, 2);
-        cardFrame.add(card4, 3);
-        cardFrame.add(card5, 4);
+        cards = new JButton[5];
+        for(int x=0;x<5;x++){
+            cards[x] = new JButton(cardBack[x]);
+            cards[x].setPreferredSize(new Dimension(125,200));
+            cards[x].setText("card1");
+            cards[x].addActionListener(new buttonListener());
+            cardFrame.add(cards[x], x);
+        }
     }
 
     void startTearDown(){
@@ -201,13 +191,13 @@ public class panelUI {
 
         for(int x = 0;x<5;x++){
             System.out.println(playerCards[x]);
+            cardBack[x] = new ImageIcon(playerCards[x]);
         }
+    }
 
-        cardBack[0] = new ImageIcon(playerCards[0]);
-        cardBack[1] = new ImageIcon(playerCards[1]);
-        cardBack[2] = new ImageIcon(playerCards[2]);
-        cardBack[3] = new ImageIcon(playerCards[3]);
-        cardBack[4] = new ImageIcon(playerCards[4]);
+    void updateFrame(){
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
     void setMessage(String inputMessage){
