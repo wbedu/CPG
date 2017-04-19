@@ -50,7 +50,13 @@ public abstract class Player {
     //increase defense but does not change any other conditions
     public void increaseDefense(int increaseFactor) { defensePoints+=increaseFactor; }
     //decreases defense but does not change any other conditions
-    public void decreaseDefense(int decreaseFactor) { if(getDefense() - decreaseFactor > 0)defensePoints-=decreaseFactor; }
+    public void decreaseDefense(int decreaseFactor) {
+        if(getDefense() - decreaseFactor > 0)
+            defensePoints = 0;
+        else
+        defensePoints-=decreaseFactor;
+    }
+
     //set health of player to specific value
     public void setHealth(int healthValue) { health = healthValue; }
 
