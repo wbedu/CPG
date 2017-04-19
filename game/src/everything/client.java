@@ -86,11 +86,11 @@ public class client {
                 panelUIInst.createStartUI();
 
             } else if(panelUIInst.canShop()==1){
-                panelUIInst.setShopLibrary(save);
                 while (true) {
                     if (panelUIInst.getExitFlag()==1) {
                         break;
                     } else {
+                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(save);
                         Thread.sleep(100);
                     }
                     //panelUIInst.updateFrame();
