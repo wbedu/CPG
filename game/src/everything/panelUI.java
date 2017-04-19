@@ -82,10 +82,12 @@ public class panelUI {
         cardFrame = new JPanel();
         exitButton = new JButton();
         cardDisplayPanel = new JPanel();
+        shopPanel = new JPanel();
 
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
+        //cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
 
@@ -97,6 +99,7 @@ public class panelUI {
 
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
+        //mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
         mainFrame.setVisible(true);
         mainFrame.revalidate();
@@ -131,7 +134,6 @@ public class panelUI {
     }
 
     void setShopLibrary(SaveState save){
-        shopPanel = new JPanel();
         shopLib = new JButton[5];
         shopPanel.setLayout(new GridLayout(5,1));
         for(int x=0;x<5;x++){
