@@ -13,7 +13,7 @@ public class client {
         AI enemyAI;
         int cardSelected;
 
-        SaveState save = new SaveState();
+        //SaveState save = new SaveState();
         //Hand Setup
         userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
@@ -90,7 +90,7 @@ public class client {
                     if (panelUIInst.getExitFlag()==1) {
                         break;
                     } else {
-                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(save);
+                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(null);
                         Thread.sleep(100);
                     }
                     //panelUIInst.updateFrame();
