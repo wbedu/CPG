@@ -7,9 +7,14 @@ public class  User extends Player{
 		
 	}
 	
-	public User(String newName,int newHealth,int newDefensePoints){
-		super(newName,newHealth,newDefensePoints);
+	public User(String name,int health,int defencePoints){
+		super(name,health,defencePoints);
 	}
 
+	public User(String name,int health,int defencePoints,int money,Hand hand){
+		super(name,health,defencePoints);
+		this.depositMoney(money);
+		this.hand=hand;
+	}
   	
 }
