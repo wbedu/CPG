@@ -20,13 +20,13 @@ public class Battle {
         turnNo = 1;
     }
     public void startTurn(int cardSelection) {
-    	user.runStatus();
+    	//user.runStatus();
     	user.hand.useCard(cardSelection,user,enemy);
         enemyTurn();
     }
 
     public void enemyTurn(){
-    	enemy.runStatus();
+    	//enemy.runStatus();
         enemy.setNextCard();
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
         turnNo++;
@@ -41,7 +41,9 @@ public class Battle {
     public boolean isOver(){
     	
     	System.out.println("Player: "+user.getHealth());
+    	System.out.println("Player Def: "+ user.getDefense());
         System.out.println("AI: "+enemy.getHealth());
+        System.out.println("AI Def: "+ enemy.getDefense());
     	return(!user.lifeCheck() ||!enemy.lifeCheck());
     }
     
