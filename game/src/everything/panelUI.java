@@ -143,8 +143,9 @@ public class panelUI {
         shopLib = new JButton[5];
         for(int x=0;x<5;x++){
             shopLib[x] = new JButton();
-            shopLib[x].setText("card");
+            shopLib[x].setText("shop"+Integer.toString(x+1));
             shopLib[x].setPreferredSize(new Dimension(400,50));
+            shopLib[x].addActionListener(new buttonListener());
             shopPanel.add(shopLib[x],x);
         }
         shopLibFlag = 0;
@@ -157,7 +158,7 @@ public class panelUI {
         for(int x=0;x<5;x++){
             cards[x] = new JButton(cardBack[x]);
             cards[x].setPreferredSize(new Dimension(125,200));
-            cards[x].setText("card1");
+            cards[x].setText("card"+Integer.toString(x+1));
             cards[x].addActionListener(new buttonListener());
             cardFrame.add(cards[x], x);
         }
@@ -176,6 +177,7 @@ public class panelUI {
     }
 
     void shopTearDown(){
+        shopPanel.removeAll();
         mainFrame.remove(cardScroll);
         mainFrame.remove(cardFrame);
         mainFrame.remove(exitButton);
@@ -255,45 +257,45 @@ public class panelUI {
 
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
-            if(buttonPress.getActionCommand() == "card1"){
+            if(buttonPress.getActionCommand().equals("card1")){
                 //setMessage("\nCleave: 2 DMG dealt - 1 turn CD");
                 updateCardSelect(0);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "card2"){
+            else if(buttonPress.getActionCommand().equals("card2")){
                 //setMessage("\nSavage Strike: 3 DMG dealt - 3 turn CD");
                 updateCardSelect(1);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "card3"){
+            else if(buttonPress.getActionCommand().equals("card3")){
                 //setMessage("\nBlock: Blocking incoming DMG - 1 turn CD");
                 updateCardSelect(2);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "card4"){
+            else if(buttonPress.getActionCommand().equals("card4")){
                 //setMessage("\nMutton: Restore 4 HP - 3 turn CD");
                 updateCardSelect(3);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "card5"){
+            else if(buttonPress.getActionCommand().equals("card5")){
                 //setMessage("\nShield Bash: Enemy is STUNNED - 1 turn CD");
                 updateCardSelect(4);
                 cardWaiting = false;
             }
-            else if(buttonPress.getActionCommand() == "Boss Battle"){
+            else if(buttonPress.getActionCommand().equals("Boss Battle")){
 
             }
-            else if(buttonPress.getActionCommand() == "Shop"){
+            else if(buttonPress.getActionCommand().equals("Shop")){
                 startTearDown();
                 createShopUI();
                 shopFlag = 1;
             }
-            else if(buttonPress.getActionCommand() == "Battle"){
+            else if(buttonPress.getActionCommand().equals("Battle")){
                 startTearDown();
                 createBattleUI();
                 startGame = 1;
             }
-            else if(buttonPress.getActionCommand() == "Exit"){
+            else if(buttonPress.getActionCommand().equals("Exit")){
                 exitFlag = 1;
                 shopLibFlag = 1;
                 shopTearDown();

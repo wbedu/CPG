@@ -50,6 +50,7 @@ public class client {
 
                     while (true) {
                         if (!panelUIInst.getCardWaiting()) {
+                            System.out.println("Card Picked: "+panelUIInst.getCardSelect());
                             break;
                         } else {
                             Thread.sleep(100);
