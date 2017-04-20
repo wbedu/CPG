@@ -32,7 +32,6 @@ public class panelUI {
     private JPanel cardDisplayPanel;
 
     public panelUI() {
-        startGame = 0;
         shopFlag = 0;
         exitFlag = 0;
         shopLibFlag = 1;
@@ -54,7 +53,7 @@ public class panelUI {
     }
 
     void createStartUI(){
-        exitFlag = 0;
+        startGame = 0;
         mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
         bossButton = new JButton();
         shopButton = new JButton();
@@ -135,7 +134,6 @@ public class panelUI {
         mainFrame.revalidate();
         mainFrame.repaint();
         cardWaiting = true;
-        startGame = 0;
         System.out.println("end of create battle "+canStartGame());
     }
 
@@ -250,6 +248,8 @@ public class panelUI {
     }
 
     int canStartGame(){ return startGame; }
+
+    void setStartGame0(){ startGame = 0; }
 
     int canShop(){ return shopFlag; }
 
