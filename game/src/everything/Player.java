@@ -142,6 +142,8 @@ public abstract class Player {
     public void runStatus(){
     	statusManager.runStatus();
     }
+
+    public boolean isAtMax(){if(getHealth() == maxHealth)return true; else{ return false;}}
     
     public String[] getImagePaths(){
     	return hand.getImagePaths();
