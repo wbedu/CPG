@@ -21,6 +21,7 @@ public class CriticalStrike extends Status {
         if (enemy.getHealth() < health) {
             int damageVal = health - user.getHealth();
             enemy.takeDamage(damageVal);
+            health = enemy.getHealth();
         }
     }
 }
