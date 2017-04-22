@@ -25,7 +25,6 @@ public class client {
         panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
 
         while (true) {
-            System.out.println(panelUIInst.canStartGame());
             if(panelUIInst.canStartGame()==1){
                 System.out.println("start battle -client");
                 enemyAI = new AI("Shrak", 30, 1,userPlayer);
@@ -39,7 +38,6 @@ public class client {
 
                 //Battle
                 while (gameLoop) {
-                    System.out.println("battle loop begin");
                     //if (needBattle == 1) {
                     //  needBattle = 0;
                     //   panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
@@ -53,7 +51,6 @@ public class client {
 
                     while (true) {
                         if (!panelUIInst.getCardWaiting()) {
-                            System.out.println("Card Picked: "+panelUIInst.getCardSelect());
                             break;
                         } else {
                             Thread.sleep(100);
@@ -97,7 +94,6 @@ public class client {
                     } else {
                         if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(null);
                         Thread.sleep(100);
-                        System.out.println("inside shop");
                     }
                     //panelUIInst.updateFrame();
                 }

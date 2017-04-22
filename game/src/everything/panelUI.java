@@ -109,7 +109,6 @@ public class panelUI {
         mainFrame.setVisible(true);
         mainFrame.revalidate();
         mainFrame.repaint();
-        shopFlag = 0;
     }
 
     void createBattleUI(){
@@ -175,6 +174,7 @@ public class panelUI {
     }
 
     void shopTearDown(){
+        shopFlag = 0;
         shopPanel.removeAll();
         mainFrame.remove(cardScroll);
         mainFrame.remove(cardFrame);
