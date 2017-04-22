@@ -75,12 +75,12 @@ public class client {
 
                     if (testBattle.isOver()) {
                         System.out.println("\n\nBattle is over!");
-                        if(testBattle.whoIsDead()==0){
-                            System.out.println("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
-                            panelUIInst.setWinner(0);
-                        } else {
+                        if(testBattle.whoIsDead()==1){
                             System.out.println("\n\nYOU HAVE WON!");
                             panelUIInst.setWinner(1);
+                        } else {
+                            System.out.println("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
+                            panelUIInst.setWinner(0);
                         }
                         gameLoop = false;
                         panelUIInst.setStartGame0();
