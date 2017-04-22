@@ -44,7 +44,7 @@ public class client {
                     //   panelUIInst.setMessage("\nBattle with 'Shrak' the Ogre has begun!");    //this function takes a String and puts it in the message display
                     //}
 
-                    panelUIInst.setMessage("\n\n----------------------------------------------------------------------");
+                    panelUIInst.setMessage("\n---------------------------------");
                     panelUIInst.setMessage("\nTurn number " + testBattle.getTurnNo());
                     panelUIInst.setMessage("\nPlayer Health: " + userPlayer.getHealth());
                     panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
@@ -62,7 +62,7 @@ public class client {
 
                     //DO BATTLE
                     if (userPlayer.hand.checkCooldown(cardSelected)) {
-                        panelUIInst.displayPlayerTurn();
+                        panelUIInst.displayPlayerTurn(userPlayer.hand.getLastCardText());
                         testBattle.startTurn(cardSelected);
                         panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
                         panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
