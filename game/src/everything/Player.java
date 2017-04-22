@@ -1,4 +1,5 @@
 package everything;
+import everything.cardPackage.Card;
 import everything.statusPackage.*;
 
 public abstract class Player {
@@ -128,6 +129,10 @@ public abstract class Player {
         }
         
         return living;
+    }
+    
+    public void addCard(Card newCard){
+    	hand.addCard(newCard);
     }
     
     public void addStatus(Status newStatus){
