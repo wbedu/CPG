@@ -57,7 +57,7 @@ public abstract class Card {
         }
     }
 
-    public  void decrementCooldown(Player p1){
+    public void decrementCooldown(Player p1){
         if(tempCD>0)
           tempCD-=1;
     }
