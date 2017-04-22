@@ -255,6 +255,8 @@ public class panelUI {
 
     int getExitFlag(){ return exitFlag; }
 
+    void setExitFlag0(){ exitFlag = 0; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand().equals("card1")){
