@@ -110,11 +110,9 @@ public class panelUI {
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         exitButton.setText("Exit");
-        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setLayout(new GridLayout(1, 5,50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
         cardScroll.setPreferredSize(new Dimension(400,400));
-        shopPanel.setLayout(new GridLayout(5,1));
-        //cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
 
@@ -217,10 +215,12 @@ public class panelUI {
         SaveState save = new SaveState();
         cardNameList = save.getCards();
         cardPathList = save.getCardPath();
-        shopLib = new JButton[5];
-        for(int x=0;x<5;x++){
+        int size = cardNameList.size();
+        shopLib = new JButton[size];
+        shopPanel.setLayout(new GridLayout(size,1));
+        for(int x=0;x<size;x++){
             shopLib[x] = new JButton();
-            shopLib[x].setText("shop"+Integer.toString(x+1));
+            shopLib[x].setText(cardNameList.get(x));
             shopLib[x].setPreferredSize(new Dimension(400,50));
             shopLib[x].addActionListener(new buttonListener());
             shopPanel.add(shopLib[x],x);
