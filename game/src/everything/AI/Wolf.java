@@ -16,4 +16,8 @@ public class Wolf extends AI {
     	
     	depositMoney(50);
     }
+    @Override
+	public void setNextCard(){	
+		nextCard =randomWithRange(0,getHandSize()-1);
+	}
 }

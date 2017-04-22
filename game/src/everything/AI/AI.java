@@ -3,7 +3,7 @@ package everything.AI;
 import everything.cardPackage.*;
 import everything.*;
 
-public class AI extends Player{
+public abstract class AI extends Player{
 	
 	protected int healthThreshold;
 	protected int nextCard;
@@ -37,7 +37,7 @@ public class AI extends Player{
 					moveset=true;
 				}
 			}else{
-				nextCard =randomWithRange(0,4);
+				nextCard =randomWithRange(0,getHandSize());
 			}
 			
 		
