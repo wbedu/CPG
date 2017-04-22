@@ -9,21 +9,26 @@ import everything.cardPackage.NordicBlood;
 import everything.cardPackage.SavageStrike;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Aaron on 3/13/17.
  */
 public class SaveState {
-    static String savePath = "savePath/saveFile.json";
-    static String shopPath = "savePath/shopFile.json";
-    String[] shop;
+    private static String savePath = "savePath/saveFile.json";
+    private static String shopPath = "savePath/shopFile.json";
+    private ArrayList<String> cards;
+    private ArrayList<String> cardPaths;
     
     public SaveState(){
-    	shop = getShopCards();
+    	cards=new ArrayList<String>();
+    	cardPaths = new ArrayList<String>();
+    	storeAllCardNames();
     }
 
     protected static void saveGame(User user) throws IOException{
@@ -134,18 +139,46 @@ public class SaveState {
     	return json;
     }
     
-    private static String[] getShopCards(){
+    private String[] getShopCards(){
     	String JsonString = readFile(shopPath);
-    	JSONObject jObj= new JSONObject(JsonString);
-    	
-    	JSONArray shopJArray= new JSONArray(jObj.getJSONArray("ShopList"));
-
-    	
+    	JSONObject jObj= new JSONObject(JsonString);   	
+    	JSONArray shopJArray= new JSONArray(jObj.getJSONArray("ShopList"));    	
     	String[] ret = getHandArray(shopJArray);
-    	
-    	
     	return ret;
-    	
+    }
+    
+    private void storeAllCardNames(){
+		    	File folder = new File("everything/cardPackage");
+		    	File[] files = folder.listFiles();
+		    	int len = files.length;
+		    	String buf;
+		    	for(int i=0;i<len;i++){
+		    		if(files[i].isFile()){
+		    			buf =files[i].getName();
+		    			if((buf.contains(".java"))&&(!buf.equals("card.java"))){
+		    			
+		    				buf =buf.substring(0,buf.lastIndexOf(".java")).trim();
+		    				cards.add(buf);
+		    				cardPaths.add(buf.concat(".jpg"));
+		    			}
+		    		}
+		    	}
+		    	
+    }
+    
+    public ArrayList<String> getCards(){
+    	return cards;
+    }
+    
+    public ArrayList<String> getCardPath(){
+    	return cardPaths;
+    }
+    
+    
+    public void printCards(){
+    	for(int i=0;i<cards.size();i++){
+    		System.out.println(cards.get(i));
+    	}
     }
     
     

@@ -1,7 +1,6 @@
 package everything;
+import everything.cardPackage.Card;
 import everything.statusPackage.*;
-import everything.cardPackage.CardList;
-import java.util.ArrayList;
 
 public abstract class Player {
 	protected int level;
@@ -14,8 +13,6 @@ public abstract class Player {
     private int money;
     //protected ArrayList<Status> status;
     public Hand hand;
-    public CardList cardList;
-
  
 	protected Player(){
 		
@@ -28,7 +25,6 @@ public abstract class Player {
         this.defensePoints=defensePoints;
         living=true;
         hand=new Hand();
-        cardList=new CardList();
         //status=new ArrayList<Status>();
         statusManager = new StatusManager();
         level=0;
@@ -133,6 +129,10 @@ public abstract class Player {
         }
         
         return living;
+    }
+    
+    public void addCard(Card newCard){
+    	hand.addCard(newCard);
     }
     
     public void addStatus(Status newStatus){
