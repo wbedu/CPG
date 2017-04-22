@@ -27,10 +27,13 @@ public class panelUI {
     private JButton exitButton;
     private JButton buyButton;
     private JButton swapButton;
+    private JButton continueButton;
     private int startGame;
     private int shopFlag;
     private int shopLibFlag;
     private int exitFlag;
+    private int winner;
+    private int continueFlag;
     private JPanel healthPanel;
     private JPanel spritePanel;
     private JPanel shopPanel;
@@ -39,6 +42,8 @@ public class panelUI {
     private JLabel enemySprite;
     private JLabel playerHealth;
     private JLabel enemyHealth;
+    private JLabel winLabel;
+    private JLabel lootLabel;
 
     public panelUI() {
         shopFlag = 0;
@@ -62,6 +67,7 @@ public class panelUI {
     }
 
     void createStartUI(){
+        continueFlag = 0;
         startGame = 0;
         mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
         bossButton = new JButton();
@@ -122,6 +128,7 @@ public class panelUI {
 
     void createBattleUI(){
         exitFlag = 0;
+        winner = -1;
         System.out.println("create battle");
         mainFrame.setLayout(new BorderLayout());
 
@@ -161,6 +168,37 @@ public class panelUI {
         mainFrame.repaint();
         cardWaiting = true;
         System.out.println("end of create battle "+canStartGame());
+    }
+
+    void createContinue(){
+        continueFlag = 0;
+        mainFrame.setLayout(new BorderLayout());
+
+        continueButton = new JButton();
+        winLabel = new JLabel();
+        lootLabel = new JLabel();
+
+        if(winner == 1){
+            winLabel.setText("You Win!");
+        } else {
+            winLabel.setText("You have lost..");
+        }
+
+        lootLabel.setText("Loot: +50 Gold");
+        lootLabel.setVerticalAlignment(JLabel.CENTER);
+        lootLabel.setHorizontalAlignment(JLabel.CENTER);
+        winLabel.setHorizontalAlignment(JLabel.CENTER);
+        winLabel.setHorizontalAlignment(JLabel.CENTER);
+        continueButton.setText("Continue");
+        continueButton.addActionListener(new buttonListener());
+
+        mainFrame.add(continueButton, BorderLayout.SOUTH);
+        mainFrame.add(winLabel, BorderLayout.NORTH);
+        mainFrame.add(lootLabel, BorderLayout.CENTER);
+
+        mainFrame.setVisible(true);
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
     void setShopLibrary(SaveState save){
@@ -224,6 +262,14 @@ public class panelUI {
         mainFrame.repaint();
     }
 
+    void continueTearDown(){
+        mainFrame.remove(continueButton);
+        mainFrame.remove(winLabel);
+        mainFrame.remove(lootLabel);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
     void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
         cardBack = new ImageIcon[5];
 
@@ -280,6 +326,8 @@ public class panelUI {
         cardWaiting = true;
     }
 
+    int getContinue(){ return continueFlag;  }
+
     int canStartGame(){ return startGame; }
 
     void setStartGame0(){ startGame = 0; }
@@ -289,6 +337,10 @@ public class panelUI {
     int getExitFlag(){ return exitFlag; }
 
     void setExitFlag0(){ exitFlag=0; }
+
+    void setWinner(int battleWinner){ winner = battleWinner;  }
+
+    int getWinner(){ return winner; }
 
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
@@ -336,6 +388,11 @@ public class panelUI {
                 shopTearDown();
                 createStartUI();
                 System.out.println("exited exit");
+            }
+            else if(buttonPress.getActionCommand().equals("Continue")){
+                continueFlag = 1;
+                continueTearDown();
+                winner = -1;
             }
             //setMessage("\n"+buttonPress.getActionCommand());
         }
