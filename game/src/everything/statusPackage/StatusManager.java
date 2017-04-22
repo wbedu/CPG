@@ -9,10 +9,19 @@ public class StatusManager {
 		status = new ArrayList<Status>();
 	}
 	
-	public void runStatus(){
+	public void runStatusBeginning(){
 		
 		for(int i=0;i<status.size();i++){
-			status.get(i).statusEffect();
+			status.get(i).statusEffectBeginning();
+
+		}
+		clearExpiredStatus();
+	}
+
+	public void runStatusEnding(){
+
+		for(int i=0;i<status.size();i++){
+			status.get(i).statusEffectEnding();
 
 		}
 		clearExpiredStatus();
@@ -20,7 +29,6 @@ public class StatusManager {
 	
 	public void clearExpiredStatus(){
 		for(int i=0;i<status.size();i++){
-	
 			if(status.get(i).turns<0){
 				status.remove(i);
 			}
@@ -36,6 +44,7 @@ public class StatusManager {
 			
 			status.get(i).turns=0;
 		}
-		runStatus();
+		runStatusBeginning();
+		runStatusEnding();
 	}
 }

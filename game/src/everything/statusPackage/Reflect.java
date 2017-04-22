@@ -15,7 +15,7 @@ public class Reflect extends Status {
     }
 
     @Override
-    public void statusEffect() {
+    public void statusEffectEnding() {
         turns--;
         if (user.getHealth() < health) {
             int damageVal = health - user.getHealth();

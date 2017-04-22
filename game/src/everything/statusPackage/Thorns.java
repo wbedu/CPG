@@ -17,7 +17,7 @@ public class Thorns extends Status {
     }
 
     @Override
-    public void statusEffect() {
+    public void statusEffectEnding() {
         turns--;
         if (user.getHealth() < health) {
             enemy.takeDamage(thornsVal);

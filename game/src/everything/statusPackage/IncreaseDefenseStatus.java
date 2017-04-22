@@ -17,7 +17,7 @@ public class IncreaseDefenseStatus extends Status {
     }
 
     @Override
-    public void statusEffect() {
+    public void statusEffectBeginning() {
         turns--;
         if (turns == 0) {
             user.decreaseDefense(this.defenseFactor);

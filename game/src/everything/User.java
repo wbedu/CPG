@@ -9,6 +9,7 @@ public class  User extends Player{
 	
 	public User(String name,int health,int defencePoints){
 		super(name,health,defencePoints);
+		maxHealth=30;
 	}
 
 	public User(String name,int health,int defencePoints,int money,Hand hand){

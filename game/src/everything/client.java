@@ -29,7 +29,7 @@ public class client {
                 enemyAI = new AI("Shrak", 30, 1,userPlayer);
                 enemyAI.hand.addCard(new Block());
                 enemyAI.hand.addCard(new Cleave());
-                enemyAI.hand.addCard(new Mutton());
+                enemyAI.hand.addCard(new Cleave());
                 enemyAI.hand.addCard(new NordicBlood());
                 enemyAI.hand.addCard(new SavageStrike());
                 testBattle = new Battle(userPlayer, enemyAI);

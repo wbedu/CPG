@@ -42,16 +42,16 @@ public abstract class Player {
     }
     //increase health but does not  change any other conditions
     public void increaseHealth(int increaseFactor) {
-        if(health+increaseFactor > maxHealth)
-            this.health = maxHealth;
-        else
-            health+=increaseFactor;
+      if(health+increaseFactor > getMaxHealth())
+          setHealth(maxHealth);
+      else
+          health+=increaseFactor;
     }
     //increase defense but does not change any other conditions
     public void increaseDefense(int increaseFactor) { defensePoints+=increaseFactor; }
     //decreases defense but does not change any other conditions
     public void decreaseDefense(int decreaseFactor) {
-        if(getDefense() - decreaseFactor > 0)
+        if(getDefense() - decreaseFactor <= 0)
             defensePoints = 0;
         else
         defensePoints-=decreaseFactor;
@@ -139,8 +139,12 @@ public abstract class Player {
     	statusManager.addStatus(newStatus,this);
     }
     
-    public void runStatus(){
-    	statusManager.runStatus();
+    public void runStatusStart(){
+    	statusManager.runStatusBeginning();
+    }
+
+    public void runStatusEnd(){
+        statusManager.runStatusEnding();
     }
 
     public boolean isAtMax(){if(getHealth() == maxHealth)return true; else{ return false;}}

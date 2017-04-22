@@ -18,7 +18,10 @@ public abstract class Status {
 	}
 	
 
-	public void statusEffect() {
+	public void statusEffectBeginning() {
 	}
-	
+
+	public void statusEffectEnding(){
+
+	}
 }

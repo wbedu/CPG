@@ -16,7 +16,7 @@ public class Regeneration extends Status {
     }
 
     @Override
-    public void statusEffect() {
+    public void statusEffectBeginning() {
         turns--;
         if (!user.isAtMax()) {
             user.increaseHealth(regenValue);

@@ -20,15 +20,17 @@ public class Battle {
         turnNo = 1;
     }
     public void startTurn(int cardSelection) {
-    	//user.runStatus();
+    	user.runStatusStart();
     	user.hand.useCard(cardSelection,user,enemy);
+    	user.runStatusEnd();
         enemyTurn();
     }
 
     public void enemyTurn(){
-    	//enemy.runStatus();
+    	enemy.runStatusStart();
         enemy.setNextCard();
         enemy.hand.useCard(enemy.getNextCard(), enemy, user);
+        user.runStatusEnd();
         turnNo++;
     }
 

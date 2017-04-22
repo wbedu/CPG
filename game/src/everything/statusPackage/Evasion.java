@@ -17,7 +17,7 @@ public class Evasion extends Status {
     }
 
     @Override
-    public void statusEffect() {
+    public void statusEffectEnding() {
         turns--;
         if (user.getHealth() < health) {
             int randVal = (int)(Math.random() * 100);
