@@ -26,7 +26,6 @@ public abstract class Player {
         this.defensePoints=defensePoints;
         living=true;
         hand=new Hand();
-        cardList=new CardList();
         //status=new ArrayList<Status>();
         statusManager = new StatusManager();
         level=0;
