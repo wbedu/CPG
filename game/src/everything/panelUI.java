@@ -132,8 +132,8 @@ public class panelUI {
         System.out.println("create battle");
         mainFrame.setLayout(new BorderLayout());
 
-        messageText = new JTextArea("FIGHT!",20,24);
-        messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        messageText = new JTextArea("FIGHT!",20,30);
+        messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         cardFrame = new JPanel();
         playerImage = new ImageIcon("images/Block.jpg");
         enemyImage = new ImageIcon("images/Block.jpg");
