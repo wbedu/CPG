@@ -92,7 +92,10 @@ public abstract class Card {
         cardType = "NONE";
         cooldown = 0;
     }
-    
+
+    public void setTempCDZero(){
+        tempCD = 0;
+    }
 
     public void setOwnedByPlayer(){
         if (ownedByPlayer = false)

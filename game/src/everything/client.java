@@ -28,6 +28,7 @@ public class client {
             if(panelUIInst.canStartGame()==1){
                 System.out.println("start battle -client");
                 userPlayer.setHealth(userPlayer.getMaxHealth());
+                userPlayer.hand.resetCooldowns(userPlayer);
                 enemyAI = AIManager.getRandomMonster(userPlayer);//new AI("Shrak", 30, 1,userPlayer);
                 testBattle = new Battle(userPlayer, enemyAI);
                 panelUIInst.setCardWaitingTrue();

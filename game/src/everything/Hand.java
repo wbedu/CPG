@@ -86,6 +86,14 @@ public class Hand{
     		hand.get(i).decrementCooldown(p1);
     	}
     }
+
+	public void resetCooldowns(Player p1){
+		for(int i=0;i<hand.size();i++){
+			hand.get(i).setTempCDZero();
+		}
+	}
+
+
     
     public boolean checkCooldown(int cardIndex){
     	return hand.get(cardIndex).checkCooldown();
