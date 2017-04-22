@@ -11,7 +11,7 @@ import everything.cardPackage.GoblinStrike;
  */
 public class Goblin extends AI {
     public Goblin(Player user){
-        super("Goblin",30,0, user);
+        super("Goblin",20,0, user);
         this.addCard(new GoblinCower());
         this.addCard(new GoblinStrike());
         this.addCard(new GoblinFire());
