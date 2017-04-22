@@ -47,7 +47,9 @@ public class client {
                     panelUIInst.setMessage("\n---------------------------------");
                     panelUIInst.setMessage("\nTurn number " + testBattle.getTurnNo());
                     panelUIInst.setMessage("\nPlayer Health: " + userPlayer.getHealth());
+                    panelUIInst.setPlayerHealth(userPlayer.getHealth());
                     panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
+                    panelUIInst.setEnemyHealth(enemyAI.getHealth());
                     panelUIInst.setMessage("\nYour Turn. Choose a card to play.");
 
                     while (true) {

@@ -132,8 +132,8 @@ public class panelUI {
         enemyImage = new ImageIcon("images/Block.jpg");
         playerSprite = new JLabel(playerImage);
         enemySprite = new JLabel(playerImage);
-        playerHealth = new JLabel("30");
-        enemyHealth = new JLabel("30");
+        playerHealth = new JLabel();
+        enemyHealth = new JLabel();
         healthPanel = new JPanel();
         spritePanel = new JPanel();
 
@@ -242,6 +242,18 @@ public class panelUI {
         messageText.append(inputMessage);
         messageText.setCaretPosition(messageText.getDocument().getLength());
         mainFrame.revalidate();
+    }
+
+    void setPlayerHealth(int newHealth){
+        playerHealth.setText("Health: "+Integer.toString(newHealth));
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void setEnemyHealth(int newHealth){
+        enemyHealth.setText("Health: "+Integer.toString(newHealth));
+        mainFrame.revalidate();
+        mainFrame.repaint();
     }
 
     void displayPlayerTurn(String message){
