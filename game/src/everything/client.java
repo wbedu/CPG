@@ -26,6 +26,7 @@ public class client {
 
         while (true) {
             if(panelUIInst.canStartGame()==1){
+                System.out.println("start battle -client");
                 enemyAI = new AI("Shrak", 30, 1,userPlayer);
                 enemyAI.hand.addCard(new Block());
                 enemyAI.hand.addCard(new Cleave());
@@ -50,7 +51,6 @@ public class client {
 
                     while (true) {
                         if (!panelUIInst.getCardWaiting()) {
-                            System.out.println("Card Picked: "+panelUIInst.getCardSelect());
                             break;
                         } else {
                             Thread.sleep(100);
@@ -78,6 +78,7 @@ public class client {
                             System.out.println("\n\nYOU HAVE WON!");
                         }
                         gameLoop = false;
+                        panelUIInst.setStartGame0();
                         //needBattle = 1;
                     }
                     panelUIInst.setCardWaitingTrue();
