@@ -1,7 +1,5 @@
 package everything;
 import everything.statusPackage.*;
-import everything.cardPackage.CardList;
-import java.util.ArrayList;
 
 public abstract class Player {
 	protected int level;
