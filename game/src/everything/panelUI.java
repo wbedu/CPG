@@ -42,6 +42,8 @@ public class panelUI {
     private JLabel enemySprite;
     private JLabel playerHealth;
     private JLabel enemyHealth;
+    private JLabel playerArmor;
+    private JLabel enemyArmor;
     private JLabel winLabel;
     private JLabel lootLabel;
 
@@ -139,6 +141,8 @@ public class panelUI {
         enemyImage = new ImageIcon("images/Block.jpg");
         playerSprite = new JLabel(playerImage);
         enemySprite = new JLabel(playerImage);
+        playerArmor = new JLabel();
+        enemyArmor = new JLabel();
         playerHealth = new JLabel();
         enemyHealth = new JLabel();
         healthPanel = new JPanel();
@@ -148,9 +152,12 @@ public class panelUI {
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
 
-        healthPanel.setLayout(new GridLayout(2,1));
+        healthPanel.setLayout(new GridLayout(5,1));
         healthPanel.add(enemyHealth,0);
-        healthPanel.add(playerHealth,1);
+        healthPanel.add(enemyArmor,1);
+        healthPanel.add(new JLabel(),2);
+        healthPanel.add(playerHealth,3);
+        healthPanel.add(playerArmor,4);
 
         spritePanel.setLayout(new GridLayout(2,1));
         spritePanel.add(enemySprite,0);
@@ -291,13 +298,25 @@ public class panelUI {
     }
 
     void setPlayerHealth(int newHealth){
-        playerHealth.setText("Health: "+Integer.toString(newHealth));
+        playerHealth.setText("Player HP: "+Integer.toString(newHealth));
         mainFrame.revalidate();
         mainFrame.repaint();
     }
 
     void setEnemyHealth(int newHealth){
-        enemyHealth.setText("Health: "+Integer.toString(newHealth));
+        enemyHealth.setText("Enemy HP: "+Integer.toString(newHealth));
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void setPlayerArmor(int newArmor){
+        playerArmor.setText("Armor: "+newArmor);
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void setEnemyArmor(int newArmor){
+        enemyArmor.setText("Armor: "+newArmor);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
