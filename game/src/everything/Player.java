@@ -147,7 +147,7 @@ public abstract class Player {
         statusManager.runStatusEnding();
     }
 
-    public boolean isAtMax(){
+    public boolean isAtMaxHealth(){
     	if(getHealth() == maxHealth)
     		return true;
     	else{
