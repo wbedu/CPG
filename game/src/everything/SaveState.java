@@ -162,6 +162,10 @@ public class SaveState {
 		    	
     }
     
+    public ArrayList<String> getCards(){
+    	return cards;
+    }
+    
     public void printCards(){
     	for(int i=0;i<cards.size();i++){
     		System.out.println(cards.get(i));
