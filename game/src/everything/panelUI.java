@@ -140,7 +140,7 @@ public class panelUI {
         playerImage = new ImageIcon("images/UserSprite.jpg");
         enemyImage = new ImageIcon("images/Block.jpg");
         playerSprite = new JLabel(playerImage);
-        enemySprite = new JLabel(playerImage);
+        enemySprite = new JLabel(enemyImage);
         playerArmor = new JLabel();
         enemyArmor = new JLabel();
         playerHealth = new JLabel();
