@@ -77,8 +77,10 @@ public class client {
                         System.out.println("\n\nBattle is over!");
                         if(testBattle.whoIsDead()==0){
                             System.out.println("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
+                            panelUIInst.setWinner(0);
                         } else {
                             System.out.println("\n\nYOU HAVE WON!");
+                            panelUIInst.setWinner(1);
                         }
                         gameLoop = false;
                         panelUIInst.setStartGame0();
@@ -88,6 +90,15 @@ public class client {
                 }//End of GameLoop
                 gameLoop = true;
                 panelUIInst.battleTearDown();
+                panelUIInst.createContinue();
+                while(panelUIInst.getWinner() != -1){
+                    if(panelUIInst.getContinue() == 1){
+                        panelUIInst.setWinner(-1);
+                    } else {
+                        Thread.sleep(100);
+                    }
+                }
+
                 panelUIInst.createStartUI();
 
             } else if(panelUIInst.canShop()==1){
