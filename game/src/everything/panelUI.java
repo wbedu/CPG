@@ -3,6 +3,7 @@ package everything;
  * Created by Aaron on 3/4/17.
  */
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -16,6 +17,8 @@ public class panelUI {
     private JScrollPane cardScroll;
     private ImageIcon cardBack[];
     private ImageIcon cardDisplay;
+    private ImageIcon playerImage;
+    private ImageIcon enemyImage;
     private int cardSelect;
     private boolean cardWaiting;
     private JButton bossButton;    //checks when to start boss battle
@@ -28,8 +31,14 @@ public class panelUI {
     private int shopFlag;
     private int shopLibFlag;
     private int exitFlag;
+    private JPanel healthPanel;
+    private JPanel spritePanel;
     private JPanel shopPanel;
     private JPanel cardDisplayPanel;
+    private JLabel playerSprite;
+    private JLabel enemySprite;
+    private JLabel playerHealth;
+    private JLabel enemyHealth;
 
     public panelUI() {
         shopFlag = 0;
@@ -116,16 +125,34 @@ public class panelUI {
         System.out.println("create battle");
         mainFrame.setLayout(new BorderLayout());
 
-        messageText = new JTextArea("Hello, Welcome to CPG!",20,200);
+        messageText = new JTextArea("FIGHT!",20,24);
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         cardFrame = new JPanel();
+        playerImage = new ImageIcon("images/Block.jpg");
+        enemyImage = new ImageIcon("images/Block.jpg");
+        playerSprite = new JLabel(playerImage);
+        enemySprite = new JLabel(playerImage);
+        playerHealth = new JLabel();
+        enemyHealth = new JLabel();
+        healthPanel = new JPanel();
+        spritePanel = new JPanel();
 
         messageScroll.setLayout(new ScrollPaneLayout());
         cardFrame.setLayout(new GridLayout(1, 5,100,0));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
 
-        mainFrame.add(messageScroll, BorderLayout.CENTER);
+        healthPanel.setLayout(new GridLayout(2,1));
+        healthPanel.add(enemyHealth,0);
+        healthPanel.add(playerHealth,1);
+
+        spritePanel.setLayout(new GridLayout(2,1));
+        spritePanel.add(enemySprite,0);
+        spritePanel.add(playerSprite,1);
+
+        mainFrame.add(messageScroll, BorderLayout.WEST);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
+        mainFrame.add(healthPanel, BorderLayout.EAST);
+        mainFrame.add(spritePanel, BorderLayout.CENTER);
 
         cardOverhead();
 
@@ -187,8 +214,12 @@ public class panelUI {
     }
 
     void battleTearDown(){
+        healthPanel.removeAll();
+        spritePanel.removeAll();
         mainFrame.remove(messageScroll);
         mainFrame.remove(cardFrame);
+        mainFrame.remove(healthPanel);
+        mainFrame.remove(spritePanel);
         mainFrame.revalidate();
         mainFrame.repaint();
     }
@@ -213,18 +244,20 @@ public class panelUI {
         mainFrame.revalidate();
     }
 
-    void displayPlayerTurn(){
-        if(cardSelect == 0){
-            setMessage("\nBlock has been played: Adds 100 armour negating all incoming damage :1 Turn CD");
-        } else if(cardSelect == 1){
-            setMessage("\nCleave has been played: Deal 3 Damage :0 Turn CD");
-        } else if(cardSelect == 2){
-            setMessage("\nMutton has been played: Restore 4 HP :3 Turn CD");
-        } else if(cardSelect == 3){
-            setMessage("\nNordic Blood has been played: Increase Defense :2 Turn CD");
-        } else if(cardSelect == 4){
-            setMessage("\nSavage Strike has been played: Deal 8 Damage :3 Turn CD");
-        }
+    void setPlayerHealth(int newHealth){
+        playerHealth.setText("Health: "+Integer.toString(newHealth));
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void setEnemyHealth(int newHealth){
+        enemyHealth.setText("Health: "+Integer.toString(newHealth));
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
+    void displayPlayerTurn(String message){
+        setMessage(message);
     }
 
     void displayEnemyTurn(String message){

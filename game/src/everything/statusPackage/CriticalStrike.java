@@ -22,6 +22,7 @@ public class CriticalStrike extends Status {
             int damageVal = health - user.getHealth();
             enemy.takeDamage(damageVal);
             health = enemy.getHealth();
+            turns = 0;
         }
     }
 }
