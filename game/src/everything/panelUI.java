@@ -135,7 +135,7 @@ public class panelUI {
         messageText = new JTextArea("FIGHT!",20,30);
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         cardFrame = new JPanel();
-        playerImage = new ImageIcon("images/Block.jpg");
+        playerImage = new ImageIcon("images/UserSprite.jpg");
         enemyImage = new ImageIcon("images/Block.jpg");
         playerSprite = new JLabel(playerImage);
         enemySprite = new JLabel(playerImage);
