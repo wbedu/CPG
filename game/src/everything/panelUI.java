@@ -54,7 +54,6 @@ public class panelUI {
     }
 
     void createStartUI(){
-        exitFlag = 0;
         mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
         bossButton = new JButton();
         shopButton = new JButton();
@@ -110,11 +109,9 @@ public class panelUI {
         mainFrame.setVisible(true);
         mainFrame.revalidate();
         mainFrame.repaint();
-        shopFlag = 0;
     }
 
     void createBattleUI(){
-        exitFlag = 0;
         System.out.println("create battle");
         mainFrame.setLayout(new BorderLayout());
 
@@ -135,7 +132,7 @@ public class panelUI {
         mainFrame.revalidate();
         mainFrame.repaint();
         cardWaiting = true;
-        startGame = 0;
+        startGame = 1;
         System.out.println("end of create battle "+canStartGame());
     }
 
@@ -177,6 +174,7 @@ public class panelUI {
     }
 
     void shopTearDown(){
+        shopFlag = 0;
         shopPanel.removeAll();
         mainFrame.remove(cardScroll);
         mainFrame.remove(cardFrame);
@@ -189,6 +187,7 @@ public class panelUI {
     }
 
     void battleTearDown(){
+        startGame = 0;
         mainFrame.remove(messageScroll);
         mainFrame.remove(cardFrame);
         mainFrame.revalidate();
@@ -255,6 +254,8 @@ public class panelUI {
 
     int getExitFlag(){ return exitFlag; }
 
+    void setExitFlag0(){ exitFlag=0; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand().equals("card1")){
@@ -293,7 +294,6 @@ public class panelUI {
             else if(buttonPress.getActionCommand().equals("Battle")){
                 startTearDown();
                 createBattleUI();
-                startGame = 1;
             }
             else if(buttonPress.getActionCommand().equals("Exit")){
                 exitFlag = 1;

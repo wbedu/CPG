@@ -87,8 +87,9 @@ public class client {
                 panelUIInst.createStartUI();
 
             } else if(panelUIInst.canShop()==1){
-                while (true) {
+                while (panelUIInst.canShop() == 1) {
                     if (panelUIInst.getExitFlag()==1) {
+                        panelUIInst.setExitFlag0();
                         break;
                     } else {
                         if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(null);
@@ -98,7 +99,6 @@ public class client {
                 }
                 //RETURN HAND CHANGES
             } else {
-                //System.out.println("wait for start game");
                 Thread.sleep(100);
             }
         }
