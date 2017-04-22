@@ -9,11 +9,12 @@ import jdk.net.SocketFlow;
 public class Thorns extends Status {
     int thornsVal;
     int health;
-    public Thorns(Player newUser, int numTurns, int thornDamage, Player enemy) {
+    public Thorns(Player newUser, int numTurns, int thornDamage, Player newEnemy) {
         user = newUser;
         turns = numTurns;
         thornsVal = thornDamage;
         health = newUser.getHealth();
+        enemy = newEnemy;
     }
 
     @Override

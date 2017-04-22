@@ -5,10 +5,11 @@ import everything.Player;
 /**
  * Created by Steve on 4/22/2017.
  */
-public class CriticalStrike extends Status {
+public class TrueDamage extends Status {
     int health;
+    int damage;
 
-    public CriticalStrike(Player newUser, int numTurns, Player newEnemy) {
+    public TrueDamage(Player newUser, int numTurns, Player newEnemy) {
         user = newUser;
         turns = numTurns;
         enemy = newEnemy;
@@ -18,9 +19,11 @@ public class CriticalStrike extends Status {
     @Override
     public void statusEffectEnding() {
         turns--;
-        if (enemy.getHealth() < health) {
-            int damageVal = health - user.getHealth();
-            enemy.takeDamage(damageVal);
+        if (enemy.getHealth() < health){
+             damage = enemy.getDefense();
+             enemy.takeDamage(damage);
+             health = enemy.getHealth();
         }
     }
+
 }

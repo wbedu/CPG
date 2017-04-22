@@ -7,7 +7,6 @@ import everything.Player;
  */
 public class DelayedHit extends Status {
     int damage;
-    Player enemy;
 
     public DelayedHit(Player newUser, int numTurns, int damageVal, Player newEnemy) {
         user = newUser;
@@ -19,6 +18,9 @@ public class DelayedHit extends Status {
     @Override
     public void statusEffectBeginning() {
         turns--;
+        if(turns > 0){
+            System.out.println("You will be hit for " + damage + " in " + turns + " turns!");
+        }
         if (turns==0)
             enemy.takeDamage(damage);
     }
