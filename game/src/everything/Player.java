@@ -14,8 +14,6 @@ public abstract class Player {
     private int money;
     //protected ArrayList<Status> status;
     public Hand hand;
-    public CardList cardList;
-
  
 	protected Player(){
 		
