@@ -29,11 +29,6 @@ public class client {
                 System.out.println("start battle -client");
                 userPlayer.setHealth(userPlayer.getMaxHealth());
                 enemyAI = AIManager.getRandomMonster(userPlayer);//new AI("Shrak", 30, 1,userPlayer);
-                enemyAI.hand.addCard(new Block());
-                enemyAI.hand.addCard(new Cleave());
-                enemyAI.hand.addCard(new Cleave());
-                enemyAI.hand.addCard(new NordicBlood());
-                enemyAI.hand.addCard(new SavageStrike());
                 testBattle = new Battle(userPlayer, enemyAI);
                 panelUIInst.setCardWaitingTrue();
 
