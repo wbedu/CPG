@@ -20,12 +20,14 @@ import java.util.ArrayList;
  * Created by Aaron on 3/13/17.
  */
 public class SaveState {
-    static String savePath = "savePath/saveFile.json";
-    static String shopPath = "savePath/shopFile.json";
-    ArrayList<String> cards;
+    private static String savePath = "savePath/saveFile.json";
+    private static String shopPath = "savePath/shopFile.json";
+    private ArrayList<String> cards;
+    private ArrayList<String> cardPaths;
     
     public SaveState(){
     	cards=new ArrayList<String>();
+    	cardPaths = new ArrayList<String>();
     	storeAllCardNames();
     }
 
@@ -155,7 +157,9 @@ public class SaveState {
 		    			buf =files[i].getName();
 		    			if((buf.contains(".java"))&&(!buf.equals("card.java"))){
 		    			
-		    				cards.add(buf.substring(0,buf.lastIndexOf(".java")).trim());
+		    				buf =buf.substring(0,buf.lastIndexOf(".java")).trim();
+		    				cards.add(buf);
+		    				cardPaths.add(buf.concat(".jpg"));
 		    			}
 		    		}
 		    	}
@@ -165,6 +169,11 @@ public class SaveState {
     public ArrayList<String> getCards(){
     	return cards;
     }
+    
+    public ArrayList<String> getCardPath(){
+    	return cardPaths;
+    }
+    
     
     public void printCards(){
     	for(int i=0;i<cards.size();i++){
