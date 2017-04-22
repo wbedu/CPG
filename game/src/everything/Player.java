@@ -134,7 +134,9 @@ public abstract class Player {
     public void addCard(Card newCard){
     	hand.addCard(newCard);
     }
-    
+    public int getHandSize(){
+    	return hand.getSize();
+    }
     public void addStatus(Status newStatus){
     	statusManager.addStatus(newStatus,this);
     }

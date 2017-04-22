@@ -41,6 +41,10 @@ public class Hand{
     	hand.remove(removedCard);
     }
     
+    protected int getSize(){
+    	return hand.size();
+    }
+    
     
     protected boolean contains(Card card){
     		return hand.contains(card);
