@@ -26,6 +26,7 @@ public abstract class Card {
         ownedByPlayer = isOwned;
         setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));
     }
+
     public int getAdvantage(){
     	return this.advantage;
     }
