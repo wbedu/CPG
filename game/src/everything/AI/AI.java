@@ -18,7 +18,7 @@ public abstract class AI extends Player{
 		super(name,health,defense);
 		maxHealth = health;
 		this.enemy= enemy;
-		setImagePath("images/".concat(this.getClass().getSimpleName()).concat("Sprite.jpg"));
+		setImagePath("images/".concat(this.getClass().getSimpleName()).concat("Sprite.png"));
 	}
 
 	public String getImagePath() {
