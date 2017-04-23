@@ -17,7 +17,7 @@ public class WolfRavage extends Card {
             int range = (10 - 1) + 1;
             int randomnum = (int) (Math.random() * range) + 1;
             if (randomnum > 6) {
-                p1.addStatus(new Bleed(p1, 3));
+                p1.addStatus(new Bleed(p2, 3));
                 System.out.println("You are now bleeding");
             }
         }

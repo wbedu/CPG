@@ -48,13 +48,15 @@ public abstract class Player {
     //decreases defense but does not change any other conditions
     public void decreaseDefense(int decreaseFactor) {
         if(getDefense() - decreaseFactor <= 0)
-            defensePoints = 0;
+            setDefense(0);
         else
         defensePoints-=decreaseFactor;
     }
 
     //set health of player to specific value
     public void setHealth(int healthValue) { health = healthValue; }
+
+    public void setDefense(int defValue){ defensePoints = defValue; }
 
     //player takes the damage specified after defense is subtracted;
     //calls lifeCheck to check living status;

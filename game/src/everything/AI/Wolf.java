@@ -9,10 +9,11 @@ import everything.cardPackage.*;
 public class Wolf extends AI {
     public Wolf(Player user){
     	super("Wolf",20,0, user);
+    	maxHealth = 20;
     	this.addCard(new WolfBite());
     	this.addCard(new WolfDefense());
-    	this.addCard(new WolfPack());
     	this.addCard(new WolfRavage());
+    	this.addCard(new WolfPack());
     	
     	depositMoney(50);
     }

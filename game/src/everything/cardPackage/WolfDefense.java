@@ -13,6 +13,7 @@ public class WolfDefense extends Card{
     }
 
     public void cardFunction(Player p1, Player p2) {
+        p1.increaseDefense(5);
         p1.addStatus(new IncreaseDefenseStatus(p1, 1, 5));
         p1.increaseHealth(3);
     }

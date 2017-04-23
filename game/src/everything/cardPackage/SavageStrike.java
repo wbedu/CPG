@@ -15,7 +15,6 @@ public class SavageStrike extends Card {
     public void cardFunction(Player p1, Player p2){
         if(checkCooldown()){
             p2.takeDamage(8);
-            p1.addStatus(new Bleed(p2, 3));
             super.setCooldown();
         }
     }
