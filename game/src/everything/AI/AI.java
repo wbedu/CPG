@@ -15,6 +15,7 @@ public abstract class AI extends Player{
 
 	public AI(String name,int health,int defense, Player enemy){
 		super(name,health,defense);
+		maxHealth = health;
 		this.enemy= enemy;
 	}
 	

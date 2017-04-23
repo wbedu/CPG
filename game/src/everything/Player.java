@@ -25,6 +25,7 @@ public abstract class Player {
         this.defensePoints=defensePoints;
         living=true;
         hand=new Hand();
+        maxHealth = health;
         //status=new ArrayList<Status>();
         statusManager = new StatusManager();
         level=0;
