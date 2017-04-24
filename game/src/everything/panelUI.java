@@ -223,6 +223,7 @@ public class panelUI {
             shopLib[x].setText(cardNameList.get(x));
             shopLib[x].setPreferredSize(new Dimension(400,50));
             shopLib[x].addActionListener(new buttonListener());
+            shopLib[x].setActionCommand("shopCard");
             shopPanel.add(shopLib[x],x);
         }
         shopLibFlag = 0;
@@ -272,7 +273,8 @@ public class panelUI {
 
     void battleTearDown(){
         healthPanel.removeAll();
-        spritePanel.removeAll();
+        spritePanel.remove(playerSprite);
+        spritePanel.remove(enemySprite);
         mainFrame.remove(messageScroll);
         mainFrame.remove(cardFrame);
         mainFrame.remove(healthPanel);
@@ -431,6 +433,9 @@ public class panelUI {
                 continueFlag = 1;
                 continueTearDown();
                 winner = -1;
+            }
+            else if(buttonPress.getActionCommand().equals("shopCard")){
+                int index = buttonPress.getID();
             }
             //setMessage("\n"+buttonPress.getActionCommand());
         }
