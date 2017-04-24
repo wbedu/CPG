@@ -20,25 +20,29 @@ import java.util.ArrayList;
  * Created by Aaron on 3/13/17.
  */
 public class SaveState {
-    private static String savePath = "savePath/saveFile.json";
-    private static String shopPath = "savePath/shopFile.json";
+    private String savePath = "savePath/saveFile.json";
+    private String shopPath = "savePath/shopFile.json";
     private ArrayList<String> cards;
     private ArrayList<String> cardPaths;
+    private ArrayList<String> ownedCards;
     
     public SaveState(){
     	cards=new ArrayList<String>();
     	cardPaths = new ArrayList<String>();
+    	ownedCards = new ArrayList<String>();
     	storeAllCardNames();
     }
 
-    protected static void saveGame(User user) throws IOException{
+    protected void saveGame(User user) throws IOException{
     	JSONObject saveObj = new JSONObject();
     	saveObj.put("name",user.getName());
     	saveObj.put("maxHealth",user.getMaxHealth());
     	saveObj.put("defence", user.getDefense());
+    	System.out.println("defence for this is: "+ user.getDefense());
     	saveObj.put("hand",user.hand.getCardList());
     	saveObj.put("money", user.getMoney());
     	saveObj.put("level", user.getLevel());
+    	saveObj.put("ownedCard",ownedCards.toArray(new String[ownedCards.size()]));
     	    	
     	try(FileWriter saveFile = new FileWriter(savePath)){
     		saveFile.write(saveObj.toString());
@@ -46,9 +50,14 @@ public class SaveState {
         System.out.println("game has been saved");
     }
 
-   protected static User loadGame() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+   protected User loadGame() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         System.out.println("game has been loaded");
         User newPlayer;
+        String name = null;
+        int maxHealth = 0, defence = 0,money = 0,level=0;
+        String handList[] = null;
+        Hand hand=null;
+
        String fileToString = readFile(savePath); 
        
        if(fileToString.equals("null")){
@@ -56,20 +65,28 @@ public class SaveState {
        }
        JSONObject saveObj= stringtoJSON(fileToString);
        
-       String name = saveObj.getString("name");
-       int maxHealth = saveObj.getInt("maxHealth");
-       int defence = saveObj.getInt("defence");
-       int money = saveObj.getInt("money");
-       int level = saveObj.getInt("level");
-       String handList[] = getHandArray(saveObj.getJSONArray("hand"));
-       Hand hand = loadHand(handList);
-       
-       newPlayer= new User(name,maxHealth,defence,money,hand);
-       
+       try{
+    	   name = saveObj.getString("name");
+    	   maxHealth = saveObj.getInt("maxHealth");
+    	   defence = saveObj.getInt("defence");
+    	   money = saveObj.getInt("money");
+    	   level = saveObj.getInt("level");
+    	   handList= getHandArray(saveObj.getJSONArray("hand"));
+    	   hand = loadHand(handList);
+    	   newPlayer= new User(name,maxHealth,defence,money,hand);
+       }
+       catch(JSONException e){
+    	   e.printStackTrace();
+    	   newPlayer = newGame();
+    	   System.out.println("Failed to load save.");
+    	   System.out.println("Loading new Game");
+       }
+     
        return newPlayer;
+              
     }
     
-    protected static User newGame(){
+    private static User newGame(){
         User userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
         userPlayer.hand.addCard(new Cleave());
@@ -79,7 +96,7 @@ public class SaveState {
     	return userPlayer;
     }
     
-    public static Hand loadHand(String arr[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+    private static Hand loadHand(String arr[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
     	
     	int len = arr.length;
     	Hand hand=new Hand();
@@ -132,7 +149,7 @@ public class SaveState {
 
     }
     
-    public static JSONObject stringtoJSON(String readString){
+    private static JSONObject stringtoJSON(String readString){
     	
        	JSONObject json = new JSONObject(readString);
 
@@ -148,22 +165,20 @@ public class SaveState {
     }
     
     private void storeAllCardNames(){
-		    	File folder = new File("everything/cardPackage");
-		    	File[] files = folder.listFiles();
-		    	int len = files.length;
-		    	String buf;
-		    	for(int i=0;i<len;i++){
-		    		if(files[i].isFile()){
-		    			buf =files[i].getName();
-		    			if((buf.contains(".java"))&&(!buf.equals("card.java"))){
-		    			
-		    				buf =buf.substring(0,buf.lastIndexOf(".java")).trim();
-		    				cards.add(buf);
-		    				cardPaths.add(buf.concat(".jpg"));
-		    			}
-		    		}
+    	File folder = new File("everything/cardPackage");
+		File[] files = folder.listFiles();
+		int len = files.length;
+		String buf;
+		 for(int i=0;i<len;i++){
+		    if(files[i].isFile()){
+		    	buf =files[i].getName();
+		    	if((buf.contains(".java"))&&(!buf.equals("card.java"))){	
+		    		buf =buf.substring(0,buf.lastIndexOf(".java")).trim();
+		    		cards.add(buf);
+		    		cardPaths.add(buf.concat(".jpg"));
 		    	}
-		    	
+		    }
+		 }    	
     }
     
     public ArrayList<String> getCards(){
@@ -174,15 +189,15 @@ public class SaveState {
     	return cardPaths;
     }
     
-    
-    public void printCards(){
-    	for(int i=0;i<cards.size();i++){
-    		System.out.println(cards.get(i));
-    	}
+    public void addCardToRepo(String newCard){
+    	ownedCards.add(newCard);
     }
     
-    
-    
-
+    public void isOwned(String cardName){
+    	for(int i =0;i<ownedCards.size();i++){
+    		if(ownedCards.get(i).equals(cardName));
+    	}
+    }
+   
 
 }
