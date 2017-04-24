@@ -20,6 +20,7 @@ public class panelUI {
     private ImageIcon cardDisplay;
     private ImageIcon playerImage;
     private ImageIcon enemyImage;
+    private ImageIcon townScreenImage;
     private int cardSelect;
     private boolean cardWaiting;
     private JButton bossButton;    //checks when to start boss battle
@@ -81,6 +82,8 @@ public class panelUI {
         bossButton = new JButton();
         shopButton = new JButton();
         battleButton = new JButton();
+        townScreenImage = new ImageIcon("images/TownScreen.png");
+        //mainFrame.setIconImage(townScreenImage.getImage());
         bossButton.setText("Boss Battle");
         shopButton.setText("Shop");
         battleButton.setText("Battle");
