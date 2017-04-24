@@ -238,7 +238,8 @@ public class panelUI {
     void cardOverhead(){
         cards = new JButton[5];
         for(int x=0;x<5;x++){
-            cards[x] = new JButton(cardBack[x]);
+            cards[x] = new JButton();
+            cards[x].setIcon(cardBack[x]);
             cards[x].setPreferredSize(new Dimension(50,200));
             cards[x].setText("card"+Integer.toString(x+1));
             cards[x].addActionListener(new buttonListener());
@@ -251,9 +252,10 @@ public class panelUI {
     }
 
     void cardCoolDownUpdate(){
-        for(int x=0;x<shopLibSize;x++){
-            cards[x].setIcon(cardBack[x]);
+        for(int x=0;x<5;x++){
+            cardFrame.remove(cards[x]);
         }
+        cardOverhead();
         mainFrame.revalidate();
         mainFrame.repaint();
     }
