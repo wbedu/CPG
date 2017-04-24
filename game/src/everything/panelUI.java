@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class panelUI {
     private JFrame mainFrame;
@@ -46,6 +47,9 @@ public class panelUI {
     private JLabel enemyArmor;
     private JLabel winLabel;
     private JLabel lootLabel;
+    private ArrayList<String> cardNameList;
+    private ArrayList<String> cardPathList;
+    private int[] isOwnList;
 
     public panelUI() {
         shopFlag = 0;
@@ -208,7 +212,10 @@ public class panelUI {
         mainFrame.repaint();
     }
 
-    void setShopLibrary(SaveState save){
+    void setShopLibrary(){
+        SaveState save = new SaveState();
+        cardNameList = save.getCards();
+        cardPathList = save.getCardPath();
         shopLib = new JButton[5];
         for(int x=0;x<5;x++){
             shopLib[x] = new JButton();
