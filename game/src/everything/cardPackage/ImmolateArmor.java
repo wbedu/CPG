@@ -12,6 +12,7 @@ public class ImmolateArmor extends Card {
     public void cardFunction(Player p1, Player p2){
         int dmgVal = p2.getDefense();
         p2.decreaseDefense(dmgVal);
-        p2.decreaseHealth(dmgVal);
+        p2.takeDamage(dmgVal);
+        super.setCooldown();
     }
 }

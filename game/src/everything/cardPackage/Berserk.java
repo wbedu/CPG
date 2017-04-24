@@ -1,7 +1,7 @@
 package everything.cardPackage;
 
 import everything.Player;
-
+import everything.statusPackage.TrueDamage;
 import javax.smartcardio.*;
 
 /**

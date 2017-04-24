@@ -1,12 +1,6 @@
 package everything;
+import everything.cardPackage.*;
 import org.json.*;
-
-import everything.cardPackage.Block;
-import everything.cardPackage.Card;
-import everything.cardPackage.Cleave;
-import everything.cardPackage.Mutton;
-import everything.cardPackage.NordicBlood;
-import everything.cardPackage.SavageStrike;
 
 import java.io.BufferedReader;
 import java.io.File;

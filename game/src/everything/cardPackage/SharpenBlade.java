@@ -13,6 +13,7 @@ public class  SharpenBlade extends Card {
 
     public void cardFunction(Player p1, Player p2) {
         p1.addStatus(new CriticalStrike(p1, 3, p2));
+        super.setCooldown();
     }
 }
 

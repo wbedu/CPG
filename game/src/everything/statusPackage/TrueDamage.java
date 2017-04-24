@@ -19,11 +19,11 @@ public class TrueDamage extends Status {
     @Override
     public void statusEffectEnding() {
         turns--;
-        if (enemy.getHealth() < health){
+        /*if (enemy.getHealth() < health){
              damage = enemy.getDefense();
              enemy.takeDamage(damage);
              health = enemy.getHealth();
-        }
+        }*/
     }
 
 }

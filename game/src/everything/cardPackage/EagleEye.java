@@ -13,6 +13,7 @@ public class EagleEye  extends Card{
 
     public void cardFunction(Player p1, Player p2) {
         p2.addStatus(new TrueDamage(p1, 3, p2));
+        super.setCooldown();
     }
 }
 

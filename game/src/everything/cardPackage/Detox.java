@@ -10,5 +10,6 @@ public class Detox extends Card{
 
     public void cardFunction(Player p1, Player p2){
     	p1.statusManager.clearAllStatus();
+    	super.setCooldown();
     }
 }

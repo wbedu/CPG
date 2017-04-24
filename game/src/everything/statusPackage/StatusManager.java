@@ -34,6 +34,15 @@ public class StatusManager {
 			}
 		}
 	}
+
+	public boolean isStatusActive(String statusName){
+		for(int i = 0;i<status.size();i++){
+			if(status.get(i).getClass().getSimpleName().equals(statusName)){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	public void addStatus(Status newStatus,Player p1){
 		this.status.add(newStatus);

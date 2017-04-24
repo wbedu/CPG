@@ -18,7 +18,7 @@ public class Block extends Card{
         if(checkCooldown()){
             p1.increaseDefense(100);
             p1.addStatus(new IncreaseDefenseStatus(p1, 1, 100));
-            setCooldown();
+            super.setCooldown();
         }
     }
 }

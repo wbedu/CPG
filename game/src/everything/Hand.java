@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import everything.cardPackage.*;
 
 public class Hand{
-	private static int maxCards=5;
+	private static int maxCards=6;
 	protected ArrayList<Card> hand;
 	protected String lastCardText;
 			
