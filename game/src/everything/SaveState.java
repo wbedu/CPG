@@ -33,24 +33,32 @@ public class SaveState {
     	storeAllCardNames();
     }
 
-    protected void saveGame(User user) throws IOException{
+    protected void saveGame(User user){
     	JSONObject saveObj = new JSONObject();
     	saveObj.put("name",user.getName());
     	saveObj.put("maxHealth",user.getMaxHealth());
     	saveObj.put("defence", user.getDefense());
     	System.out.println("defence for this is: "+ user.getDefense());
-    	saveObj.put("hand",user.hand.getCardList());
+    	saveObj.put("hand",user.hand.getCardClass());
     	saveObj.put("money", user.getMoney());
     	saveObj.put("level", user.getLevel());
     	saveObj.put("ownedCard",ownedCards.toArray(new String[ownedCards.size()]));
     	    	
     	try(FileWriter saveFile = new FileWriter(savePath)){
-    		saveFile.write(saveObj.toString());
-    	}
+    		try {
+				saveFile.write(saveObj.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         System.out.println("game has been saved");
     }
 
-   protected User loadGame() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+   protected User loadGame(){
         System.out.println("game has been loaded");
         User newPlayer;
         String name = null;
@@ -71,11 +79,12 @@ public class SaveState {
     	   defence = saveObj.getInt("defence");
     	   money = saveObj.getInt("money");
     	   level = saveObj.getInt("level");
-    	   handList= getHandArray(saveObj.getJSONArray("hand"));
+    	   handList= getStringArray(saveObj.getJSONArray("hand"));
     	   hand = loadHand(handList);
+    	   loadOwnedCards(saveObj.getJSONArray("ownedCards"));
     	   newPlayer= new User(name,maxHealth,defence,money,hand);
        }
-       catch(JSONException e){
+       catch(JSONException | InstantiationException | IllegalAccessException e){
     	   e.printStackTrace();
     	   newPlayer = newGame();
     	   System.out.println("Failed to load save.");
@@ -96,16 +105,24 @@ public class SaveState {
     	return userPlayer;
     }
     
-    private static Hand loadHand(String arr[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-    	
+    private static Hand loadHand(String arr[]) throws InstantiationException, IllegalAccessException{
+    	Class newClass= null;
+    	Object obj;
     	int len = arr.length;
     	Hand hand=new Hand();
     	
     	for(int i=0;i<len;i++){
     		if(!arr[i].equals("null")){
-    			Class newClass = Class.forName(arr[i]);
     			
-    			Object obj = newClass.newInstance();
+				try {	
+					newClass = Class.forName(arr[i]);
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("critical FAILURE!");
+					e1.printStackTrace();
+				}
+    			
+				obj = newClass.newInstance();
     			
     			hand.addCard((Card)obj);
     		}else{
@@ -117,7 +134,7 @@ public class SaveState {
     	return hand;
     }
     
-    public static String[] getHandArray(JSONArray JArray){
+    public static String[] getStringArray(JSONArray JArray){
     	int Jlen =JArray.length();
     	
     	String[] cardNames = new String[Jlen];
@@ -160,7 +177,7 @@ public class SaveState {
     	String JsonString = readFile(shopPath);
     	JSONObject jObj= new JSONObject(JsonString);   	
     	JSONArray shopJArray= new JSONArray(jObj.getJSONArray("ShopList"));    	
-    	String[] ret = getHandArray(shopJArray);
+    	String[] ret = getStringArray(shopJArray);
     	return ret;
     }
     
@@ -180,7 +197,11 @@ public class SaveState {
 		    }
 		 }    	
     }
-    
+    public void loadOwnedCards(JSONArray jsonArray){
+    	for(int i=0;i<jsonArray.length();i++){
+    		ownedCards.add(jsonArray.getString(i));
+    	}
+    }
     public ArrayList<String> getCards(){
     	return cards;
     }
@@ -193,10 +214,14 @@ public class SaveState {
     	ownedCards.add(newCard);
     }
     
-    public void isOwned(String cardName){
+    public boolean isOwned(String cardName){
     	for(int i =0;i<ownedCards.size();i++){
-    		if(ownedCards.get(i).equals(cardName));
+    		if(ownedCards.get(i).equals(cardName)){
+    			return true;
+    		}
     	}
+    	
+    	return false;
     }
    
 

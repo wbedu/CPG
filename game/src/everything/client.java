@@ -12,15 +12,11 @@ public class client {
         User userPlayer;
         AI enemyAI;
         int cardSelected;
+        SaveState save = new SaveState();
 
         //SaveState save = new SaveState();
         //Hand Setup
-        userPlayer = new User("Aaron", 30, 0);
-        userPlayer.hand.addCard(new Block());
-        userPlayer.hand.addCard(new Cleave());
-        userPlayer.hand.addCard(new Mutton());
-        userPlayer.hand.addCard(new NordicBlood());
-        userPlayer.hand.addCard(new SavageStrike());
+        userPlayer =save.loadGame();
 
         panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
 
@@ -73,6 +69,7 @@ public class client {
                     }
 
                     if (testBattle.isOver()) {
+                    	save.saveGame(userPlayer);
                         System.out.println("\n\nBattle is over!");
                         if(testBattle.whoIsDead()==1){
                             System.out.println("\n\nYOU HAVE WON!");
