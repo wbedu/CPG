@@ -7,7 +7,7 @@ import everything.Player;
  */
 public class BSBasicAttack extends Card {
     public BSBasicAttack() {
-        super("Blacksmith bashes you with his shield dealing 3 damage, then returns to a defensive posture gaining 1 armor", "Basic Attack", "Attack", 0, 0, false);
+        super("Inawa the Blacksmith bashes you with his shield dealing 3 damage, then returns to a defensive posture gaining 1 armor", "Basic Attack", "Attack", 0, 0, false);
         tempCD = 0;
     }
 

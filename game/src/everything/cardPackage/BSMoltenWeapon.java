@@ -7,7 +7,7 @@ import everything.statusPackage.Burning;
  */
 public class BSMoltenWeapon extends Card {
     public BSMoltenWeapon() {
-        super("The blacksmith Drips his weapon into the forge, his next attack will burn for 3 damage for 3 turns", "BS Molten Weapon", "Utility", 0, 0, false);
+        super("Inawa the Blacksmith dunks his weapon into the forge, his next attack will burn for 3 damage for 3 turns", "BS Molten Weapon", "Utility", 0, 0, false);
         tempCD = 0;
     }
 

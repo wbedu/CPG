@@ -8,7 +8,7 @@ import everything.statusPackage.CriticalStrike;
  */
 public class BSKeenEdge extends Card {
     public BSKeenEdge(){
-        super("Blacksmith sharpens his weapon, granting critical strike for 3 turns.", "Keen Edge", "Utility", 0,0, false);
+        super("Inawa the Blacksmith sharpens his weapon, granting critical strike for 3 turns.", "Keen Edge", "Utility", 0,0, false);
     }
 
     public void cardFunction(Player p1, Player p2) {
