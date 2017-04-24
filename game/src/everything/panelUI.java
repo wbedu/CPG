@@ -154,7 +154,7 @@ public class panelUI {
         spritePanel = new JPanel();
 
         messageScroll.setLayout(new ScrollPaneLayout());
-        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setLayout(new GridLayout(1, 5, 50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
 
         healthPanel.setLayout(new GridLayout(5,1));
@@ -234,10 +234,14 @@ public class panelUI {
         cards = new JButton[5];
         for(int x=0;x<5;x++){
             cards[x] = new JButton(cardBack[x]);
-            cards[x].setPreferredSize(new Dimension(125,200));
+            cards[x].setPreferredSize(new Dimension(50,200));
             cards[x].setText("card"+Integer.toString(x+1));
             cards[x].addActionListener(new buttonListener());
             cardFrame.add(cards[x], x);
+            cards[x].setOpaque(false);
+            cards[x].setContentAreaFilled(false);
+            cards[x].setBorderPainted(false);
+            cards[x].setForeground(new Color(1f,0f,0f,0f ));
         }
     }
 
