@@ -301,6 +301,7 @@ public class panelUI {
     }
 
     void setEnemyImagePath(String path){
+        spritePanel.remove(enemySprite);
         enemyImagePath = path;
         enemyImage = new ImageIcon(enemyImagePath);
         enemySprite = new JLabel(enemyImage);
