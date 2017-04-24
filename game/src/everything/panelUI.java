@@ -296,6 +296,9 @@ public class panelUI {
 
     void setEnemyImagePath(String path){
         enemyImagePath = path;
+        enemyImage = new ImageIcon(enemyImagePath);
+        enemySprite = new JLabel(enemyImage);
+        spritePanel.add(enemySprite,0);
     }
 
     void updateFrame(){
