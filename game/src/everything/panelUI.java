@@ -9,7 +9,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class panelUI {
-    private JFrame mainFrame;
+    private JFrame screen;
+    private JLabel mainFrame;
     private JPanel cardFrame;
     private JButton shopLib[];
     private JButton cards[];
@@ -58,14 +59,14 @@ public class panelUI {
         shopFlag = 0;
         exitFlag = 0;
         shopLibFlag = 1;
-        mainFrame = new JFrame("CPG");
-        mainFrame.setResizable(false);
-        mainFrame.setPreferredSize(new Dimension(1024,600));
-        mainFrame.setSize(1024,600);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen = new JFrame("CPG");
+        screen.setResizable(false);
+        screen.setPreferredSize(new Dimension(1024,600));
+        screen.setSize(1024,600);
+        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Checks when window is closed and exits java
-        mainFrame.addWindowListener(new WindowAdapter() {
+        screen.addWindowListener(new WindowAdapter() {
             public void windowClosed(WindowEvent e) {
                 super.windowClosed(e);
                 System.exit(0);
@@ -78,12 +79,13 @@ public class panelUI {
     void createStartUI(){
         continueFlag = 0;
         startGame = 0;
+        townScreenImage = new ImageIcon("images/TownScreen.png");
+        mainFrame = new JLabel(townScreenImage);
         mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
         bossButton = new JButton();
         shopButton = new JButton();
         battleButton = new JButton();
-        townScreenImage = new ImageIcon("images/TownScreen.png");
-        //mainFrame.setIconImage(townScreenImage.getImage());
+
         bossButton.setText("Boss Battle");
         shopButton.setText("Shop");
         battleButton.setText("Battle");
@@ -94,18 +96,20 @@ public class panelUI {
         mainFrame.add(bossButton);
         mainFrame.add(shopButton);
         mainFrame.add(battleButton);
+        screen.add(mainFrame);
 
         bossButton.setVisible(true);
         shopButton.setVisible(true);
         battleButton.setVisible(true);
-        mainFrame.setVisible(true);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.setVisible(true);
+        updateFrame();
+        
     }
 
     void createShopUI(){
         exitFlag = 0;
         shopLibFlag = 1;
+        mainFrame = new JLabel();
         mainFrame.setLayout(new BorderLayout());
         cardFrame = new JPanel();
         exitButton = new JButton();
@@ -130,15 +134,17 @@ public class panelUI {
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
         mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
-        mainFrame.setVisible(true);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.add(mainFrame);
+        screen.setVisible(true);
+        updateFrame();
+        
     }
 
     void createBattleUI(){
         exitFlag = 0;
         winner = -1;
         System.out.println("create battle");
+        mainFrame = new JLabel();
         mainFrame.setLayout(new BorderLayout());
 
         messageText = new JTextArea("FIGHT!",20,30);
@@ -174,18 +180,20 @@ public class panelUI {
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
         mainFrame.add(healthPanel, BorderLayout.EAST);
         mainFrame.add(spritePanel, BorderLayout.CENTER);
+        screen.add(mainFrame);
 
         cardOverhead();
 
-        mainFrame.setVisible(true);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.setVisible(true);
+        updateFrame();
+        
         cardWaiting = true;
         System.out.println("end of create battle "+canStartGame());
     }
 
     void createContinue(){
         continueFlag = 0;
+        mainFrame = new JLabel();
         mainFrame.setLayout(new BorderLayout());
 
         continueButton = new JButton();
@@ -209,10 +217,11 @@ public class panelUI {
         mainFrame.add(continueButton, BorderLayout.SOUTH);
         mainFrame.add(winLabel, BorderLayout.NORTH);
         mainFrame.add(lootLabel, BorderLayout.CENTER);
+        screen.add(mainFrame);
 
-        mainFrame.setVisible(true);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.setVisible(true);
+        updateFrame();
+        
     }
 
     void setShopLibrary(){
@@ -231,8 +240,8 @@ public class panelUI {
             shopPanel.add(shopLib[x],x);
         }
         shopLibFlag = 0;
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     void cardOverhead(){
@@ -256,8 +265,8 @@ public class panelUI {
             cardFrame.remove(cards[x]);
         }
         cardOverhead();
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     int needShopLib(){
@@ -268,8 +277,9 @@ public class panelUI {
         mainFrame.remove(battleButton);
         mainFrame.remove(shopButton);
         mainFrame.remove(bossButton);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.remove(mainFrame);
+        updateFrame();
+        
     }
 
     void shopTearDown(){
@@ -281,8 +291,9 @@ public class panelUI {
         mainFrame.remove(cardDisplayPanel);
         //mainFrame.remove(buyButton);
         //mainFrame.remove(swapButton);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.remove(mainFrame);
+        updateFrame();
+        
     }
 
     void battleTearDown(){
@@ -293,16 +304,18 @@ public class panelUI {
         mainFrame.remove(cardFrame);
         mainFrame.remove(healthPanel);
         mainFrame.remove(spritePanel);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.remove(mainFrame);
+        updateFrame();
+        
     }
 
     void continueTearDown(){
         mainFrame.remove(continueButton);
         mainFrame.remove(winLabel);
         mainFrame.remove(lootLabel);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.remove(mainFrame);
+        updateFrame();
+        
     }
 
     void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
@@ -323,38 +336,38 @@ public class panelUI {
     }
 
     void updateFrame(){
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        screen.revalidate();
+        screen.repaint();
     }
 
     void setMessage(String inputMessage){
         messageText.append(inputMessage);
         messageText.setCaretPosition(messageText.getDocument().getLength());
-        mainFrame.revalidate();
+        screen.revalidate();
     }
 
     void setPlayerHealth(int newHealth){
         playerHealth.setText("Player HP: "+Integer.toString(newHealth));
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     void setEnemyHealth(int newHealth){
         enemyHealth.setText("Enemy HP: "+Integer.toString(newHealth));
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     void setPlayerArmor(int newArmor){
         playerArmor.setText("Armor: "+newArmor);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     void setEnemyArmor(int newArmor){
         enemyArmor.setText("Armor: "+newArmor);
-        mainFrame.revalidate();
-        mainFrame.repaint();
+        updateFrame();
+        
     }
 
     void displayPlayerTurn(String message){
