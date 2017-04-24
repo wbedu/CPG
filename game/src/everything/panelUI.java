@@ -50,6 +50,7 @@ public class panelUI {
     private ArrayList<String> cardNameList;
     private ArrayList<String> cardPathList;
     private int[] isOwnList;
+    private String enemyImagePath;
 
     public panelUI() {
         shopFlag = 0;
@@ -142,7 +143,7 @@ public class panelUI {
         messageScroll = new JScrollPane(messageText,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         cardFrame = new JPanel();
         playerImage = new ImageIcon("images/UserSprite.jpg");
-        enemyImage = new ImageIcon("images/Block.jpg");
+        enemyImage = new ImageIcon(enemyImagePath);
         playerSprite = new JLabel(playerImage);
         enemySprite = new JLabel(enemyImage);
         playerArmor = new JLabel();
@@ -291,6 +292,10 @@ public class panelUI {
             System.out.println(playerCards[x]);
             cardBack[x] = new ImageIcon(playerCards[x]);
         }
+    }
+
+    void setEnemyImagePath(String path){
+        enemyImagePath = path;
     }
 
     void updateFrame(){
