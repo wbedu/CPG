@@ -8,6 +8,7 @@ public abstract class AI extends Player{
 	protected int healthThreshold;
 	protected int nextCard;
 	protected Card cardToDrop;
+	private   String imagePath;
 	Player enemy;
 	protected AI(){
 	
@@ -17,6 +18,18 @@ public abstract class AI extends Player{
 		super(name,health,defense);
 		maxHealth = health;
 		this.enemy= enemy;
+		setImagePath("images/".concat(this.getClass().getSimpleName()).concat("Sprite.jpg"));
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	/**
+	 * @param imagePath the imagePath to set
+	 */
+	protected void setImagePath(String setImagePath) {
+		imagePath = setImagePath;
 	}
 	
 	
