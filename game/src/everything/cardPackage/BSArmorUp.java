@@ -13,8 +13,8 @@ public class BSArmorUp extends Card {
 
     public void cardFunction(Player p1, Player p2) {
         {
-            p2.increaseDefense(10);
-            p2.addStatus(new IncreaseDefenseStatus(p1, 2, 10));
+            p1.increaseDefense(10);
+            p1.addStatus(new IncreaseDefenseStatus(p1, 2, 10));
         }
     }
 
