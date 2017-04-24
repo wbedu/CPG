@@ -110,11 +110,9 @@ public class panelUI {
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         exitButton.setText("Exit");
-        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setLayout(new GridLayout(1, 5,50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
         cardScroll.setPreferredSize(new Dimension(400,400));
-        shopPanel.setLayout(new GridLayout(5,1));
-        //cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
 
@@ -154,7 +152,7 @@ public class panelUI {
         spritePanel = new JPanel();
 
         messageScroll.setLayout(new ScrollPaneLayout());
-        cardFrame.setLayout(new GridLayout(1, 5,100,0));
+        cardFrame.setLayout(new GridLayout(1, 5, 50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
 
         healthPanel.setLayout(new GridLayout(5,1));
@@ -217,12 +215,15 @@ public class panelUI {
         SaveState save = new SaveState();
         cardNameList = save.getCards();
         cardPathList = save.getCardPath();
-        shopLib = new JButton[5];
-        for(int x=0;x<5;x++){
+        int size = cardNameList.size();
+        shopLib = new JButton[size];
+        shopPanel.setLayout(new GridLayout(size,1));
+        for(int x=0;x<size;x++){
             shopLib[x] = new JButton();
-            shopLib[x].setText("shop"+Integer.toString(x+1));
+            shopLib[x].setText(cardNameList.get(x));
             shopLib[x].setPreferredSize(new Dimension(400,50));
             shopLib[x].addActionListener(new buttonListener());
+            shopLib[x].setActionCommand("shopCard");
             shopPanel.add(shopLib[x],x);
         }
         shopLibFlag = 0;
@@ -234,10 +235,14 @@ public class panelUI {
         cards = new JButton[5];
         for(int x=0;x<5;x++){
             cards[x] = new JButton(cardBack[x]);
-            cards[x].setPreferredSize(new Dimension(125,200));
+            cards[x].setPreferredSize(new Dimension(50,200));
             cards[x].setText("card"+Integer.toString(x+1));
             cards[x].addActionListener(new buttonListener());
             cardFrame.add(cards[x], x);
+            cards[x].setOpaque(false);
+            cards[x].setContentAreaFilled(false);
+            cards[x].setBorderPainted(false);
+            cards[x].setForeground(new Color(1f,0f,0f,0f ));
         }
     }
 
@@ -268,7 +273,8 @@ public class panelUI {
 
     void battleTearDown(){
         healthPanel.removeAll();
-        spritePanel.removeAll();
+        spritePanel.remove(playerSprite);
+        spritePanel.remove(enemySprite);
         mainFrame.remove(messageScroll);
         mainFrame.remove(cardFrame);
         mainFrame.remove(healthPanel);
@@ -295,6 +301,7 @@ public class panelUI {
     }
 
     void setEnemyImagePath(String path){
+        spritePanel.remove(enemySprite);
         enemyImagePath = path;
         enemyImage = new ImageIcon(enemyImagePath);
         enemySprite = new JLabel(enemyImage);
@@ -427,6 +434,9 @@ public class panelUI {
                 continueFlag = 1;
                 continueTearDown();
                 winner = -1;
+            }
+            else if(buttonPress.getActionCommand().equals("shopCard")){
+                int index = buttonPress.getID();
             }
             //setMessage("\n"+buttonPress.getActionCommand());
         }
