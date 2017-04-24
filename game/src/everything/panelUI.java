@@ -38,7 +38,7 @@ public class panelUI {
     private JPanel healthPanel;
     private JPanel spritePanel;
     private JPanel shopPanel;
-    private JPanel cardDisplayPanel;
+    private JLabel cardDisplayPanel;
     private JLabel playerSprite;
     private JLabel enemySprite;
     private JLabel playerHealth;
@@ -51,6 +51,7 @@ public class panelUI {
     private ArrayList<String> cardPathList;
     private int[] isOwnList;
     private String enemyImagePath;
+    private int shopLibSize;
 
     public panelUI() {
         shopFlag = 0;
@@ -105,7 +106,7 @@ public class panelUI {
         mainFrame.setLayout(new BorderLayout());
         cardFrame = new JPanel();
         exitButton = new JButton();
-        cardDisplayPanel = new JPanel();
+        cardDisplayPanel = new JLabel();
         shopPanel = new JPanel();
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -215,10 +216,10 @@ public class panelUI {
         SaveState save = new SaveState();
         cardNameList = save.getCards();
         cardPathList = save.getCardPath();
-        int size = cardNameList.size();
-        shopLib = new JButton[size];
-        shopPanel.setLayout(new GridLayout(size,1));
-        for(int x=0;x<size;x++){
+        shopLibSize = cardNameList.size();
+        shopLib = new JButton[shopLibSize];
+        shopPanel.setLayout(new GridLayout(shopLibSize,1));
+        for(int x=0;x<shopLibSize;x++){
             shopLib[x] = new JButton();
             shopLib[x].setText(cardNameList.get(x));
             shopLib[x].setPreferredSize(new Dimension(400,50));
@@ -436,7 +437,16 @@ public class panelUI {
                 winner = -1;
             }
             else if(buttonPress.getActionCommand().equals("shopCard")){
-                int index = buttonPress.getID();
+                int x = 0;
+                while(buttonPress.getSource() != shopLib[x]){
+                    x++;
+                }
+                mainFrame.remove(cardDisplayPanel);
+                System.out.println(cardPathList.get(x));
+                cardDisplay = new ImageIcon("images/"+cardPathList.get(x));
+                cardDisplayPanel = new JLabel(cardDisplay);
+                mainFrame.add(cardDisplayPanel);
+                updateFrame();
             }
             //setMessage("\n"+buttonPress.getActionCommand());
         }
