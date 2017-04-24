@@ -250,6 +250,14 @@ public class panelUI {
         }
     }
 
+    void cardCoolDownUpdate(){
+        for(int x=0;x<shopLibSize;x++){
+            cards[x].setIcon(cardBack[x]);
+        }
+        mainFrame.revalidate();
+        mainFrame.repaint();
+    }
+
     int needShopLib(){
         return shopLibFlag;
     }

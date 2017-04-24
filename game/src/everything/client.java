@@ -61,6 +61,8 @@ public class client {
                     if (userPlayer.hand.checkCooldown(cardSelected)) {
                         panelUIInst.displayPlayerTurn(userPlayer.hand.getLastCardText());
                         testBattle.startTurn(cardSelected);
+                        panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+                        panelUIInst.cardCoolDownUpdate();
                         panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
                         panelUIInst.displayEnemyTurn(enemyAI.hand.getLastCardText());
                     } else {
