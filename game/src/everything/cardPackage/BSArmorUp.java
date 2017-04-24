@@ -8,7 +8,7 @@ import everything.statusPackage.IncreaseDefenseStatus;
  */
 public class BSArmorUp extends Card {
     public BSArmorUp() {
-        super("Blacksmith dons a suit of armor, gaining 10 armor for 2 turns", "Armor Up", "Defense", 0, 0, false);
+        super("Inawa the Blacksmith dons a suit of armor, gaining 10 armor for 2 turns", "Armor Up", "Defense", 0, 0, false);
     }
 
     public void cardFunction(Player p1, Player p2) {

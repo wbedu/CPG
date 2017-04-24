@@ -9,7 +9,7 @@ public class BSBerserk extends Card {
     int damageVal;
 
     public BSBerserk() {
-        super("The blacksmith breaks free of his armor, hitting you for as much damage as his defense was!", "BS Berserk", "Utility", 0, 0, false);
+        super("Inawa the Blacksmith breaks free of his armor, hitting you for as much damage as his defense was!", "BS Berserk", "Utility", 0, 0, false);
         tempCD = 0;
     }
 
