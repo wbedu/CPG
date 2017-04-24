@@ -8,6 +8,7 @@ package everything;
 import java.util.ArrayList;
 import everything.cardPackage.*;
 
+
 public class Hand{
 	private static int maxCards=6;
 	protected ArrayList<Card> hand;
@@ -90,6 +91,12 @@ public class Hand{
 	public void resetCooldowns(Player p1){
 		for(int i=0;i<hand.size();i++){
 			hand.get(i).setTempCDZero();
+		}
+	}
+
+	public void cleanUpCards(Player p1){
+		for(int i=0;i<hand.size();i++){
+			hand.get(i).setImagePathNoCD();
 		}
 	}
 

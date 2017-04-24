@@ -45,11 +45,11 @@ public abstract class Card {
 	/**
 	 * @param imagePath the imagePath to set
 	 */
-	protected void setImagePath(String setImagePath) {
+	public void setImagePath(String setImagePath) {
 		imagePath = setImagePath;
 	}
-	protected void setImagePathNoCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));}
-	protected void setImagePathCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat("CD.jpg"));}
+	public void setImagePathNoCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));}
+	public void setImagePathCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat("CD.jpg"));}
 
 
 	public boolean checkCooldown(){
