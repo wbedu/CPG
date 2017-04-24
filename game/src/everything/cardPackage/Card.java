@@ -32,6 +32,7 @@ public abstract class Card {
     }
     public void setCooldown(){
         tempCD = cooldown;
+        setImagePathCD();
     }
     
     /**
@@ -47,6 +48,9 @@ public abstract class Card {
 	protected void setImagePath(String setImagePath) {
 		imagePath = setImagePath;
 	}
+	protected void setImagePathNoCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat(".jpg"));}
+	protected void setImagePathCD(){setImagePath("images/".concat(this.getClass().getSimpleName()).concat("CD.jpg"));}
+
 
 	public boolean checkCooldown(){
         if(tempCD == 0)
@@ -61,6 +65,9 @@ public abstract class Card {
     public void decrementCooldown(Player p1){
         if(tempCD>0)
           tempCD-=1;
+        if(tempCD==0){
+            setImagePathNoCD();
+        }
     }
 
 
