@@ -38,7 +38,6 @@ public class SaveState {
     	saveObj.put("name",user.getName());
     	saveObj.put("maxHealth",user.getMaxHealth());
     	saveObj.put("defence", user.getDefense());
-    	System.out.println("defence for this is: "+ user.getDefense());
     	saveObj.put("hand",user.hand.getCardClass());
     	saveObj.put("money", user.getMoney());
     	saveObj.put("level", user.getLevel());

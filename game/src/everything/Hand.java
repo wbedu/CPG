@@ -134,4 +134,11 @@ public class Hand{
     	}
 		return ret;
     }
+    public String[] getCardClass(){
+    	String[] classes=new String[hand.size()];
+    	for(int i=0;i<hand.size();i++){
+    		classes[i] =hand.get(i).cardClass();
+    	}
+    	return classes;
+    }
 }

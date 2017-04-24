@@ -106,4 +106,7 @@ public abstract class Card {
 		return text;
     }
    
+    public String cardClass(){
+		return this.getClass().getName();
+    }
 }
