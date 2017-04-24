@@ -94,7 +94,7 @@ public class panelUI {
         mainFrame.add(bossButton);
         mainFrame.add(shopButton);
         mainFrame.add(battleButton);
-
+        
         bossButton.setVisible(true);
         shopButton.setVisible(true);
         battleButton.setVisible(true);
@@ -125,6 +125,7 @@ public class panelUI {
         for(int x=0;x<5;x++){
             cardFrame.add(cards[x],x);
         }
+
 
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
