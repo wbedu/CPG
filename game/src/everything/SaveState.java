@@ -222,14 +222,11 @@ public class SaveState {
     	}
     }
     
-    public boolean withdrawMoney( int withdrawal){
+    public void withdrawMoney( int withdrawal){
 		
     	if(withdrawal<=money){
     		money-=withdrawal;
-    		return true;
-    	}
-    	return false;
-    	
+    	}    	
     }
     
     public int getMoney(){
