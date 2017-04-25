@@ -88,13 +88,18 @@ public class SaveState {
               
     }
     
-    private static User newGame(){
+    private User newGame(){
         User userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
+        addCardToOwned("Block");
         userPlayer.hand.addCard(new Cleave());
+        addCardToOwned("Cleave");
         userPlayer.hand.addCard(new Mutton());
+        addCardToOwned("Mutton");
         userPlayer.hand.addCard(new NordicBlood());
+        addCardToOwned("NordicBlood");
         userPlayer.hand.addCard(new SavageStrike());
+        addCardToOwned("SavageStrike");
     	return userPlayer;
     }
     
@@ -109,6 +114,7 @@ public class SaveState {
     			
 				try {	
 					newClass = Class.forName(arr[i]);
+					System.out.println(arr[i]);
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block
 					System.out.println("critical FAILURE!");
@@ -203,7 +209,7 @@ public class SaveState {
     	return cardPaths;
     }
     
-    public void addCardToRepo(String newCard){
+    public void addCardToOwned(String newCard){
     	ownedCards.add(newCard);
     }
     
