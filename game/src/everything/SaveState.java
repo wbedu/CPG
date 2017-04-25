@@ -96,10 +96,8 @@ public class SaveState {
         addCardToOwned("Cleave");
         userPlayer.hand.addCard(new Mutton());
         addCardToOwned("Mutton");
-        userPlayer.hand.addCard(new ImmolateArmor());
-        addCardToOwned("ImmolateArmor");
-        //userPlayer.hand.addCard(new NordicBlood());
-       // addCardToOwned("NordicBlood");
+        userPlayer.hand.addCard(new NordicBlood());
+        addCardToOwned("NordicBlood");
         userPlayer.hand.addCard(new SavageStrike());
         addCardToOwned("SavageStrike");
     	return userPlayer;
