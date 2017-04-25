@@ -28,8 +28,7 @@ public class panelUI {
     private JButton shopButton;
     private JButton battleButton;
     private JButton exitButton;
-    private JButton buyButton;
-    private JButton swapButton;
+    private JButton bsButton;
     private JButton continueButton;
     private int startGame;
     private int shopFlag;
@@ -49,11 +48,9 @@ public class panelUI {
     private JLabel enemyArmor;
     private JLabel winLabel;
     private JLabel lootLabel;
-    private ArrayList<String> cardNameList;
-    private ArrayList<String> cardPathList;
-    private int[] isOwnList;
     private String enemyImagePath;
     private int shopLibSize;
+    private SaveState save;
 
     public panelUI() {
         shopFlag = 0;
@@ -116,6 +113,7 @@ public class panelUI {
         cardDisplayPanel = new JLabel();
         shopPanel = new JPanel();
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        bsButton = new JButton();
 
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,50,200));
@@ -123,6 +121,7 @@ public class panelUI {
         cardScroll.setPreferredSize(new Dimension(400,400));
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
+        bsButton.addActionListener(new buttonListener());
 
         cardOverhead();
 
@@ -134,6 +133,7 @@ public class panelUI {
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
         mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
+        mainFrame.add(bsButton, BorderLayout.EAST);
         screen.add(mainFrame);
         screen.setVisible(true);
         updateFrame();
@@ -224,16 +224,14 @@ public class panelUI {
         
     }
 
-    void setShopLibrary(){
-        SaveState save = new SaveState();
-        cardNameList = save.getCards();
-        cardPathList = save.getCardPath();
-        shopLibSize = cardNameList.size();
+    void setShopLibrary(SaveState saveLoad){
+        save = saveLoad;
+        shopLibSize = save.getCards().size();
         shopLib = new JButton[shopLibSize];
         shopPanel.setLayout(new GridLayout(shopLibSize,1));
         for(int x=0;x<shopLibSize;x++){
             shopLib[x] = new JButton();
-            shopLib[x].setText(cardNameList.get(x));
+            shopLib[x].setText(save.getCards().get(x));
             shopLib[x].setPreferredSize(new Dimension(400,50));
             shopLib[x].addActionListener(new buttonListener());
             shopLib[x].setActionCommand("shopCard");
@@ -289,8 +287,7 @@ public class panelUI {
         mainFrame.remove(cardFrame);
         mainFrame.remove(exitButton);
         mainFrame.remove(cardDisplayPanel);
-        //mainFrame.remove(buyButton);
-        //mainFrame.remove(swapButton);
+        mainFrame.remove(bsButton);
         screen.remove(mainFrame);
         updateFrame();
         
@@ -336,6 +333,8 @@ public class panelUI {
     }
 
     void updateFrame(){
+        mainFrame.revalidate();
+        mainFrame.repaint();
         screen.revalidate();
         screen.repaint();
     }
@@ -468,9 +467,18 @@ public class panelUI {
                     x++;
                 }
                 mainFrame.remove(cardDisplayPanel);
-                System.out.println(cardPathList.get(x));
-                cardDisplay = new ImageIcon("images/"+cardPathList.get(x));
+
+                System.out.println(save.getCardPath().get(x));
+                cardDisplay = new ImageIcon("images/"+save.getCardPath().get(x));
                 cardDisplayPanel = new JLabel(cardDisplay);
+
+                System.out.println(save.isOwned(save.getCards().get(x)));
+                if(save.isOwned(save.getCards().get(x))){
+                    bsButton.setText("Swap");
+                } else {
+                    bsButton.setText("Buy");
+                }
+
                 mainFrame.add(cardDisplayPanel);
                 updateFrame();
             }
