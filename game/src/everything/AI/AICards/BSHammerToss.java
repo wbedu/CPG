@@ -10,7 +10,7 @@ public class BSHammerToss extends Card {
     int damageVal;
 
     public BSHammerToss() {
-        super("Inawa the Blacksmith tosses his hammer in the air, it will strike you in 3 turns for 20 damage", "Hammer Toss", "Attack", 3, 0, false);
+        super("Inawa the Blacksmith tosses his hammer in the air, it will strike you in 3 turns for 20 damage", "Hammer Toss", "Attack", 0, 0, false);
         tempCD = 0;
         damageVal = 20;
     }
