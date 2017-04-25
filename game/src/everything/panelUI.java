@@ -36,6 +36,7 @@ public class panelUI {
     private int exitFlag;
     private int winner;
     private int continueFlag;
+    private JPanel shopEastPanel;
     private JPanel healthPanel;
     private JPanel spritePanel;
     private JPanel shopPanel;
@@ -48,6 +49,7 @@ public class panelUI {
     private JLabel enemyArmor;
     private JLabel winLabel;
     private JLabel lootLabel;
+    private JLabel moneyLabel;
     private String enemyImagePath;
     private int shopLibSize;
     private SaveState save;
@@ -117,7 +119,12 @@ public class panelUI {
         shopPanel = new JPanel();
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         bsButton = new JButton();
+        moneyLabel = new JLabel();
+        shopEastPanel = new JPanel();
 
+        shopEastPanel.setLayout(new GridLayout(1,2));
+        System.out.println("here "+save.getMoney());
+        moneyLabel.setText("$$");
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
@@ -132,11 +139,13 @@ public class panelUI {
             cardFrame.add(cards[x],x);
         }
 
+        shopEastPanel.add(moneyLabel,0);
+        shopEastPanel.add(bsButton,1);
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
         mainFrame.add(cardScroll, BorderLayout.WEST);
         mainFrame.add(exitButton, BorderLayout.NORTH);
-        mainFrame.add(bsButton, BorderLayout.EAST);
+        mainFrame.add(shopEastPanel, BorderLayout.EAST);
         screen.add(mainFrame);
         screen.setVisible(true);
         updateFrame();
@@ -296,7 +305,7 @@ public class panelUI {
         mainFrame.remove(cardFrame);
         mainFrame.remove(exitButton);
         mainFrame.remove(cardDisplayPanel);
-        mainFrame.remove(bsButton);
+        mainFrame.remove(shopEastPanel);
         screen.remove(mainFrame);
         updateFrame();
     }
@@ -536,6 +545,7 @@ public class panelUI {
                 if(save.getMoney() > 100) {
                     save.withdrawMoney(100);
                     bsButton.setText("Swap");
+                    moneyLabel.setText("$$");
                     save.addCardToOwned(save.getCards().get(shopIndex));
                 }
             }
