@@ -14,10 +14,9 @@ public class client {
         int cardSelected;
         SaveState save = new SaveState();
 
-        //SaveState save = new SaveState();
         //Hand Setup
         userPlayer =save.loadGame();
-
+        panelUIInst.setSave(save);
         panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
 
         while (true) {
@@ -124,6 +123,7 @@ public class client {
                     //panelUIInst.updateFrame();
                 }
                 //RETURN HAND CHANGES
+                panelUIInst.setSave(save);
                 panelUIInst.shopHandChange();
                 userPlayer.replaceHand(save.getNewHand());
             } else {
