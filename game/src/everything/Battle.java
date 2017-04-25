@@ -23,7 +23,10 @@ public class Battle {
     	user.runStatusStart();
     	user.hand.useCard(cardSelection,user,enemy);
     	user.runStatusEnd();
-        enemyTurn();
+    	if(!isOver())
+            enemyTurn();
+    	else
+    	    return;
     }
 
     public void enemyTurn(){
