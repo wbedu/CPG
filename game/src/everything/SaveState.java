@@ -20,6 +20,7 @@ public class SaveState {
     private ArrayList<String> cards;
     private ArrayList<String> cardPaths;
     private ArrayList<String> ownedCards;
+    private Hand tmpHand;
     
     public SaveState(){
     	cards=new ArrayList<String>();
@@ -242,6 +243,43 @@ public class SaveState {
     	
     	return false;
     }
+    
+    public void prepareHand(String []paths){
+    	paths =readImagePaths(paths);
+    	try {
+			tmpHand = loadHand(paths);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public Hand getNewHand(){
+    	return tmpHand;
+    }
+    
+    private String[] readImagePaths(String []paths){
+ 
+    	for(int i=0;i<paths.length;i++){
+    		paths[i]=parseImagePath(paths[i]);
+    		System.out.print("new hand card class:"+ paths[i]);
+    	}
+    	
+    	return paths;
+    }
+    
+    private String parseImagePath(String path){
+    	path=path.replace("/image/, ","everything.cardPackage.");
+    	path=path.replace(".jpeg","");
+    	path=path.replace(".jpeg","");
+    	
+    	return path;
+    }
+    
+    
    
 
 }
