@@ -98,6 +98,7 @@ public class panelUI {
         bossButton.addActionListener(new buttonListener());
         shopButton.addActionListener(new buttonListener());
         battleButton.addActionListener(new buttonListener());
+        resetButton.addActionListener(new buttonListener());
 
         mainFrame.add(bossButton);
         mainFrame.add(shopButton);
