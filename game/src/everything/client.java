@@ -50,7 +50,7 @@ public class client {
                     panelUIInst.setMessage("\nEnemy Health: " + enemyAI.getHealth());
                     panelUIInst.setEnemyHealth(enemyAI.getHealth());
                     panelUIInst.setEnemyArmor(enemyAI.getDefense());
-                    panelUIInst.setMessage("\nYour Turn. Choose a card to play.");
+                    panelUIInst.setMessage("\nYour Turn. Choose a card to play.\n");
 
                     while (true) {
                         if (!panelUIInst.getCardWaiting()) {
