@@ -522,7 +522,6 @@ public class panelUI {
                 }
 
                 mainFrame.add(cardDisplayPanel);
-                updateFrame();
             }
             else if(buttonPress.getActionCommand().equals("Buy")){
                 if(true) {

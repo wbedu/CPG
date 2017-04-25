@@ -25,8 +25,12 @@ public class client {
                 System.out.println("start battle -client");
                 userPlayer.setHealth(userPlayer.getMaxHealth());
                 userPlayer.hand.resetCooldowns(userPlayer);
+                userPlayer.hand.cleanUpCards(userPlayer);
+                panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+                panelUIInst.clearCardFrame();
+                panelUIInst.cardOverhead();
                 if(panelUIInst.needBoss()==1){
-                    enemyAI = AIManager.getRandomMonster(userPlayer);
+                    enemyAI = AIManager.getBOSS(userPlayer);
                 }else enemyAI = AIManager.getRandomMonster(userPlayer);//new AI("Shrak", 30, 1,userPlayer);
                 panelUIInst.setEnemyImagePath(enemyAI.getImagePath());
                 testBattle = new Battle(userPlayer, enemyAI);
