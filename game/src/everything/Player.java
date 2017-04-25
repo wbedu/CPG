@@ -150,7 +150,10 @@ public abstract class Player {
     public void runStatusEnd(){
         statusManager.runStatusEnding();
     }
-
+    
+    protected void replaceHand(Hand replacementHand){
+    	hand = replacementHand;
+    }
     public boolean isAtMaxHealth(){
     	if(getHealth() == maxHealth)
     		return true;
