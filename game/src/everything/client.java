@@ -130,6 +130,7 @@ public class client {
             } else if(panelUIInst.checkResetGame()){
                 userPlayer = save.newGame();
                 panelUIInst.setResetFlagFalse();
+                panelUIInst.setSave(save);
             } else {
                 Thread.sleep(100);
             }

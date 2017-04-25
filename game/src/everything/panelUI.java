@@ -554,7 +554,7 @@ public class panelUI {
                 mainFrame.add(cardDisplayPanel);
             }
             else if(buttonPress.getActionCommand().equals("Buy")){
-                if(save.getMoney() > 100) {
+                if(save.getMoney() >= 100) {
                     save.withdrawMoney(100);
                     bsButton.setText("Swap");
                     moneyLabel.setText("$$"+save.getMoney());
