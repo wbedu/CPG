@@ -14,8 +14,5 @@ public class AIManager {
 		
 	}
 	
-	public static AI getBOSS(Player user){
-		
-		return new BlackSmith(user);
-	}
+	public static AI getBOSS(Player user){ return new BlackSmith(user);}
 }
