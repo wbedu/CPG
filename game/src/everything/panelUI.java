@@ -558,7 +558,7 @@ public class panelUI {
                 if(save.getMoney() >= 100) {
                     save.withdrawMoney(100);
                     bsButton.setText("Swap");
-                    moneyLabel.setText("$$"+save.getMoney());
+                    moneyLabel.setText("Player's Loot: $"+save.getMoney());
                     save.addCardToOwned(save.getCards().get(shopIndex));
                 }
             }
