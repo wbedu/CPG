@@ -105,7 +105,7 @@ public class client {
                         panelUIInst.setExitFlag0();
                         break;
                     } else {
-                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary();
+                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(save);
                         Thread.sleep(100);
                     }
                     //panelUIInst.updateFrame();
