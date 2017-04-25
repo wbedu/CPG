@@ -11,5 +11,11 @@ public class AIManager {
 			return (new Goblin(user));
 		else
 			return (new Wolf(user));
+		
+	}
+	
+	public static AI getBOSS(Player user){
+		
+		return new BlackSmith(user);
 	}
 }
