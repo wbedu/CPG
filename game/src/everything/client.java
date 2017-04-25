@@ -113,6 +113,7 @@ public class client {
                         break;
                     } else {
                         if(panelUIInst.needShopLib()==1) {
+                            panelUIInst.setSave(save);
                             panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
                             panelUIInst.setShopLibrary(save);
                             panelUIInst.clearCardFrame();
@@ -128,6 +129,7 @@ public class client {
                 userPlayer.replaceHand(save.getNewHand());
             } else if(panelUIInst.checkResetGame()){
                 userPlayer = save.newGame();
+                panelUIInst.setResetFlagFalse();
             } else {
                 Thread.sleep(100);
             }

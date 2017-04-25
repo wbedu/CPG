@@ -30,6 +30,7 @@ public class panelUI {
     private JButton exitButton;
     private JButton bsButton;
     private JButton continueButton;
+    private JButton resetButton;
     private int startGame;
     private int shopFlag;
     private int shopLibFlag;
@@ -84,14 +85,16 @@ public class panelUI {
         startGame = 0;
         townScreenImage = new ImageIcon("images/TownScreen.png");
         mainFrame = new JLabel(townScreenImage);
-        mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,50,100));
+        mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER,200,250));
         bossButton = new JButton();
         shopButton = new JButton();
         battleButton = new JButton();
+        resetButton = new JButton();
 
         bossButton.setText("Boss Battle");
         shopButton.setText("Shop");
         battleButton.setText("Battle");
+        resetButton.setText("!!!RESET GAME!!!");
         bossButton.addActionListener(new buttonListener());
         shopButton.addActionListener(new buttonListener());
         battleButton.addActionListener(new buttonListener());
@@ -99,6 +102,7 @@ public class panelUI {
         mainFrame.add(bossButton);
         mainFrame.add(shopButton);
         mainFrame.add(battleButton);
+        mainFrame.add(resetButton);
         screen.add(mainFrame);
 
         bossButton.setVisible(true);
@@ -297,6 +301,7 @@ public class panelUI {
         mainFrame.remove(battleButton);
         mainFrame.remove(shopButton);
         mainFrame.remove(bossButton);
+        mainFrame.remove(resetButton);
         screen.remove(mainFrame);
         updateFrame();
     }
@@ -559,7 +564,7 @@ public class panelUI {
             else if(buttonPress.getActionCommand().equals("Swap")){
                 swapWait = true;
             }
-            else if(buttonPress.getActionCommand().equals("Reset")){
+            else if(buttonPress.getActionCommand().equals("!!!RESET GAME!!!")){
                 resetFlag = true;
             }
             updateFrame();
