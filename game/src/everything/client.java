@@ -93,6 +93,8 @@ public class client {
                     panelUIInst.setCardWaitingTrue();
                 }//End of GameLoop
                 gameLoop = true;
+                userPlayer.hand.resetCooldowns(userPlayer);
+                userPlayer.hand.cleanUpCards(userPlayer);
                 panelUIInst.resetBoss();
                 panelUIInst.battleTearDown();
                 panelUIInst.createContinue();
