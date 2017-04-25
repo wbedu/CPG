@@ -92,7 +92,7 @@ public class SaveState {
               
     }
     
-    private User newGame(){
+    public User newGame(){
         User userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
         addCardToOwned("Block");
