@@ -209,7 +209,9 @@ public class panelUI {
             winLabel.setText("You have lost..");
         }
 
-        lootLabel.setText("Loot: +50 Gold");
+        if(winner==1) {
+            lootLabel.setText("Loot: +50 Gold");
+        }else lootLabel.setText("Loot: +0 Gold");
         lootLabel.setVerticalAlignment(JLabel.CENTER);
         lootLabel.setHorizontalAlignment(JLabel.CENTER);
         winLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -524,7 +526,8 @@ public class panelUI {
                 mainFrame.add(cardDisplayPanel);
             }
             else if(buttonPress.getActionCommand().equals("Buy")){
-                if(true) {
+                if(save.getMoney() > 100) {
+                    save.withdrawMoney(100);
                     bsButton.setText("Swap");
                     save.addCardToOwned(save.getCards().get(shopIndex));
                 }
