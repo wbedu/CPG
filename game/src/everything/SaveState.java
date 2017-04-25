@@ -232,6 +232,10 @@ public class SaveState {
     	
     }
     
+    public int getMoney(){
+    	return money;
+    }
+    
     public boolean isOwned(String cardName){
     	for(int i =0;i<ownedCards.size();i++){
     		if(ownedCards.get(i).equals(cardName)){
