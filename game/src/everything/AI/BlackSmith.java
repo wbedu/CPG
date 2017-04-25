@@ -23,6 +23,9 @@ public class BlackSmith extends AI{
         		nextCard=0;
         		return;
         	}
+        	if(getDefense()>=10||(rand<20)){
+        	    nextCard=3;
+            }
         	
         	if(enemy.getHealth()>this.health){
         		
