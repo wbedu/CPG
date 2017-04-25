@@ -26,6 +26,7 @@ public class SaveState {
     	cards=new ArrayList<String>();
     	cardPaths = new ArrayList<String>();
     	ownedCards = new ArrayList<String>();
+    	tmpHand= new Hand();
     	storeAllCardNames();
     	money=0;
     }
