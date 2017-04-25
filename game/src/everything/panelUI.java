@@ -53,6 +53,7 @@ public class panelUI {
     private SaveState save;
     private boolean swapWait;
     private int shopIndex;
+    private int needBoss;
 
     public panelUI() {
         shopFlag = 0;
@@ -412,6 +413,10 @@ public class panelUI {
 
     int getWinner(){ return winner; }
 
+    int needBoss(){ return needBoss; }
+
+    void resetBoss(){ needBoss = 0; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand().equals("card1")){
@@ -471,7 +476,10 @@ public class panelUI {
                 }
             }
             else if(buttonPress.getActionCommand().equals("Boss Battle")){
-
+                needBoss = 1;
+                startTearDown();
+                createBattleUI();
+                startGame = 1;
             }
             else if(buttonPress.getActionCommand().equals("Shop")){
                 startTearDown();
