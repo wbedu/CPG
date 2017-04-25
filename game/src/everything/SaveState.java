@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class SaveState {
     private String savePath = "savePath/saveFile.json";
     private String shopPath = "savePath/shopFile.json";
+    private int money;
     private ArrayList<String> cards;
     private ArrayList<String> cardPaths;
     private ArrayList<String> ownedCards;
@@ -25,6 +26,7 @@ public class SaveState {
     	cardPaths = new ArrayList<String>();
     	ownedCards = new ArrayList<String>();
     	storeAllCardNames();
+    	money=0;
     }
 
     protected void saveGame(User user){
@@ -33,7 +35,7 @@ public class SaveState {
     	saveObj.put("maxHealth",user.getMaxHealth());
     	saveObj.put("defence", user.getDefense());
     	saveObj.put("hand",user.hand.getCardClass());
-    	saveObj.put("money", user.getMoney());
+    	saveObj.put("money",money);
     	saveObj.put("level", user.getLevel());
     	saveObj.put("ownedCards",ownedCards.toArray(new String[ownedCards.size()]));
     	    	
@@ -55,7 +57,7 @@ public class SaveState {
         System.out.println("game has been loaded");
         User newPlayer;
         String name = null;
-        int maxHealth = 0, defence = 0,money = 0,level=0;
+        int maxHealth = 0, defence = 0,level=0;
         String handList[] = null;
         Hand hand=null;
 
@@ -100,6 +102,7 @@ public class SaveState {
         addCardToOwned("NordicBlood");
         userPlayer.hand.addCard(new SavageStrike());
         addCardToOwned("SavageStrike");
+        money=0;
     	return userPlayer;
     }
     
@@ -211,6 +214,22 @@ public class SaveState {
     
     public void addCardToOwned(String newCard){
     	ownedCards.add(newCard);
+    }
+    
+    public void depositMoney(int deposit){
+    	if(deposit>0){
+    		money+=deposit;
+    	}
+    }
+    
+    public boolean withdrawMoney( int withdrawal){
+		
+    	if(withdrawal<=money){
+    		money-=withdrawal;
+    		return true;
+    	}
+    	return false;
+    	
     }
     
     public boolean isOwned(String cardName){
