@@ -126,6 +126,8 @@ public class client {
                 panelUIInst.setSave(save);
                 panelUIInst.shopHandChange();
                 userPlayer.replaceHand(save.getNewHand());
+            } else if(panelUIInst.checkResetGame()){
+                userPlayer = save.newGame();
             } else {
                 Thread.sleep(100);
             }
