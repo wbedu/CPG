@@ -51,6 +51,9 @@ public class panelUI {
     private String enemyImagePath;
     private int shopLibSize;
     private SaveState save;
+    private boolean swapWait;
+    private int shopIndex;
+    private int needBoss;
 
     public panelUI() {
         shopFlag = 0;
@@ -242,8 +245,13 @@ public class panelUI {
         
     }
 
+    void clearCardFrame(){ cardFrame.removeAll(); }
+
     void cardOverhead(){
         cards = new JButton[5];
+
+        //if(cardFrame.con)cardFrame.removeAll();
+
         for(int x=0;x<5;x++){
             cards[x] = new JButton();
             cards[x].setIcon(cardBack[x]);
@@ -277,7 +285,6 @@ public class panelUI {
         mainFrame.remove(bossButton);
         screen.remove(mainFrame);
         updateFrame();
-        
     }
 
     void shopTearDown(){
@@ -290,7 +297,6 @@ public class panelUI {
         mainFrame.remove(bsButton);
         screen.remove(mainFrame);
         updateFrame();
-        
     }
 
     void battleTearDown(){
@@ -303,7 +309,6 @@ public class panelUI {
         mainFrame.remove(spritePanel);
         screen.remove(mainFrame);
         updateFrame();
-        
     }
 
     void continueTearDown(){
@@ -312,7 +317,6 @@ public class panelUI {
         mainFrame.remove(lootLabel);
         screen.remove(mainFrame);
         updateFrame();
-        
     }
 
     void setCardBackFromPlayer(String playerCards[]){    //assume hand size is 5
@@ -409,35 +413,73 @@ public class panelUI {
 
     int getWinner(){ return winner; }
 
+    int needBoss(){ return needBoss; }
+
+    void resetBoss(){ needBoss = 0; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand().equals("card1")){
                 //setMessage("\nCleave: 2 DMG dealt - 1 turn CD");
-                updateCardSelect(0);
-                cardWaiting = false;
+                if(swapWait){
+                    swapWait = false;
+                    cardFrame.removeAll();
+                    cardBack[0] = cardDisplay;
+                    cardOverhead();
+                } else {
+                    updateCardSelect(0);
+                    cardWaiting = false;
+                }
             }
             else if(buttonPress.getActionCommand().equals("card2")){
-                //setMessage("\nSavage Strike: 3 DMG dealt - 3 turn CD");
-                updateCardSelect(1);
-                cardWaiting = false;
+                if(swapWait){
+                    swapWait = false;
+                    cardFrame.removeAll();
+                    cardBack[1] = cardDisplay;
+                    cardOverhead();
+                } else {
+                    updateCardSelect(1);
+                    cardWaiting = false;
+                }
             }
             else if(buttonPress.getActionCommand().equals("card3")){
-                //setMessage("\nBlock: Blocking incoming DMG - 1 turn CD");
-                updateCardSelect(2);
-                cardWaiting = false;
+                if(swapWait){
+                    swapWait = false;
+                    cardFrame.removeAll();
+                    cardBack[2] = cardDisplay;
+                    cardOverhead();
+                } else {
+                    updateCardSelect(2);
+                    cardWaiting = false;
+                }
             }
             else if(buttonPress.getActionCommand().equals("card4")){
-                //setMessage("\nMutton: Restore 4 HP - 3 turn CD");
-                updateCardSelect(3);
-                cardWaiting = false;
+                if(swapWait){
+                    swapWait = false;
+                    cardFrame.removeAll();
+                    cardBack[3] = cardDisplay;
+                    cardOverhead();
+                } else {
+                    updateCardSelect(3);
+                    cardWaiting = false;
+                }
             }
             else if(buttonPress.getActionCommand().equals("card5")){
-                //setMessage("\nShield Bash: Enemy is STUNNED - 1 turn CD");
-                updateCardSelect(4);
-                cardWaiting = false;
+                if(swapWait){
+                    swapWait = false;
+                    cardFrame.removeAll();
+                    cardBack[4] = cardDisplay;
+                    cardOverhead();
+                } else {
+                    updateCardSelect(4);
+                    cardWaiting = false;
+                }
             }
             else if(buttonPress.getActionCommand().equals("Boss Battle")){
-
+                needBoss = 1;
+                startTearDown();
+                createBattleUI();
+                startGame = 1;
             }
             else if(buttonPress.getActionCommand().equals("Shop")){
                 startTearDown();
@@ -462,26 +504,35 @@ public class panelUI {
                 winner = -1;
             }
             else if(buttonPress.getActionCommand().equals("shopCard")){
-                int x = 0;
-                while(buttonPress.getSource() != shopLib[x]){
-                    x++;
+                shopIndex = 0;
+                while(buttonPress.getSource() != shopLib[shopIndex]){
+                    shopIndex++;
                 }
                 mainFrame.remove(cardDisplayPanel);
 
-                System.out.println(save.getCardPath().get(x));
-                cardDisplay = new ImageIcon("images/"+save.getCardPath().get(x));
+                System.out.println(save.getCardPath().get(shopIndex));
+                cardDisplay = new ImageIcon("images/"+save.getCardPath().get(shopIndex));
                 cardDisplayPanel = new JLabel(cardDisplay);
 
-                System.out.println(save.isOwned(save.getCards().get(x)));
-                if(save.isOwned(save.getCards().get(x))){
+                System.out.println(save.isOwned(save.getCards().get(shopIndex)));
+                if(save.isOwned(save.getCards().get(shopIndex))){
                     bsButton.setText("Swap");
                 } else {
                     bsButton.setText("Buy");
                 }
 
                 mainFrame.add(cardDisplayPanel);
-                updateFrame();
             }
+            else if(buttonPress.getActionCommand().equals("Buy")){
+                if(true) {
+                    bsButton.setText("Swap");
+                    save.addCardToOwned(save.getCards().get(shopIndex));
+                }
+            }
+            else if(buttonPress.getActionCommand().equals("Swap")){
+                swapWait = true;
+            }
+            updateFrame();
             //setMessage("\n"+buttonPress.getActionCommand());
         }
     }

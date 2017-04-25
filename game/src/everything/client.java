@@ -25,7 +25,13 @@ public class client {
                 System.out.println("start battle -client");
                 userPlayer.setHealth(userPlayer.getMaxHealth());
                 userPlayer.hand.resetCooldowns(userPlayer);
-                enemyAI = AIManager.getRandomMonster(userPlayer);//new AI("Shrak", 30, 1,userPlayer);
+                userPlayer.hand.cleanUpCards(userPlayer);
+                panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+                panelUIInst.clearCardFrame();
+                panelUIInst.cardOverhead();
+                if(panelUIInst.needBoss()==1){
+                    enemyAI = AIManager.getBOSS(userPlayer);
+                }else enemyAI = AIManager.getRandomMonster(userPlayer);//new AI("Shrak", 30, 1,userPlayer);
                 panelUIInst.setEnemyImagePath(enemyAI.getImagePath());
                 testBattle = new Battle(userPlayer, enemyAI);
                 panelUIInst.setCardWaitingTrue();
@@ -87,6 +93,7 @@ public class client {
                     panelUIInst.setCardWaitingTrue();
                 }//End of GameLoop
                 gameLoop = true;
+                panelUIInst.resetBoss();
                 panelUIInst.battleTearDown();
                 panelUIInst.createContinue();
                 while(panelUIInst.getWinner() != -1){
@@ -105,7 +112,12 @@ public class client {
                         panelUIInst.setExitFlag0();
                         break;
                     } else {
-                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(save);
+                        if(panelUIInst.needShopLib()==1) {
+                            panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+                            panelUIInst.setShopLibrary(save);
+                            panelUIInst.clearCardFrame();
+                            panelUIInst.cardOverhead();
+                        }
                         Thread.sleep(100);
                     }
                     //panelUIInst.updateFrame();
