@@ -51,6 +51,7 @@ public class panelUI {
     private JLabel winLabel;
     private JLabel lootLabel;
     private JLabel moneyLabel;
+    private JLabel costLabel;
     private String enemyImagePath;
     private int shopLibSize;
     private SaveState save;
@@ -126,11 +127,11 @@ public class panelUI {
         cardScroll = new JScrollPane(shopPanel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         bsButton = new JButton();
         moneyLabel = new JLabel();
+        costLabel = new JLabel();
         shopEastPanel = new JPanel();
 
-        shopEastPanel.setLayout(new GridLayout(1,2));
-        //save.getMoney();
-        moneyLabel.setText("$$"+Integer.toString(save.getMoney()));
+        shopEastPanel.setLayout(new GridLayout(3,0));
+        moneyLabel.setText("Player's Loot: $"+Integer.toString(save.getMoney()));
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
@@ -138,6 +139,9 @@ public class panelUI {
         //cardDisplayPanel.setPreferredSize(new Dimension(250,400));
         exitButton.addActionListener(new buttonListener());
         bsButton.addActionListener(new buttonListener());
+        moneyLabel.setHorizontalAlignment(JLabel.CENTER);
+        costLabel.setHorizontalAlignment(JLabel.CENTER);
+        bsButton.setHorizontalAlignment(JButton.CENTER);
 
         cardOverhead();
 
@@ -145,8 +149,9 @@ public class panelUI {
             cardFrame.add(cards[x],x);
         }
 
-        shopEastPanel.add(moneyLabel,0);
-        shopEastPanel.add(bsButton,1);
+        shopEastPanel.add(costLabel,0);
+        shopEastPanel.add(moneyLabel,1);
+        shopEastPanel.add(bsButton,2);
         mainFrame.add(cardDisplayPanel, BorderLayout.CENTER);
         mainFrame.add(cardFrame, BorderLayout.SOUTH);
         mainFrame.add(cardScroll, BorderLayout.WEST);
@@ -548,8 +553,10 @@ public class panelUI {
                 System.out.println(save.isOwned(save.getCards().get(shopIndex)));
                 if(save.isOwned(save.getCards().get(shopIndex))){
                     bsButton.setText("Swap");
+                    costLabel.setText("");
                 } else {
                     bsButton.setText("Buy");
+                    costLabel.setText("Selected Card Price: $100");
                 }
 
                 mainFrame.add(cardDisplayPanel);
@@ -557,6 +564,7 @@ public class panelUI {
             else if(buttonPress.getActionCommand().equals("Buy")){
                 if(save.getMoney() >= 100) {
                     save.withdrawMoney(100);
+                    costLabel.setText("");
                     bsButton.setText("Swap");
                     moneyLabel.setText("Player's Loot: $"+save.getMoney());
                     save.addCardToOwned(save.getCards().get(shopIndex));
