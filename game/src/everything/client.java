@@ -105,7 +105,12 @@ public class client {
                         panelUIInst.setExitFlag0();
                         break;
                     } else {
-                        if(panelUIInst.needShopLib()==1) panelUIInst.setShopLibrary(save);
+                        if(panelUIInst.needShopLib()==1) {
+                            panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
+                            panelUIInst.setShopLibrary(save);
+                            panelUIInst.clearCardFrame();
+                            panelUIInst.cardOverhead();
+                        }
                         Thread.sleep(100);
                     }
                     //panelUIInst.updateFrame();
