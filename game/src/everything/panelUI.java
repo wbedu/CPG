@@ -325,9 +325,12 @@ public class panelUI {
         cardBack = new ImageIcon[5];
 
         for(int x = 0;x<5;x++){
-            System.out.println(playerCards[x]);
             cardBack[x] = new ImageIcon(playerCards[x]);
         }
+    }
+
+    void getShopHandChange(){
+
     }
 
     void setEnemyImagePath(String path){
