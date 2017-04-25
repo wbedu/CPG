@@ -123,8 +123,8 @@ public class panelUI {
         shopEastPanel = new JPanel();
 
         shopEastPanel.setLayout(new GridLayout(1,2));
-        System.out.println("here "+save.getMoney());
-        moneyLabel.setText("$$");
+        //save.getMoney();
+        moneyLabel.setText("$$"+Integer.toString(save.getMoney()));
         exitButton.setText("Exit");
         cardFrame.setLayout(new GridLayout(1, 5,50,200));
         cardFrame.setPreferredSize(new Dimension(1024, 200));
@@ -285,6 +285,8 @@ public class panelUI {
         updateFrame();
         
     }
+
+    void setSave(SaveState saveUpdate){ save=saveUpdate; }
 
     int needShopLib(){
         return shopLibFlag;
@@ -545,7 +547,7 @@ public class panelUI {
                 if(save.getMoney() > 100) {
                     save.withdrawMoney(100);
                     bsButton.setText("Swap");
-                    moneyLabel.setText("$$");
+                    moneyLabel.setText("$$"+save.getMoney());
                     save.addCardToOwned(save.getCards().get(shopIndex));
                 }
             }
