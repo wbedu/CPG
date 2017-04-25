@@ -81,6 +81,7 @@ public class client {
                         System.out.println("\n\nBattle is over!");
                         if(testBattle.whoIsDead()==1){
                             System.out.println("\n\nYOU HAVE WON!");
+                            save.depositMoney(50);
                             panelUIInst.setWinner(1);
                         } else {
                             System.out.println("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
