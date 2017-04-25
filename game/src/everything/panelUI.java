@@ -56,6 +56,7 @@ public class panelUI {
     private boolean swapWait;
     private int shopIndex;
     private int needBoss;
+    private boolean resetFlag = false;
 
     public panelUI() {
         shopFlag = 0;
@@ -437,6 +438,10 @@ public class panelUI {
 
     void resetBoss(){ needBoss = 0; }
 
+    boolean checkResetGame(){ return resetFlag; }
+
+    void setResetFlagFalse(){ resetFlag = false; }
+
     class buttonListener implements ActionListener {
         public void actionPerformed(ActionEvent buttonPress){
             if(buttonPress.getActionCommand().equals("card1")){
@@ -553,6 +558,9 @@ public class panelUI {
             }
             else if(buttonPress.getActionCommand().equals("Swap")){
                 swapWait = true;
+            }
+            else if(buttonPress.getActionCommand().equals("Reset")){
+                resetFlag = true;
             }
             updateFrame();
             //setMessage("\n"+buttonPress.getActionCommand());
