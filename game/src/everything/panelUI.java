@@ -338,12 +338,12 @@ public class panelUI {
         }
     }
 
-    String[] getShopHandChange(){
+    void shopHandChange(){
         String[] newHand = new String[5];
         for(int x=0;x<5;x++){
             newHand[x] = cardBack[x].getDescription();
         }
-        return newHand;
+        save.prepareHand(newHand);
     }
 
     void setEnemyImagePath(String path){

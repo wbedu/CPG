@@ -124,7 +124,8 @@ public class client {
                     //panelUIInst.updateFrame();
                 }
                 //RETURN HAND CHANGES
-
+                panelUIInst.shopHandChange();
+                userPlayer.replaceHand(save.getNewHand());
             } else {
                 Thread.sleep(100);
             }
