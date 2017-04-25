@@ -93,6 +93,7 @@ public class SaveState {
     }
     
     public User newGame(){
+    	ownedCards.clear();
         User userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
         addCardToOwned("Block");
@@ -267,7 +268,7 @@ public class SaveState {
  
     	for(int i=0;i<paths.length;i++){
     		paths[i]=parseImagePath(paths[i]);
-    		System.out.print("new hand card class:"+ paths[i]);
+    		System.out.println("new hand card class:"+ paths[i]);
     	}
     	
     	return paths;
