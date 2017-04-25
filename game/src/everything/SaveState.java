@@ -28,7 +28,7 @@ public class SaveState {
     	ownedCards = new ArrayList<String>();
     	tmpHand= new Hand();
     	storeAllCardNames();
-    	money=0;
+    	money=100;
     }
 
     protected void saveGame(User user){
@@ -94,6 +94,7 @@ public class SaveState {
     
     public User newGame(){
     	ownedCards.clear();
+    	deleteSaveFile();
         User userPlayer = new User("Aaron", 30, 0);
         userPlayer.hand.addCard(new Block());
         addCardToOwned("Block");
@@ -105,7 +106,7 @@ public class SaveState {
         addCardToOwned("NordicBlood");
         userPlayer.hand.addCard(new SavageStrike());
         addCardToOwned("SavageStrike");
-        money=0;
+        money=100;
     	return userPlayer;
     }
     
@@ -283,7 +284,10 @@ public class SaveState {
     	return path;
     }
     
-    
+    private void deleteSaveFile(){
+    	File saveFile = new File(savePath);
+    	saveFile.delete();
+    }
    
 
 }
