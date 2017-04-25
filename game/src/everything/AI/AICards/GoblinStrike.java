@@ -1,5 +1,6 @@
-package everything.cardPackage;
+package everything.AI.AICards;
 import everything.Player;
+import everything.Card;
 
 import java.util.Random;
 

@@ -1,7 +1,7 @@
-package everything.cardPackage;
+package everything.AI.AICards;
 
 import everything.Player;
-
+import everything.Card;
 /**
  * Created by Steve on 4/22/2017.
  */

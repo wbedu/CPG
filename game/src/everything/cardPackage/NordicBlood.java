@@ -2,7 +2,7 @@ package everything.cardPackage;
 
 import everything.Player;
 import everything.statusPackage.*;
-import everything.*;
+import everything.Card;
 /**
  * Created by Steve on 3/10/2017.
  */

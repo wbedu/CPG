@@ -2,6 +2,7 @@ package everything.cardPackage;
 
 import everything.*;
 import everything.Player;
+import everything.Card;
 /**
  * Created by Steve on 3/10/2017.
  */

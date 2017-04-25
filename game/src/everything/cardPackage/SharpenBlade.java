@@ -1,5 +1,6 @@
 package everything.cardPackage;
 
+import everything.Card;
 import everything.Player;
 import everything.statusPackage.CriticalStrike;
 

@@ -1,10 +1,10 @@
 package everything.AI;
 
 import everything.Player;
-import everything.cardPackage.GoblinCower;
-import everything.cardPackage.GoblinFire;
-import everything.cardPackage.GoblinOpportunity;
-import everything.cardPackage.GoblinStrike;
+import everything.AI.AICards.GoblinCower;
+import everything.AI.AICards.GoblinFire;
+import everything.AI.AICards.GoblinOpportunity;
+import everything.AI.AICards.GoblinStrike;
 
 /**
  * Created by Steve on 4/22/2017.

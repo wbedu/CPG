@@ -1,7 +1,10 @@
 package everything.AI;
 
+import everything.AI.AICards.WolfBite;
+import everything.AI.AICards.WolfDefense;
+import everything.AI.AICards.WolfPack;
+import everything.AI.AICards.WolfRavage;
 import everything.Player;
-import everything.cardPackage.*;
 
 /**
  * Created by Steve on 4/22/2017.

@@ -1,6 +1,6 @@
 package everything.AI;
 
-import everything.cardPackage.*;
+import everything.AI.AICards.*;
 import everything.Player;
 /**
  * Created by Steve on 4/24/2017.

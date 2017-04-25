@@ -1,5 +1,5 @@
 package everything.cardPackage;
-import everything.statusPackage.TrueDamage;
+import everything.Card;
 import everything.Player;
 
 import java.util.Random;

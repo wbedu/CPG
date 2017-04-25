@@ -1,13 +1,11 @@
 package everything.cardPackage;
 
-import everything.Player;
-import everything.statusPackage.TrueDamage;
-import javax.smartcardio.*;
+import everything.*;
 
 /**
  * Created by Steve on 4/21/2017.
  */
-public class Berserk extends Card {
+public class Berserk extends everything.Card {
     int damageVal;
 
     public Berserk() {

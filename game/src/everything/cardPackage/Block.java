@@ -1,9 +1,8 @@
 package everything.cardPackage;
 
 import everything.*;
-import everything.statusPackage.BlockStatus;
 import everything.statusPackage.IncreaseDefenseStatus;
-
+import everything.Card;
 /**
  * Created by Steve on 3/10/2017.
  */

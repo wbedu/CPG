@@ -1,6 +1,5 @@
 package everything.AI;
 
-import everything.cardPackage.*;
 import everything.*;
 
 public abstract class AI extends Player{

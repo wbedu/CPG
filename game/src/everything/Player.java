@@ -1,5 +1,4 @@
 package everything;
-import everything.cardPackage.Card;
 import everything.statusPackage.*;
 
 public abstract class Player {

@@ -1,5 +1,6 @@
 package everything.cardPackage;
 
+import everything.Card;
 import everything.Player;
 /**
  * Created by Steve on 4/14/2017.

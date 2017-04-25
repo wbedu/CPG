@@ -6,7 +6,6 @@
 package everything;
 
 import java.util.ArrayList;
-import everything.cardPackage.*;
 
 
 public class Hand{
