@@ -232,6 +232,7 @@ public class SaveState {
     }
     
     public int getMoney(){
+    	System.out.println("money is:"+ money);
     	return money;
     }
     
@@ -273,9 +274,10 @@ public class SaveState {
     }
     
     private String parseImagePath(String path){
-    	path=path.replace("/image/, ","everything.cardPackage.");
+    	path=path.replace("images/","everything.cardPackage.");
     	path=path.replace(".jpeg","");
-    	path=path.replace(".jpeg","");
+    	path=path.replace(".jpg","");
+    	path=path.trim();
     	
     	return path;
     }
