@@ -35,7 +35,7 @@ public class SaveState {
     	saveObj.put("hand",user.hand.getCardClass());
     	saveObj.put("money", user.getMoney());
     	saveObj.put("level", user.getLevel());
-    	saveObj.put("ownedCard",ownedCards.toArray(new String[ownedCards.size()]));
+    	saveObj.put("ownedCards",ownedCards.toArray(new String[ownedCards.size()]));
     	    	
     	try(FileWriter saveFile = new FileWriter(savePath)){
     		try {
