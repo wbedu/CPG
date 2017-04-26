@@ -64,8 +64,8 @@ public class client {
 
                     //DO BATTLE
                     if (userPlayer.hand.checkCooldown(cardSelected)) {
-                        panelUIInst.displayPlayerTurn(userPlayer.hand.getLastCardText());
                         testBattle.startTurn(cardSelected);
+                        panelUIInst.displayPlayerTurn(userPlayer.hand.getLastCardText());
                         panelUIInst.setCardBackFromPlayer(userPlayer.getImagePaths());
                         panelUIInst.cardCoolDownUpdate();
                         panelUIInst.setMessage("\nArmor: "+userPlayer.getDefense());
@@ -82,7 +82,7 @@ public class client {
                             System.out.println("\n\nYOU HAVE WON!");
                             save.depositMoney(50);
                             panelUIInst.setWinner(1);
-                        } else {
+                        } else if(testBattle.whoIsDead()==0){
                             System.out.println("\n\nYou’ve Met with a Terrible Fate, Haven’t You?");
                             panelUIInst.setWinner(0);
                         }
