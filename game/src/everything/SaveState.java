@@ -196,7 +196,7 @@ public class SaveState {
 		    if(files[i].isFile()){
 		    	buf =files[i].getName();
 		    	if((buf.contains(".java"))){	
-		    		buf =buf.substring(0,buf.lastIndexOf(".java")).trim();
+		    		buf =buf.substring(0,buf.lastIndexOf(".class")).trim();
 		    		cards.add(buf);
 		    		cardPaths.add(buf.concat(".jpg"));
 		    	}
